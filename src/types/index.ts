@@ -1,4 +1,4 @@
-export type { Provider, ProviderStatus } from "./provider";
+export type { Provider, ProviderStatus, SubjectType } from "./provider";
 export type {
   Credential,
   CredentialStatus,
@@ -7,3 +7,4 @@ export type {
 export type { Application, ApplicationStatus } from "./application";
 export type { Organization } from "./organization";
 export type { Document } from "./document";
+export type { SanctionsCheck } from "./sanctions";

@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build --webpack",
     "start": "next start",
     "lint": "eslint",
     "db:push": "supabase db push --linked",
@@ -21,6 +21,7 @@
     "next": "16.3.0",
     "react": "19.2.8",
     "react-dom": "19.2.8",
+    "tapable": "2.3.3",
     "tsx": "^4.23.12",
     "xlsx": "^0.18.5"
   },

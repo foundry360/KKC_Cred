@@ -3,6 +3,9 @@ export type CredentialType =
   | "dea"
   | "board_certification"
   | "malpractice_insurance"
+  | "facility_license"
+  | "accreditation"
+  | "clia"
   | "cme"
   | "other";
 
@@ -15,15 +18,15 @@ export type CredentialStatus =
 
 export type Credential = {
   id: string;
+  externalId: string;
   providerId: string;
   type: CredentialType;
-  name: string;
-  number?: string;
-  issuingAuthority?: string;
-  issuedAt?: string;
-  expiresAt?: string;
+  name?: string | null;
+  number?: string | null;
+  issuingAuthority?: string | null;
+  issuedAt?: string | null;
+  expiresAt?: string | null;
   status: CredentialStatus;
-  documentId?: string;
   createdAt: string;
   updatedAt: string;
 };

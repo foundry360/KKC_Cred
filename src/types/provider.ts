@@ -1,14 +1,24 @@
 export type ProviderStatus = "active" | "inactive" | "pending" | "suspended";
+export type SubjectType = "practitioner" | "facility";
 
 export type Provider = {
   id: string;
-  firstName: string;
-  lastName: string;
-  npi?: string;
-  email?: string;
-  specialty?: string;
+  externalId: string;
+  subjectType: SubjectType;
+  organizationId?: string | null;
+  organizationName?: string | null;
+  npi?: string | null;
+  firstName?: string | null;
+  lastName?: string | null;
+  displayName: string;
+  specialty?: string | null;
+  facilityType?: string | null;
+  email?: string | null;
+  phone?: string | null;
   status: ProviderStatus;
-  organizationId?: string;
+  credStartDate?: string | null;
+  credEndDate?: string | null;
+  recredDueDate?: string | null;
   createdAt: string;
   updatedAt: string;
 };
