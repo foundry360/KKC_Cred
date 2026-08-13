@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <entityName>Credentialing_Application__c</entityName>
+    <fieldName>Status__c</fieldName>
+    <masterLabel>Application Status</masterLabel>
+    <pathAssistantSteps>
+        <fieldNames>Application_Type__c</fieldNames>
+        <fieldNames>Path__c</fieldNames>
+        <fieldNames>Subject_Type__c</fieldNames>
+        <info>Status: Draft</info>
+        <picklistValueName>Draft</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Application_Type__c</fieldNames>
+        <fieldNames>Path__c</fieldNames>
+        <fieldNames>Subject_Type__c</fieldNames>
+        <info>Status: Incomplete</info>
+        <picklistValueName>Incomplete</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Attempt_Count__c</fieldNames>
+        <fieldNames>Due_Date__c</fieldNames>
+        <info>Status: In Review</info>
+        <picklistValueName>In_Review</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Provider__c</fieldNames>
+        <fieldNames>Application_Type__c</fieldNames>
+        <info>Status: Pending Committee</info>
+        <picklistValueName>Pending_Committee</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>Status: Approved</info>
+        <picklistValueName>Approved</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>Status: Denied</info>
+        <picklistValueName>Denied</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>Status: Withdrawn</info>
+        <picklistValueName>Withdrawn</picklistValueName>
+    </pathAssistantSteps>
+    <recordTypeName>__MASTER__</recordTypeName>
+</PathAssistant>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Application_Highlight</fullName>
+    <fields>Name</fields>
+    <fields>Status__c</fields>
+    <fields>Application_Type__c</fields>
+    <fields>Path__c</fields>
+    <fields>Subject_Type__c</fields>
+    <fields>Provider__c</fields>
+    <label>Application Highlight</label>
+</CompactLayout>

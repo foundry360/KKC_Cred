@@ -1,0 +1,19 @@
+Name,External_Id__c,Credentialing_Application__r.External_Id__c,Item_Key__c,Required__c,Complete__c,Sort_Order__c
+Accreditation,FAC-2001-APP-NEW-CHK-accreditation,FAC-2001-APP-NEW,accreditation,true,false,2
+Facility license,FAC-2001-APP-NEW-CHK-facility_license,FAC-2001-APP-NEW,facility_license,true,false,1
+Malpractice COI,FAC-2001-APP-NEW-CHK-malpractice_coi,FAC-2001-APP-NEW,malpractice_coi,true,false,3
+Ownership documentation,FAC-2001-APP-NEW-CHK-ownership_-7009ee41,FAC-2001-APP-NEW,ownership_documentation,true,false,4
+Accreditation,FAC-2003-APP-RECRED-CHK-accreditation,FAC-2003-APP-RECRED,accreditation,true,true,2
+Facility license,FAC-2003-APP-RECRED-CHK-facility_license,FAC-2003-APP-RECRED,facility_license,true,true,1
+Malpractice COI,FAC-2003-APP-RECRED-CHK-malpractice_coi,FAC-2003-APP-RECRED,malpractice_coi,true,false,3
+Ownership documentation,FAC-2003-APP-RECRED-CHK-ownersh-78c4ee4a,FAC-2003-APP-RECRED,ownership_documentation,true,false,4
+Board certification,PRV-1001-APP-NEW-CHK-board_certification,PRV-1001-APP-NEW,board_certification,true,false,3
+CAQH attestation,PRV-1001-APP-NEW-CHK-caqh_attestation,PRV-1001-APP-NEW,caqh_attestation,true,false,5
+DEA certificate,PRV-1001-APP-NEW-CHK-dea_certificate,PRV-1001-APP-NEW,dea_certificate,true,true,2
+Malpractice COI,PRV-1001-APP-NEW-CHK-malpractice_coi,PRV-1001-APP-NEW,malpractice_coi,true,false,4
+Medical license copy,PRV-1001-APP-NEW-CHK-medical_li-f40665d5,PRV-1001-APP-NEW,medical_license_copy,true,true,1
+Board certification,PRV-1002-APP-RECRED-CHK-board_c-e272438d,PRV-1002-APP-RECRED,board_certification,true,true,3
+CAQH attestation,PRV-1002-APP-RECRED-CHK-caqh_attestation,PRV-1002-APP-RECRED,caqh_attestation,true,true,5
+DEA certificate,PRV-1002-APP-RECRED-CHK-dea_certificate,PRV-1002-APP-RECRED,dea_certificate,true,true,2
+Malpractice COI,PRV-1002-APP-RECRED-CHK-malpractice_coi,PRV-1002-APP-RECRED,malpractice_coi,true,true,4
+Medical license copy,PRV-1002-APP-RECRED-CHK-medical-7435fcb5,PRV-1002-APP-RECRED,medical_license_copy,true,true,1

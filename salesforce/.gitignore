@@ -1,0 +1,4 @@
+.sf/
+.sfdx/
+.localdevserver/
+**/__tests__/data/
