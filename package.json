@@ -11,6 +11,8 @@
     "db:login": "supabase login",
     "db:link": "supabase link --project-ref jkfzojmltfxwgrkrrgml",
     "seed:credentialing": "tsx scripts/import-credentialing-xlsx.ts",
+    "seed:psv-demo": "tsx scripts/seed-psv-demo.ts",
+    "db:apply-psv": "tsx scripts/apply-psv-migration.ts",
     "export:salesforce-csv": "tsx scripts/export-salesforce-csv.ts",
     "sync:salesforce": "npm run export:salesforce-csv && tsx scripts/upsert-salesforce.ts"
   },

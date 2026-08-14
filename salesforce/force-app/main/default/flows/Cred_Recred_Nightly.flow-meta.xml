@@ -206,7 +206,7 @@
             <field>Status__c</field>
             <operator>EqualTo</operator>
             <value>
-                <stringValue>Incomplete</stringValue>
+                <stringValue>Intake</stringValue>
             </value>
         </filters>
         <filters>

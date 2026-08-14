@@ -3,14 +3,14 @@
     <apiVersion>67.0</apiVersion>
     <assignments>
         <name>Set_Status_Incomplete</name>
-        <label>Set Status Incomplete</label>
+        <label>Set Status Intake</label>
         <locationX>308</locationX>
         <locationY>395</locationY>
         <assignmentItems>
             <assignToReference>$Record.Status__c</assignToReference>
             <operator>Assign</operator>
             <value>
-                <stringValue>Incomplete</stringValue>
+                <stringValue>Intake</stringValue>
             </value>
         </assignmentItems>
     </assignments>
@@ -36,7 +36,7 @@
             <label>Incomplete Found</label>
         </rules>
     </decisions>
-    <description>When Status moves to In Review, force Incomplete if required checklist items remain open. Chase Flow picks up Incomplete.</description>
+    <description>When Status moves to In Review, force Intake if required checklist items remain open. Chase Flow picks up Intake.</description>
     <interviewLabel>Cred Checklist Gate {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Cred Checklist Gate</label>
     <processMetadataValues>

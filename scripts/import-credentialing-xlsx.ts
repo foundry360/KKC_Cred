@@ -228,6 +228,84 @@ const FAC_CHECKLIST = [
   { key: "ownership_documentation", label: "Ownership documentation" },
 ];
 
+const UNDERGRAD_SCHOOLS = [
+  "State University",
+  "Coastal College",
+  "Midwestern University",
+  "Pacific Liberal Arts College",
+];
+
+const MED_SCHOOLS = [
+  "University School of Medicine",
+  "Metropolitan Medical College",
+  "Lakeside College of Osteopathic Medicine",
+  "Harborview Medical School",
+];
+
+const RESIDENCY_SITES = [
+  "City General Hospital",
+  "Regional Medical Center",
+  "University Health System",
+  "Memorial Teaching Hospital",
+];
+
+const PRIOR_EMPLOYERS = [
+  "Community Physicians Group",
+  "Valley Health Partners",
+  "Northside Medical Associates",
+  "Riverside Clinic Network",
+];
+
+const CITY_BY_STATE: Record<string, { city: string; zip: string }> = {
+  NY: { city: "Albany", zip: "12207" },
+  CA: { city: "Sacramento", zip: "95814" },
+  OH: { city: "Columbus", zip: "43215" },
+  TX: { city: "Austin", zip: "78701" },
+  FL: { city: "Tallahassee", zip: "32301" },
+  AZ: { city: "Phoenix", zip: "85004" },
+  PA: { city: "Harrisburg", zip: "17101" },
+  IL: { city: "Springfield", zip: "62701" },
+  MA: { city: "Boston", zip: "02108" },
+  WA: { city: "Olympia", zip: "98501" },
+};
+
+function stableHash(s: string): number {
+  let h = 0;
+  for (let i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) >>> 0;
+  return h;
+}
+
+function pick<T>(arr: readonly T[], seed: number): T {
+  const i = Math.abs(seed >>> 0) % arr.length;
+  return arr[i]!;
+}
+
+function pad4(n: number): string {
+  return String(n % 10000).padStart(4, "0");
+}
+
+function syntheticEmail(first: string | null, last: string | null, ext: string) {
+  const local = [first, last]
+    .filter(Boolean)
+    .join(".")
+    .toLowerCase()
+    .replace(/[^a-z0-9.]+/g, "") || ext.toLowerCase();
+  return `${local}@example.health`;
+}
+
+function syntheticPhone(seed: number, area = 555): string {
+  const n = seed >>> 0;
+  const exchange = 200 + (n % 700); // 200-899
+  const line = 1000 + (n % 9000); // 1000-9999
+  return `(${area}) ${exchange}-${line}`;
+}
+
+function locForState(state: string | null | undefined, seed: number) {
+  const st = (state && CITY_BY_STATE[state] ? state : null) ?? pick(Object.keys(CITY_BY_STATE), seed);
+  const loc = CITY_BY_STATE[st]!;
+  return { state: st, city: loc.city, zip: loc.zip };
+}
+
 async function main() {
   loadEnvLocal();
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
@@ -314,6 +392,10 @@ async function main() {
     const last = str(r["Last Name"]);
     const tin = str(r["TIN"]);
     const credEnd = excelDate(r["Cred. Expiration Date"]);
+    const h = stableHash(externalId);
+    const practiceState = str(r["Practice State"]);
+    const genders = ["female", "male", "non_binary", "prefer_not_to_say"] as const;
+    const dobYear = 1965 + (h % 25);
     return {
       external_id: externalId,
       subject_type: "practitioner",
@@ -321,12 +403,22 @@ async function main() {
       organization_name: str(r["Group/TIN Entity"]),
       npi: str(r["NPI"]),
       first_name: first,
+      middle_name: h % 3 === 0 ? "A" : null,
       last_name: last,
+      name_suffix: h % 7 === 0 ? "MD" : null,
       display_name: [first, last].filter(Boolean).join(" ") || externalId,
       specialty: str(r["Specialty"]),
       facility_type: null,
-      email: null,
-      phone: null,
+      email: syntheticEmail(first, last, externalId),
+      phone: syntheticPhone(h),
+      mobile_phone: syntheticPhone(h >>> 2, 212),
+      date_of_birth: `${dobYear}-${String(1 + (h % 12)).padStart(2, "0")}-${String(1 + (h % 28)).padStart(2, "0")}`,
+      gender: genders[h % genders.length],
+      ssn_last4: pad4(h),
+      birth_country: "US",
+      preferred_languages: h % 4 === 0 ? "English, Spanish" : "English",
+      caqh_id: str(r["CAQH ID"]) ?? `CAQH-${externalId.replace(/\D/g, "").slice(-8) || pad4(h)}`,
+      practice_state: practiceState,
       status: mapProviderStatus(str(r["Credentialing Status"])),
       cred_start_date: excelDate(r["Cred. Effective Date"]),
       cred_end_date: credEnd,
@@ -342,6 +434,7 @@ async function main() {
       const name = str(r["Facility Name"]) ?? externalId;
       const tin = str(r["TIN"]);
       const credEnd = excelDate(r["Cred. Expiration Date"]);
+      const h = stableHash(externalId);
       return {
         external_id: externalId,
         subject_type: "facility" as const,
@@ -349,12 +442,22 @@ async function main() {
         organization_name: str(r["Group/TIN Entity"]) ?? str(r["Group"]),
         npi: str(r["NPI"]),
         first_name: null,
+        middle_name: null,
         last_name: null,
+        name_suffix: null,
         display_name: name,
         specialty: null,
         facility_type: str(r["Facility Type"]),
-        email: null,
-        phone: null,
+        email: `${slugify(name)}@facility.example`,
+        phone: syntheticPhone(h, 800),
+        mobile_phone: null,
+        date_of_birth: null,
+        gender: null,
+        ssn_last4: null,
+        birth_country: null,
+        preferred_languages: null,
+        caqh_id: null,
+        practice_state: str(r["State"]) ?? str(r["Practice State"]),
         status: mapProviderStatus(str(r["Credentialing Status"])),
         cred_start_date: excelDate(r["Cred. Effective Date"]),
         cred_end_date: credEnd,
@@ -363,24 +466,37 @@ async function main() {
     });
   } else {
     console.log("No Facilities sheet — seeding 8 synthetic facilities from POC plan");
-    facilityRows = SYNTHETIC_FACILITIES.map((f) => ({
-      external_id: f.id,
-      subject_type: "facility" as const,
-      organization_id: orgIdByTin.get(f.tin) ?? null,
-      organization_name: f.group,
-      npi: f.npi,
-      first_name: null,
-      last_name: null,
-      display_name: f.name,
-      specialty: null,
-      facility_type: f.type,
-      email: null,
-      phone: null,
-      status: mapProviderStatus(f.status),
-      cred_start_date: f.credStart,
-      cred_end_date: f.credEnd,
-      recred_due_date: f.credEnd,
-    }));
+    facilityRows = SYNTHETIC_FACILITIES.map((f) => {
+      const h = stableHash(f.id);
+      return {
+        external_id: f.id,
+        subject_type: "facility" as const,
+        organization_id: orgIdByTin.get(f.tin) ?? null,
+        organization_name: f.group,
+        npi: f.npi,
+        first_name: null,
+        middle_name: null,
+        last_name: null,
+        name_suffix: null,
+        display_name: f.name,
+        specialty: null,
+        facility_type: f.type,
+        email: `${slugify(f.name)}@facility.example`,
+        phone: syntheticPhone(h, 800),
+        mobile_phone: null,
+        date_of_birth: null,
+        gender: null,
+        ssn_last4: null,
+        birth_country: null,
+        preferred_languages: null,
+        caqh_id: null,
+        practice_state: f.state,
+        status: mapProviderStatus(f.status),
+        cred_start_date: f.credStart,
+        cred_end_date: f.credEnd,
+        recred_due_date: f.credEnd,
+      };
+    });
   }
 
   console.log(
@@ -390,11 +506,91 @@ async function main() {
 
   const { data: provData, error: provErr } = await sb
     .from("providers")
-    .select("id, external_id, subject_type");
+    .select(
+      "id, external_id, subject_type, practice_state, organization_name, display_name",
+    );
   if (provErr) throw provErr;
   const providerIdByExt = new Map(
     (provData ?? []).map((p) => [p.external_id as string, p.id as string]),
   );
+
+  // ---- addresses (synthetic; workbook has no address sheets) ----
+  const addressRows: Record<string, unknown>[] = [];
+  for (const p of provData ?? []) {
+    const h = stableHash(p.external_id);
+    const loc = locForState(p.practice_state, h);
+    const streetNum = 100 + (h % 8900);
+    if (p.subject_type === "practitioner") {
+      const homeLoc = locForState(loc.state, h >> 1);
+      addressRows.push(
+        {
+          external_id: `${p.external_id}-ADDR-HOME`,
+          provider_id: p.id,
+          address_type: "home",
+          line1: `${streetNum} Oak Street`,
+          line2: h % 5 === 0 ? `Apt ${1 + (h % 20)}` : null,
+          city: homeLoc.city,
+          state: homeLoc.state,
+          postal_code: homeLoc.zip,
+          country: "US",
+          is_primary: true,
+        },
+        {
+          external_id: `${p.external_id}-ADDR-WORK`,
+          provider_id: p.id,
+          address_type: "work",
+          line1: `${200 + (h % 700)} Medical Parkway`,
+          line2: "Suite 200",
+          city: loc.city,
+          state: loc.state,
+          postal_code: loc.zip,
+          country: "US",
+          is_primary: false,
+        },
+        {
+          external_id: `${p.external_id}-ADDR-MAIL`,
+          provider_id: p.id,
+          address_type: "mailing",
+          line1: `${streetNum} Oak Street`,
+          line2: h % 5 === 0 ? `Apt ${1 + (h % 20)}` : null,
+          city: homeLoc.city,
+          state: homeLoc.state,
+          postal_code: homeLoc.zip,
+          country: "US",
+          is_primary: false,
+        },
+      );
+    } else {
+      addressRows.push(
+        {
+          external_id: `${p.external_id}-ADDR-WORK`,
+          provider_id: p.id,
+          address_type: "work",
+          line1: `${300 + (h % 600)} Campus Drive`,
+          line2: null,
+          city: loc.city,
+          state: loc.state,
+          postal_code: loc.zip,
+          country: "US",
+          is_primary: true,
+        },
+        {
+          external_id: `${p.external_id}-ADDR-MAIL`,
+          provider_id: p.id,
+          address_type: "mailing",
+          line1: `${300 + (h % 600)} Campus Drive`,
+          line2: "Attn Credentialing",
+          city: loc.city,
+          state: loc.state,
+          postal_code: loc.zip,
+          country: "US",
+          is_primary: false,
+        },
+      );
+    }
+  }
+  console.log(`Upserting ${addressRows.length} provider addresses…`);
+  await upsertMany(sb, "provider_addresses", addressRows);
 
   // ---- credentials ----
   const credRows: Record<string, unknown>[] = [];
@@ -570,6 +766,110 @@ async function main() {
   console.log(`Upserting ${sanctionRows.length} sanctions checks…`);
   await upsertMany(sb, "sanctions_checks", sanctionRows);
 
+  // ---- education + work history (synthetic; workbook has no sheets) ----
+  const { data: practProviders, error: practErr } = await sb
+    .from("providers")
+    .select(
+      "id, external_id, specialty, organization_name, cred_start_date, subject_type",
+    )
+    .eq("subject_type", "practitioner");
+  if (practErr) throw practErr;
+
+  const educationRows: Record<string, unknown>[] = [];
+  const workRows: Record<string, unknown>[] = [];
+  for (const p of practProviders ?? []) {
+    const h = stableHash(p.external_id);
+    const specialty = p.specialty || "Medicine";
+    const degree = h % 5 === 0 ? "do" : "md";
+    const medSchool =
+      degree === "do" ? MED_SCHOOLS[2]! : pick(MED_SCHOOLS, h);
+    const undergradYear = 2000 + (h % 10);
+    const medGradYear = undergradYear + 8;
+    const residencyEndYear = medGradYear + 3 + (h % 2);
+
+    educationRows.push(
+      {
+        external_id: `${p.external_id}-EDU-BS`,
+        provider_id: p.id,
+        institution_name: pick(UNDERGRAD_SCHOOLS, h),
+        degree_type: "bachelors",
+        field_of_study: "Biology",
+        start_date: `${undergradYear - 4}-08-15`,
+        end_date: `${undergradYear}-05-15`,
+        graduation_year: undergradYear,
+        country: "US",
+      },
+      {
+        external_id: `${p.external_id}-EDU-MD`,
+        provider_id: p.id,
+        institution_name: medSchool,
+        degree_type: degree,
+        field_of_study: "Medicine",
+        start_date: `${undergradYear}-08-01`,
+        end_date: `${medGradYear}-05-15`,
+        graduation_year: medGradYear,
+        country: "US",
+      },
+      {
+        external_id: `${p.external_id}-EDU-RES`,
+        provider_id: p.id,
+        institution_name: pick(RESIDENCY_SITES, h >>> 3),
+        degree_type: "residency",
+        field_of_study: specialty,
+        start_date: `${medGradYear}-07-01`,
+        end_date: `${residencyEndYear}-06-30`,
+        graduation_year: residencyEndYear,
+        country: "US",
+      },
+    );
+
+    if (h % 3 === 0) {
+      educationRows.push({
+        external_id: `${p.external_id}-EDU-FEL`,
+        provider_id: p.id,
+        institution_name: pick(RESIDENCY_SITES, h >>> 5),
+        degree_type: "fellowship",
+        field_of_study: specialty,
+        start_date: `${residencyEndYear}-07-01`,
+        end_date: `${residencyEndYear + 1}-06-30`,
+        graduation_year: residencyEndYear + 1,
+        country: "US",
+      });
+    }
+
+    const priorStart = `${residencyEndYear + (h % 3 === 0 ? 1 : 0) + 1}-07-01`;
+    const priorEnd = p.cred_start_date ?? `${residencyEndYear + 5}-06-30`;
+    workRows.push(
+      {
+        external_id: `${p.external_id}-WRK-PRIOR`,
+        provider_id: p.id,
+        employer_name: pick(PRIOR_EMPLOYERS, h),
+        title: `${specialty} Physician`,
+        department: specialty,
+        start_date: priorStart,
+        end_date: priorEnd,
+        is_current: false,
+        location: "US",
+      },
+      {
+        external_id: `${p.external_id}-WRK-CUR`,
+        provider_id: p.id,
+        employer_name: p.organization_name || "Current Practice Group",
+        title: `Attending ${specialty}`,
+        department: specialty,
+        start_date: priorEnd,
+        end_date: null,
+        is_current: true,
+        location: "US",
+      },
+    );
+  }
+
+  console.log(`Upserting ${educationRows.length} education history rows…`);
+  await upsertMany(sb, "education_history", educationRows);
+  console.log(`Upserting ${workRows.length} work history rows…`);
+  await upsertMany(sb, "work_history", workRows);
+
   // ---- POC overlays: demo applications + checklists + outreach ----
   const demoSubjects = [
     { ext: "PRV-1001", type: "new" as const, path: "caqh" as const, status: "incomplete" as const, attempts: 2 },
@@ -646,8 +946,11 @@ async function main() {
   for (const t of [
     "organizations",
     "providers",
+    "provider_addresses",
     "credentials",
     "sanctions_checks",
+    "education_history",
+    "work_history",
     "applications",
     "checklist_items",
     "outreach_attempts",

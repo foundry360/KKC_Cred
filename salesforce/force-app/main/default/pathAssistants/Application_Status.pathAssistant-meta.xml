@@ -15,8 +15,8 @@
         <fieldNames>Application_Type__c</fieldNames>
         <fieldNames>Path__c</fieldNames>
         <fieldNames>Subject_Type__c</fieldNames>
-        <info>Status: Incomplete</info>
-        <picklistValueName>Incomplete</picklistValueName>
+        <info>Status: Intake</info>
+        <picklistValueName>Intake</picklistValueName>
     </pathAssistantSteps>
     <pathAssistantSteps>
         <fieldNames>Attempt_Count__c</fieldNames>

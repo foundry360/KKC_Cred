@@ -1,0 +1,31 @@
+<template>
+    <div class="status-bar">
+        <template if:true={isLoading}>
+            <div class="loading">
+                <lightning-spinner alternative-text="Loading" size="small"></lightning-spinner>
+            </div>
+        </template>
+
+        <template if:true={hasError}>
+            <div class="error">Unable to load application status.</div>
+        </template>
+
+        <template if:false={isLoading}>
+            <template if:false={hasError}>
+                <div class="label-row">
+                    <span class="eyebrow">Application status</span>
+                    <template if:true={isWithdrawn}>
+                        <span class="terminal">Withdrawn</span>
+                    </template>
+                </div>
+                <ol class="track">
+                    <template for:each={steps} for:item="step">
+                        <li key={step.key} class={step.className}>
+                            <span class="step-label">{step.label}</span>
+                        </li>
+                    </template>
+                </ol>
+            </template>
+        </template>
+    </div>
+</template>

@@ -3,6 +3,7 @@
  * Requires: sf CLI authenticated as cred-poc
  */
 import { spawnSync } from "node:child_process";
+import { existsSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
 
 const ORG = "cred-poc";
@@ -29,7 +30,30 @@ const JOBS = [
     sobject: "Checklist_Item__c",
     externalId: "External_Id__c",
   },
+  {
+    file: "05_Education_History__c.csv",
+    sobject: "Education_History__c",
+    externalId: "External_Id__c",
+  },
+  {
+    file: "06_Work_History__c.csv",
+    sobject: "Work_History__c",
+    externalId: "External_Id__c",
+  },
+  {
+    file: "07_Provider_Address__c.csv",
+    sobject: "Provider_Address__c",
+    externalId: "External_Id__c",
+  },
 ] as const;
+
+function csvHasDataRows(file: string): boolean {
+  if (!existsSync(file)) return false;
+  const lines = readFileSync(file, "utf8")
+    .split(/\r?\n/)
+    .filter((l) => l.trim().length > 0);
+  return lines.length > 1;
+}
 
 function run(args: string[]) {
   console.log("\n$", "sf", args.join(" "));
@@ -42,6 +66,10 @@ function run(args: string[]) {
 function main() {
   for (const job of JOBS) {
     const file = resolve(DIR, job.file);
+    if (!csvHasDataRows(file)) {
+      console.log(`\nSkipping ${job.file} (no data rows).`);
+      continue;
+    }
     run([
       "data",
       "upsert",

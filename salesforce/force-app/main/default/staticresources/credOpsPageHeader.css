@@ -1,0 +1,10 @@
+/* Credentialing Operations — hide Salesforce page-header motif icon */
+.slds-page-header .slds-media__figure,
+.slds-page-header .slds-page-header__icon,
+.slds-page-header lightning-icon.slds-page-header__icon,
+.slds-page-header .slds-icon_container,
+.slds-page-header .slds-icon__container,
+.slds-page-header [class*="slds-icon-custom-"],
+.slds-page-header [class*="slds-icon-standard-"] {
+    display: none !important;
+}

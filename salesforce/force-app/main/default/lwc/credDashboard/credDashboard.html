@@ -1,0 +1,335 @@
+<template>
+    <div class="dashboard">
+        <template if:true={isLoading}>
+            <div class="slds-align_absolute-center slds-p-around_large">
+                <lightning-spinner alternative-text="Loading" size="small"></lightning-spinner>
+            </div>
+        </template>
+
+        <template if:true={errorMessage}>
+            <div class="slds-text-color_error slds-p-around_medium">{errorMessage}</div>
+        </template>
+
+        <template if:false={isLoading}>
+            <template if:false={errorMessage}>
+                <div class="micro-grid slds-m-bottom_large">
+                    <template for:each={microCards} for:item="card">
+                        <button
+                            key={card.key}
+                            type="button"
+                            class={card.className}
+                            data-target={card.target}
+                            onclick={handleMicroClick}
+                        >
+                            <div class="micro-value">{card.value}</div>
+                            <span class="micro-icon-wrap" aria-hidden="true">
+                                <lightning-icon
+                                    icon-name={card.iconName}
+                                    size="x-small"
+                                    alternative-text=""
+                                ></lightning-icon>
+                            </span>
+                            <div class="micro-label">{card.label}</div>
+                        </button>
+                    </template>
+                </div>
+
+                                <div class="chart-grid slds-m-bottom_large">
+                    <article class="chart-card chart-card_apps">
+                        <header class="chart-card-header">
+                            <div class="chart-title">
+                                <span class="chart-title-icon" aria-hidden="true">
+                                    <lightning-icon icon-name="utility:file" size="xx-small" alternative-text=""></lightning-icon>
+                                </span>
+                                <span class="chart-title-text">Open Applications</span>
+                            </div>
+                        </header>
+                        <div class="chart-body">
+                            <template if:true={openAppsEmpty}>
+                                <div class="empty">No open applications.</div>
+                            </template>
+                            <template if:false={openAppsEmpty}>
+                                <div class="donut-layout">
+                                    <div class="donut-wrap">
+                                        <svg class="donut" viewBox="0 0 42 42" aria-hidden="true">
+                                            <circle
+                                                class="donut-track"
+                                                cx="21"
+                                                cy="21"
+                                                r={donutRadius}
+                                                fill="transparent"
+                                            ></circle>
+                                            <template for:each={openApplicationStages} for:item="slice">
+                                                <circle
+                                                    key={slice.key}
+                                                    class="donut-segment"
+                                                    cx="21"
+                                                    cy="21"
+                                                    r={donutRadius}
+                                                    fill="transparent"
+                                                    stroke={slice.stroke}
+                                                    stroke-dasharray={slice.dasharray}
+                                                    stroke-dashoffset={slice.dashoffset}
+                                                ></circle>
+                                            </template>
+                                        </svg>
+                                        <div class="donut-center">
+                                            <div class="donut-center-value">{openAppsTotalLabel}</div>
+                                            <div class="donut-center-label">Open</div>
+                                        </div>
+                                    </div>
+                                    <ul class="chart-legend">
+                                        <template for:each={openApplicationStages} for:item="slice">
+                                            <li key={slice.key} class="legend-row">
+                                                <span class="legend-swatch" style={slice.swatchStyle}></span>
+                                                <span class="legend-label">{slice.label}</span>
+                                                <span class="legend-meta">{slice.percentLabel}</span>
+                                                <span class="legend-count">{slice.valueLabel}</span>
+                                            </li>
+                                        </template>
+                                    </ul>
+                                </div>
+                            </template>
+                        </div>
+                    </article>
+
+                    <article class="chart-card chart-card_cases">
+                        <header class="chart-card-header">
+                            <div class="chart-title">
+                                <span class="chart-title-icon" aria-hidden="true">
+                                    <lightning-icon icon-name="utility:case" size="xx-small" alternative-text=""></lightning-icon>
+                                </span>
+                                <span class="chart-title-text">Open Workload</span>
+                            </div>
+                        </header>
+                        <div class="chart-body">
+                            <div class="chart-subtitle">Provider vs Facility</div>
+                            <template if:true={caseQueueEmpty}>
+                                <div class="empty">No open applications.</div>
+                            </template>
+                            <template if:false={caseQueueEmpty}>
+                                <ul class="bar-list">
+                                    <template for:each={openCaseWorkload} for:item="slice">
+                                        <li key={slice.key} class="bar-row">
+                                            <div class="bar-head">
+                                                <span class="bar-label">{slice.label}</span>
+                                                <span class="bar-meta">{slice.metaLabel}</span>
+                                            </div>
+                                            <div class="bar-track">
+                                                <div class="bar-fill" style={slice.barStyle}></div>
+                                            </div>
+                                        </li>
+                                    </template>
+                                </ul>
+                            </template>
+                        </div>
+                    </article>
+
+                    <article class="chart-card chart-card_docs">
+                        <header class="chart-card-header">
+                            <div class="chart-title">
+                                <span class="chart-title-icon" aria-hidden="true">
+                                    <lightning-icon icon-name="utility:page" size="xx-small" alternative-text=""></lightning-icon>
+                                </span>
+                                <span class="chart-title-text">Outstanding Documents</span>
+                            </div>
+                        </header>
+                        <div class="chart-body">
+                            <div class="chart-subtitle">Missing Documents And Blockers</div>
+                            <template if:true={missingDocsEmpty}>
+                                <div class="empty">No outstanding checklist blockers.</div>
+                            </template>
+                            <template if:false={missingDocsEmpty}>
+                                <ul class="bar-list">
+                                    <template for:each={missingDocuments} for:item="slice">
+                                        <li key={slice.key} class="bar-row">
+                                            <div class="bar-head">
+                                                <span class="bar-label">{slice.label}</span>
+                                                <span class="bar-meta">{slice.metaLabel}</span>
+                                            </div>
+                                            <div class="bar-track">
+                                                <div class="bar-fill" style={slice.barStyle}></div>
+                                            </div>
+                                        </li>
+                                    </template>
+                                </ul>
+                            </template>
+                        </div>
+                    </article>
+
+                    <article class="chart-card chart-card_profiles">
+                        <header class="chart-card-header">
+                            <div class="chart-title">
+                                <span class="chart-title-icon" aria-hidden="true">
+                                    <lightning-icon icon-name="utility:user" size="xx-small" alternative-text=""></lightning-icon>
+                                </span>
+                                <span class="chart-title-text">Pending / Inactive Profiles</span>
+                            </div>
+                        </header>
+                        <div class="chart-body">
+                            <template if:true={profileHealthEmpty}>
+                                <div class="empty">No provider profile data.</div>
+                            </template>
+                            <template if:false={profileHealthEmpty}>
+                                <div class="donut-layout">
+                                    <div class="donut-wrap">
+                                        <svg class="donut" viewBox="0 0 42 42" aria-hidden="true">
+                                            <circle
+                                                class="donut-track"
+                                                cx="21"
+                                                cy="21"
+                                                r={donutRadius}
+                                                fill="transparent"
+                                            ></circle>
+                                            <template for:each={providerProfileHealth} for:item="slice">
+                                                <circle
+                                                    key={slice.key}
+                                                    class="donut-segment"
+                                                    cx="21"
+                                                    cy="21"
+                                                    r={donutRadius}
+                                                    fill="transparent"
+                                                    stroke={slice.stroke}
+                                                    stroke-dasharray={slice.dasharray}
+                                                    stroke-dashoffset={slice.dashoffset}
+                                                ></circle>
+                                            </template>
+                                        </svg>
+                                        <div class="donut-center">
+                                            <div class="donut-center-value">{profileHealthTotalLabel}</div>
+                                            <div class="donut-center-label">Providers</div>
+                                        </div>
+                                    </div>
+                                    <ul class="chart-legend">
+                                        <template for:each={providerProfileHealth} for:item="slice">
+                                            <li key={slice.key} class="legend-row">
+                                                <span class="legend-swatch" style={slice.swatchStyle}></span>
+                                                <span class="legend-label">{slice.label}</span>
+                                                <span class="legend-meta">{slice.percentLabel}</span>
+                                                <span class="legend-count">{slice.valueLabel}</span>
+                                            </li>
+                                        </template>
+                                    </ul>
+                                </div>
+                            </template>
+                        </div>
+                    </article>
+                </div>
+
+<div class="queue-grid">
+                    <lightning-card class="chart-card_apps">
+                        <div slot="title" class="chart-title">
+                            <span class="chart-title-icon" aria-hidden="true">
+                                <lightning-icon icon-name="utility:task" size="xx-small" alternative-text=""></lightning-icon>
+                            </span>
+                            <span class="chart-title-text">Chase Queue</span>
+                        </div>
+                        <lightning-button
+                            slot="actions"
+                            label="View all"
+                            variant="base"
+                            onclick={handleViewApps}
+                        ></lightning-button>
+                        <template if:true={chaseEmpty}>
+                            <div class="empty">No applications in intake.</div>
+                        </template>
+                        <template if:false={chaseEmpty}>
+                            <div class="slds-p-horizontal_small slds-p-bottom_small">
+                                <lightning-datatable
+                                    key-field="id"
+                                    data={chaseQueue}
+                                    columns={appColumns}
+                                    hide-checkbox-column
+                                ></lightning-datatable>
+                            </div>
+                        </template>
+                    </lightning-card>
+
+                    <lightning-card class="chart-card_cases">
+                        <div slot="title" class="chart-title">
+                            <span class="chart-title-icon" aria-hidden="true">
+                                <lightning-icon icon-name="utility:approval" size="xx-small" alternative-text=""></lightning-icon>
+                            </span>
+                            <span class="chart-title-text">Committee Packet</span>
+                        </div>
+                        <lightning-button
+                            slot="actions"
+                            label="View all"
+                            variant="base"
+                            onclick={handleViewApps}
+                        ></lightning-button>
+                        <template if:true={committeeEmpty}>
+                            <div class="empty">Nothing pending committee.</div>
+                        </template>
+                        <template if:false={committeeEmpty}>
+                            <div class="slds-p-horizontal_small slds-p-bottom_small">
+                                <lightning-datatable
+                                    key-field="id"
+                                    data={committeeQueue}
+                                    columns={committeeColumns}
+                                    hide-checkbox-column
+                                ></lightning-datatable>
+                            </div>
+                        </template>
+                    </lightning-card>
+
+                    <lightning-card class="chart-card_docs">
+                        <div slot="title" class="chart-title">
+                            <span class="chart-title-icon" aria-hidden="true">
+                                <lightning-icon icon-name="utility:ribbon" size="xx-small" alternative-text=""></lightning-icon>
+                            </span>
+                            <span class="chart-title-text">Credential Expirations</span>
+                        </div>
+                        <lightning-button
+                            slot="actions"
+                            label="View all"
+                            variant="base"
+                            onclick={handleViewCreds}
+                        ></lightning-button>
+                        <template if:true={credEmpty}>
+                            <div class="empty">No credentials in the expiration window.</div>
+                        </template>
+                        <template if:false={credEmpty}>
+                            <div class="slds-p-horizontal_small slds-p-bottom_small">
+                                <lightning-datatable
+                                    key-field="id"
+                                    data={expiringCredentials}
+                                    columns={credColumns}
+                                    hide-checkbox-column
+                                ></lightning-datatable>
+                            </div>
+                        </template>
+                    </lightning-card>
+
+                    <lightning-card class="chart-card_profiles">
+                        <div slot="title" class="chart-title">
+                            <span class="chart-title-icon" aria-hidden="true">
+                                <lightning-icon icon-name="utility:event" size="xx-small" alternative-text=""></lightning-icon>
+                            </span>
+                            <span class="chart-title-text">Recred Clock</span>
+                        </div>
+                        <lightning-button
+                            slot="actions"
+                            label="View all"
+                            variant="base"
+                            onclick={handleViewProviders}
+                        ></lightning-button>
+                        <template if:true={recredEmpty}>
+                            <div class="empty">No providers in the recred window.</div>
+                        </template>
+                        <template if:false={recredEmpty}>
+                            <div class="slds-p-horizontal_small slds-p-bottom_small">
+                                <lightning-datatable
+                                    key-field="id"
+                                    data={recredQueue}
+                                    columns={recredColumns}
+                                    hide-checkbox-column
+                                ></lightning-datatable>
+                            </div>
+                        </template>
+                    </lightning-card>
+                </div>
+            </template>
+        </template>
+    </div>
+</template>

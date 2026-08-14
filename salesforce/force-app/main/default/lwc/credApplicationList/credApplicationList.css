@@ -1,0 +1,39 @@
+:host {
+    display: block;
+}
+
+.apps-card {
+    --slds-c-card-color-border: #e6ebf0;
+    --slds-c-card-sizing-border: 1px;
+    --slds-c-card-shadow: 0 1px 2px rgba(15, 28, 36, 0.04), 0 4px 12px rgba(15, 28, 36, 0.06);
+    box-shadow: 0 1px 2px rgba(15, 28, 36, 0.04), 0 4px 12px rgba(15, 28, 36, 0.06);
+}
+
+.card-title {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+}
+
+.card-title-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 50%;
+    background: #b3e5fc;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.card-title-icon lightning-icon {
+    --slds-c-icon-color-foreground: #ffffff;
+    --slds-c-icon-color-foreground-default: #ffffff;
+}
+
+.card-title-text {
+    font-weight: 700;
+    font-size: 1.125rem;
+    color: #0f1c24;
+}

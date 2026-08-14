@@ -1,13 +1,18 @@
 @import "tailwindcss";
 
 :root {
-  --surface: #f4f7f9;
+  --surface: #fafbfc;
   --panel: #ffffff;
   --ink: #0f1c24;
-  --muted: #5b6b76;
-  --line: #d7e0e6;
-  --accent: #0b3d5c;
-  --accent-soft: #e6eef3;
+  --muted: #0277bd;
+  --line: #81d4fa;
+  --accent: #0288d1;
+  --accent-soft: #b3e5fc;
+  --cyan-50: #b3e5fc;
+  --cyan-100: #81d4fa;
+  --cyan-200: #4fc3f7;
+  --cyan-300: #29b6f6;
+  --cyan-400: #0288d1;
   --background: var(--surface);
   --foreground: var(--ink);
 }
@@ -23,4 +28,19 @@ body {
   background: var(--surface);
   color: var(--ink);
   font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+.portal-shell {
+  background:
+    radial-gradient(1200px 480px at 10% -10%, #f2f5f7 0%, transparent 55%),
+    radial-gradient(900px 420px at 100% 0%, #f6f8f9 0%, transparent 50%),
+    linear-gradient(180deg, #fcfdfe 0%, var(--surface) 42%, var(--surface) 100%);
+  min-height: 100%;
+}
+
+.portal-hero {
+  background:
+    linear-gradient(135deg, rgba(2, 136, 209, 0.96), rgba(41, 182, 246, 0.85)),
+    radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.22), transparent 45%);
+  box-shadow: 0 10px 30px rgba(2, 136, 209, 0.18);
 }

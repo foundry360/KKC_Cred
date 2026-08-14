@@ -1,0 +1,143 @@
+External_Id__c,Provider__r.External_Id__c,Address_Type__c,Line1__c,Line2__c,City__c,State__c,Postal_Code__c,Country__c,Is_Primary__c
+FAC-2001-ADDR-MAIL,FAC-2001,Mailing,760 Campus Drive,Attn Credentialing,Albany,NY,12207,US,false
+FAC-2001-ADDR-WORK,FAC-2001,Work,760 Campus Drive,,Albany,NY,12207,US,true
+FAC-2002-ADDR-MAIL,FAC-2002,Mailing,761 Campus Drive,Attn Credentialing,Sacramento,CA,95814,US,false
+FAC-2002-ADDR-WORK,FAC-2002,Work,761 Campus Drive,,Sacramento,CA,95814,US,true
+FAC-2003-ADDR-MAIL,FAC-2003,Mailing,762 Campus Drive,Attn Credentialing,Columbus,OH,43215,US,false
+FAC-2003-ADDR-WORK,FAC-2003,Work,762 Campus Drive,,Columbus,OH,43215,US,true
+FAC-2004-ADDR-MAIL,FAC-2004,Mailing,763 Campus Drive,Attn Credentialing,Austin,TX,78701,US,false
+FAC-2004-ADDR-WORK,FAC-2004,Work,763 Campus Drive,,Austin,TX,78701,US,true
+FAC-2005-ADDR-MAIL,FAC-2005,Mailing,764 Campus Drive,Attn Credentialing,Tallahassee,FL,32301,US,false
+FAC-2005-ADDR-WORK,FAC-2005,Work,764 Campus Drive,,Tallahassee,FL,32301,US,true
+FAC-2006-ADDR-MAIL,FAC-2006,Mailing,765 Campus Drive,Attn Credentialing,Albany,NY,12207,US,false
+FAC-2006-ADDR-WORK,FAC-2006,Work,765 Campus Drive,,Albany,NY,12207,US,true
+FAC-2007-ADDR-MAIL,FAC-2007,Mailing,766 Campus Drive,Attn Credentialing,Sacramento,CA,95814,US,false
+FAC-2007-ADDR-WORK,FAC-2007,Work,766 Campus Drive,,Sacramento,CA,95814,US,true
+FAC-2008-ADDR-MAIL,FAC-2008,Mailing,767 Campus Drive,Attn Credentialing,Phoenix,AZ,85004,US,false
+FAC-2008-ADDR-WORK,FAC-2008,Work,767 Campus Drive,,Phoenix,AZ,85004,US,true
+PRV-1001-ADDR-HOME,PRV-1001,Home,293 Oak Street,,Albany,NY,12207,US,true
+PRV-1001-ADDR-MAIL,PRV-1001,Mailing,293 Oak Street,,Albany,NY,12207,US,false
+PRV-1001-ADDR-WORK,PRV-1001,Work,593 Medical Parkway,Suite 200,Albany,NY,12207,US,false
+PRV-1002-ADDR-HOME,PRV-1002,Home,294 Oak Street,,Columbus,OH,43215,US,true
+PRV-1002-ADDR-MAIL,PRV-1002,Mailing,294 Oak Street,,Columbus,OH,43215,US,false
+PRV-1002-ADDR-WORK,PRV-1002,Work,594 Medical Parkway,Suite 200,Columbus,OH,43215,US,false
+PRV-1003-ADDR-HOME,PRV-1003,Home,295 Oak Street,Apt 16,Phoenix,AZ,85004,US,true
+PRV-1003-ADDR-MAIL,PRV-1003,Mailing,295 Oak Street,Apt 16,Phoenix,AZ,85004,US,false
+PRV-1003-ADDR-WORK,PRV-1003,Work,595 Medical Parkway,Suite 200,Phoenix,AZ,85004,US,false
+PRV-1004-ADDR-HOME,PRV-1004,Home,296 Oak Street,,Austin,TX,78701,US,true
+PRV-1004-ADDR-MAIL,PRV-1004,Mailing,296 Oak Street,,Austin,TX,78701,US,false
+PRV-1004-ADDR-WORK,PRV-1004,Work,596 Medical Parkway,Suite 200,Austin,TX,78701,US,false
+PRV-1005-ADDR-HOME,PRV-1005,Home,297 Oak Street,,Harrisburg,PA,17101,US,true
+PRV-1005-ADDR-MAIL,PRV-1005,Mailing,297 Oak Street,,Harrisburg,PA,17101,US,false
+PRV-1005-ADDR-WORK,PRV-1005,Work,597 Medical Parkway,Suite 200,Harrisburg,PA,17101,US,false
+PRV-1006-ADDR-HOME,PRV-1006,Home,298 Oak Street,,Austin,TX,78701,US,true
+PRV-1006-ADDR-MAIL,PRV-1006,Mailing,298 Oak Street,,Austin,TX,78701,US,false
+PRV-1006-ADDR-WORK,PRV-1006,Work,598 Medical Parkway,Suite 200,Austin,TX,78701,US,false
+PRV-1007-ADDR-HOME,PRV-1007,Home,299 Oak Street,,Columbus,OH,43215,US,true
+PRV-1007-ADDR-MAIL,PRV-1007,Mailing,299 Oak Street,,Columbus,OH,43215,US,false
+PRV-1007-ADDR-WORK,PRV-1007,Work,599 Medical Parkway,Suite 200,Columbus,OH,43215,US,false
+PRV-1008-ADDR-HOME,PRV-1008,Home,300 Oak Street,Apt 1,Albany,NY,12207,US,true
+PRV-1008-ADDR-MAIL,PRV-1008,Mailing,300 Oak Street,Apt 1,Albany,NY,12207,US,false
+PRV-1008-ADDR-WORK,PRV-1008,Work,600 Medical Parkway,Suite 200,Albany,NY,12207,US,false
+PRV-1009-ADDR-HOME,PRV-1009,Home,301 Oak Street,,Columbus,OH,43215,US,true
+PRV-1009-ADDR-MAIL,PRV-1009,Mailing,301 Oak Street,,Columbus,OH,43215,US,false
+PRV-1009-ADDR-WORK,PRV-1009,Work,601 Medical Parkway,Suite 200,Columbus,OH,43215,US,false
+PRV-1010-ADDR-HOME,PRV-1010,Home,323 Oak Street,,Albany,NY,12207,US,true
+PRV-1010-ADDR-MAIL,PRV-1010,Mailing,323 Oak Street,,Albany,NY,12207,US,false
+PRV-1010-ADDR-WORK,PRV-1010,Work,623 Medical Parkway,Suite 200,Albany,NY,12207,US,false
+PRV-1011-ADDR-HOME,PRV-1011,Home,324 Oak Street,,Columbus,OH,43215,US,true
+PRV-1011-ADDR-MAIL,PRV-1011,Mailing,324 Oak Street,,Columbus,OH,43215,US,false
+PRV-1011-ADDR-WORK,PRV-1011,Work,624 Medical Parkway,Suite 200,Columbus,OH,43215,US,false
+PRV-1012-ADDR-HOME,PRV-1012,Home,325 Oak Street,Apt 6,Springfield,IL,62701,US,true
+PRV-1012-ADDR-MAIL,PRV-1012,Mailing,325 Oak Street,Apt 6,Springfield,IL,62701,US,false
+PRV-1012-ADDR-WORK,PRV-1012,Work,625 Medical Parkway,Suite 200,Springfield,IL,62701,US,false
+PRV-1013-ADDR-HOME,PRV-1013,Home,326 Oak Street,,Austin,TX,78701,US,true
+PRV-1013-ADDR-MAIL,PRV-1013,Mailing,326 Oak Street,,Austin,TX,78701,US,false
+PRV-1013-ADDR-WORK,PRV-1013,Work,626 Medical Parkway,Suite 200,Austin,TX,78701,US,false
+PRV-1014-ADDR-HOME,PRV-1014,Home,327 Oak Street,,Springfield,IL,62701,US,true
+PRV-1014-ADDR-MAIL,PRV-1014,Mailing,327 Oak Street,,Springfield,IL,62701,US,false
+PRV-1014-ADDR-WORK,PRV-1014,Work,627 Medical Parkway,Suite 200,Springfield,IL,62701,US,false
+PRV-1015-ADDR-HOME,PRV-1015,Home,328 Oak Street,,Harrisburg,PA,17101,US,true
+PRV-1015-ADDR-MAIL,PRV-1015,Mailing,328 Oak Street,,Harrisburg,PA,17101,US,false
+PRV-1015-ADDR-WORK,PRV-1015,Work,628 Medical Parkway,Suite 200,Harrisburg,PA,17101,US,false
+PRV-1016-ADDR-HOME,PRV-1016,Home,329 Oak Street,,Olympia,WA,98501,US,true
+PRV-1016-ADDR-MAIL,PRV-1016,Mailing,329 Oak Street,,Olympia,WA,98501,US,false
+PRV-1016-ADDR-WORK,PRV-1016,Work,629 Medical Parkway,Suite 200,Olympia,WA,98501,US,false
+PRV-1017-ADDR-HOME,PRV-1017,Home,330 Oak Street,Apt 11,Springfield,IL,62701,US,true
+PRV-1017-ADDR-MAIL,PRV-1017,Mailing,330 Oak Street,Apt 11,Springfield,IL,62701,US,false
+PRV-1017-ADDR-WORK,PRV-1017,Work,630 Medical Parkway,Suite 200,Springfield,IL,62701,US,false
+PRV-1018-ADDR-HOME,PRV-1018,Home,331 Oak Street,,Tallahassee,FL,32301,US,true
+PRV-1018-ADDR-MAIL,PRV-1018,Mailing,331 Oak Street,,Tallahassee,FL,32301,US,false
+PRV-1018-ADDR-WORK,PRV-1018,Work,631 Medical Parkway,Suite 200,Tallahassee,FL,32301,US,false
+PRV-1019-ADDR-HOME,PRV-1019,Home,332 Oak Street,,Columbus,OH,43215,US,true
+PRV-1019-ADDR-MAIL,PRV-1019,Mailing,332 Oak Street,,Columbus,OH,43215,US,false
+PRV-1019-ADDR-WORK,PRV-1019,Work,632 Medical Parkway,Suite 200,Columbus,OH,43215,US,false
+PRV-1020-ADDR-HOME,PRV-1020,Home,354 Oak Street,,Albany,NY,12207,US,true
+PRV-1020-ADDR-MAIL,PRV-1020,Mailing,354 Oak Street,,Albany,NY,12207,US,false
+PRV-1020-ADDR-WORK,PRV-1020,Work,654 Medical Parkway,Suite 200,Albany,NY,12207,US,false
+PRV-1021-ADDR-HOME,PRV-1021,Home,355 Oak Street,Apt 16,Harrisburg,PA,17101,US,true
+PRV-1021-ADDR-MAIL,PRV-1021,Mailing,355 Oak Street,Apt 16,Harrisburg,PA,17101,US,false
+PRV-1021-ADDR-WORK,PRV-1021,Work,655 Medical Parkway,Suite 200,Harrisburg,PA,17101,US,false
+PRV-1022-ADDR-HOME,PRV-1022,Home,356 Oak Street,,Harrisburg,PA,17101,US,true
+PRV-1022-ADDR-MAIL,PRV-1022,Mailing,356 Oak Street,,Harrisburg,PA,17101,US,false
+PRV-1022-ADDR-WORK,PRV-1022,Work,656 Medical Parkway,Suite 200,Harrisburg,PA,17101,US,false
+PRV-1023-ADDR-HOME,PRV-1023,Home,357 Oak Street,,Austin,TX,78701,US,true
+PRV-1023-ADDR-MAIL,PRV-1023,Mailing,357 Oak Street,,Austin,TX,78701,US,false
+PRV-1023-ADDR-WORK,PRV-1023,Work,657 Medical Parkway,Suite 200,Austin,TX,78701,US,false
+PRV-1024-ADDR-HOME,PRV-1024,Home,358 Oak Street,,Harrisburg,PA,17101,US,true
+PRV-1024-ADDR-MAIL,PRV-1024,Mailing,358 Oak Street,,Harrisburg,PA,17101,US,false
+PRV-1024-ADDR-WORK,PRV-1024,Work,658 Medical Parkway,Suite 200,Harrisburg,PA,17101,US,false
+PRV-1025-ADDR-HOME,PRV-1025,Home,359 Oak Street,,Austin,TX,78701,US,true
+PRV-1025-ADDR-MAIL,PRV-1025,Mailing,359 Oak Street,,Austin,TX,78701,US,false
+PRV-1025-ADDR-WORK,PRV-1025,Work,659 Medical Parkway,Suite 200,Austin,TX,78701,US,false
+PRV-1026-ADDR-HOME,PRV-1026,Home,360 Oak Street,Apt 1,Columbus,OH,43215,US,true
+PRV-1026-ADDR-MAIL,PRV-1026,Mailing,360 Oak Street,Apt 1,Columbus,OH,43215,US,false
+PRV-1026-ADDR-WORK,PRV-1026,Work,660 Medical Parkway,Suite 200,Columbus,OH,43215,US,false
+PRV-1027-ADDR-HOME,PRV-1027,Home,361 Oak Street,,Sacramento,CA,95814,US,true
+PRV-1027-ADDR-MAIL,PRV-1027,Mailing,361 Oak Street,,Sacramento,CA,95814,US,false
+PRV-1027-ADDR-WORK,PRV-1027,Work,661 Medical Parkway,Suite 200,Sacramento,CA,95814,US,false
+PRV-1028-ADDR-HOME,PRV-1028,Home,362 Oak Street,,Columbus,OH,43215,US,true
+PRV-1028-ADDR-MAIL,PRV-1028,Mailing,362 Oak Street,,Columbus,OH,43215,US,false
+PRV-1028-ADDR-WORK,PRV-1028,Work,662 Medical Parkway,Suite 200,Columbus,OH,43215,US,false
+PRV-1029-ADDR-HOME,PRV-1029,Home,363 Oak Street,,Austin,TX,78701,US,true
+PRV-1029-ADDR-MAIL,PRV-1029,Mailing,363 Oak Street,,Austin,TX,78701,US,false
+PRV-1029-ADDR-WORK,PRV-1029,Work,663 Medical Parkway,Suite 200,Austin,TX,78701,US,false
+PRV-1030-ADDR-HOME,PRV-1030,Home,385 Oak Street,Apt 6,Austin,TX,78701,US,true
+PRV-1030-ADDR-MAIL,PRV-1030,Mailing,385 Oak Street,Apt 6,Austin,TX,78701,US,false
+PRV-1030-ADDR-WORK,PRV-1030,Work,685 Medical Parkway,Suite 200,Austin,TX,78701,US,false
+PRV-1031-ADDR-HOME,PRV-1031,Home,386 Oak Street,,Austin,TX,78701,US,true
+PRV-1031-ADDR-MAIL,PRV-1031,Mailing,386 Oak Street,,Austin,TX,78701,US,false
+PRV-1031-ADDR-WORK,PRV-1031,Work,686 Medical Parkway,Suite 200,Austin,TX,78701,US,false
+PRV-1032-ADDR-HOME,PRV-1032,Home,387 Oak Street,,Springfield,IL,62701,US,true
+PRV-1032-ADDR-MAIL,PRV-1032,Mailing,387 Oak Street,,Springfield,IL,62701,US,false
+PRV-1032-ADDR-WORK,PRV-1032,Work,687 Medical Parkway,Suite 200,Springfield,IL,62701,US,false
+PRV-1033-ADDR-HOME,PRV-1033,Home,388 Oak Street,,Albany,NY,12207,US,true
+PRV-1033-ADDR-MAIL,PRV-1033,Mailing,388 Oak Street,,Albany,NY,12207,US,false
+PRV-1033-ADDR-WORK,PRV-1033,Work,688 Medical Parkway,Suite 200,Albany,NY,12207,US,false
+PRV-1034-ADDR-HOME,PRV-1034,Home,389 Oak Street,,Columbus,OH,43215,US,true
+PRV-1034-ADDR-MAIL,PRV-1034,Mailing,389 Oak Street,,Columbus,OH,43215,US,false
+PRV-1034-ADDR-WORK,PRV-1034,Work,689 Medical Parkway,Suite 200,Columbus,OH,43215,US,false
+PRV-1035-ADDR-HOME,PRV-1035,Home,390 Oak Street,Apt 11,Austin,TX,78701,US,true
+PRV-1035-ADDR-MAIL,PRV-1035,Mailing,390 Oak Street,Apt 11,Austin,TX,78701,US,false
+PRV-1035-ADDR-WORK,PRV-1035,Work,690 Medical Parkway,Suite 200,Austin,TX,78701,US,false
+PRV-1036-ADDR-HOME,PRV-1036,Home,391 Oak Street,,Tallahassee,FL,32301,US,true
+PRV-1036-ADDR-MAIL,PRV-1036,Mailing,391 Oak Street,,Tallahassee,FL,32301,US,false
+PRV-1036-ADDR-WORK,PRV-1036,Work,691 Medical Parkway,Suite 200,Tallahassee,FL,32301,US,false
+PRV-1037-ADDR-HOME,PRV-1037,Home,392 Oak Street,,Columbus,OH,43215,US,true
+PRV-1037-ADDR-MAIL,PRV-1037,Mailing,392 Oak Street,,Columbus,OH,43215,US,false
+PRV-1037-ADDR-WORK,PRV-1037,Work,692 Medical Parkway,Suite 200,Columbus,OH,43215,US,false
+PRV-1038-ADDR-HOME,PRV-1038,Home,393 Oak Street,,Harrisburg,PA,17101,US,true
+PRV-1038-ADDR-MAIL,PRV-1038,Mailing,393 Oak Street,,Harrisburg,PA,17101,US,false
+PRV-1038-ADDR-WORK,PRV-1038,Work,693 Medical Parkway,Suite 200,Harrisburg,PA,17101,US,false
+PRV-1039-ADDR-HOME,PRV-1039,Home,394 Oak Street,,Springfield,IL,62701,US,true
+PRV-1039-ADDR-MAIL,PRV-1039,Mailing,394 Oak Street,,Springfield,IL,62701,US,false
+PRV-1039-ADDR-WORK,PRV-1039,Work,694 Medical Parkway,Suite 200,Springfield,IL,62701,US,false
+PRV-1040-ADDR-HOME,PRV-1040,Home,416 Oak Street,,Harrisburg,PA,17101,US,true
+PRV-1040-ADDR-MAIL,PRV-1040,Mailing,416 Oak Street,,Harrisburg,PA,17101,US,false
+PRV-1040-ADDR-WORK,PRV-1040,Work,716 Medical Parkway,Suite 200,Harrisburg,PA,17101,US,false
+PRV-1041-ADDR-HOME,PRV-1041,Home,417 Oak Street,,Columbus,OH,43215,US,true
+PRV-1041-ADDR-MAIL,PRV-1041,Mailing,417 Oak Street,,Columbus,OH,43215,US,false
+PRV-1041-ADDR-WORK,PRV-1041,Work,717 Medical Parkway,Suite 200,Columbus,OH,43215,US,false
+PRV-1042-ADDR-HOME,PRV-1042,Home,418 Oak Street,,Boston,MA,02108,US,true
+PRV-1042-ADDR-MAIL,PRV-1042,Mailing,418 Oak Street,,Boston,MA,02108,US,false
+PRV-1042-ADDR-WORK,PRV-1042,Work,718 Medical Parkway,Suite 200,Boston,MA,02108,US,false

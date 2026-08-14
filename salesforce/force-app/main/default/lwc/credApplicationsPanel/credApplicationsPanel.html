@@ -1,0 +1,42 @@
+<template>
+    <article class="panel-card">
+        <header class="panel-header">
+            <span class="panel-title-icon" aria-hidden="true">
+                <lightning-icon icon-name="utility:file" size="xx-small" alternative-text=""></lightning-icon>
+            </span>
+            <h2 class="panel-title-text">Applications</h2>
+        </header>
+
+        <template if:true={isLoading}>
+            <div class="panel-loading slds-align_absolute-center">
+                <lightning-spinner alternative-text="Loading" size="small"></lightning-spinner>
+            </div>
+        </template>
+
+        <template if:true={errorMessage}>
+            <div class="panel-error">{errorMessage}</div>
+        </template>
+
+        <template if:true={isEmpty}>
+            <div class="panel-empty">No applications.</div>
+        </template>
+
+        <template if:false={isLoading}>
+            <template if:false={errorMessage}>
+                <template if:false={isEmpty}>
+                    <div class="panel-body">
+                        <lightning-datatable
+                            key-field="id"
+                            data={applications}
+                            columns={columns}
+                            sorted-by={sortedBy}
+                            sorted-direction={sortedDirection}
+                            onsort={handleSort}
+                            hide-checkbox-column
+                        ></lightning-datatable>
+                    </div>
+                </template>
+            </template>
+        </template>
+    </article>
+</template>

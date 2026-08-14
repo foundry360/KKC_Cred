@@ -1,0 +1,189 @@
+<template>
+    <lightning-card icon-name="standard:bot">
+        <div slot="title" class="card-title">
+            <span class="card-title-text">Credentialing Agent</span>
+            <template if:true={showSourceBadge}>
+                <span class={sourceClass}>{sourceLabel}</span>
+            </template>
+        </div>
+        <div slot="actions">
+            <lightning-button-icon
+                icon-name="utility:refresh"
+                alternative-text="Refresh agent"
+                title="Refresh agent"
+                onclick={handleAssist}
+                disabled={loading}
+            ></lightning-button-icon>
+        </div>
+
+        <div class="panel">
+            <template if:true={loading}>
+                <div class="state state_loading">
+                    <lightning-spinner alternative-text="Loading" size="small"></lightning-spinner>
+                </div>
+            </template>
+
+            <template if:true={errorMessage}>
+                <div class="banner banner_error" role="alert">{errorMessage}</div>
+            </template>
+
+            <template if:true={warning}>
+                <div class="banner banner_warn" role="status">{warning}</div>
+            </template>
+
+            <template if:false={loading}>
+                <template if:false={hasResult}>
+                    <template if:false={errorMessage}>
+                        <div class="state state_empty">
+                            Analyzing Provider 360…
+                        </div>
+                    </template>
+                </template>
+            </template>
+
+            <template if:true={hasResult}>
+                <section class="score-block" aria-label="Completeness score">
+                    <div class="score-layout">
+                        <div class="score-copy">
+                            <h3 class="block-title">Completeness score</h3>
+                            <p class="score-explainer">{completenessExplainer}</p>
+                        </div>
+                        <div class="score-donut-wrap" role="img" aria-label={scoreAriaLabel}>
+                            <svg class="score-donut" viewBox="0 0 42 42" aria-hidden="true">
+                                <circle
+                                    class="score-donut-track"
+                                    cx="21"
+                                    cy="21"
+                                    r="15.9155"
+                                    fill="transparent"
+                                ></circle>
+                                <circle
+                                    class="score-donut-value"
+                                    cx="21"
+                                    cy="21"
+                                    r="15.9155"
+                                    fill="transparent"
+                                    stroke={scoreStroke}
+                                    stroke-dasharray={scoreDasharray}
+                                ></circle>
+                            </svg>
+                            <div class="score-donut-center">
+                                <div class="score-donut-value-text">{scoreLabel}</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <template if:true={intakeSummary}>
+                    <section class="block">
+                        <h3 class="block-title">Intake summary</h3>
+                        <p class="block-body">{intakeSummary}</p>
+                    </section>
+                </template>
+
+                <template if:true={hasReconciled}>
+                    <section class="block">
+                        <h3 class="block-title">Identity reconciled</h3>
+                        <ul class="finding-list finding-list_ok">
+                            <template for:each={reconciledRows} for:item="row">
+                                <li key={row.key} class="finding-item finding-item_ok">{row.label}</li>
+                            </template>
+                        </ul>
+                    </section>
+                </template>
+
+                <template if:true={hasExceptions}>
+                    <section class="block">
+                        <h3 class="block-title">Exceptions requiring review</h3>
+                        <ul class="finding-list finding-list_alert">
+                            <template for:each={exceptionRows} for:item="row">
+                                <li key={row.key} class="finding-item finding-item_alert">{row.label}</li>
+                            </template>
+                        </ul>
+                    </section>
+                </template>
+
+                <template if:true={hasCompletenessGaps}>
+                    <section class="block">
+                        <h3 class="block-title">Completeness gaps</h3>
+                        <ul class="finding-list">
+                            <template for:each={completenessRows} for:item="row">
+                                <li key={row.key} class="finding-item finding-item_gap">{row.label}</li>
+                            </template>
+                        </ul>
+                    </section>
+                </template>
+
+                <template if:true={hasDocumentFindings}>
+                    <section class="block">
+                        <h3 class="block-title">Document findings</h3>
+                        <ul class="finding-list">
+                            <template for:each={documentRows} for:item="row">
+                                <li key={row.key} class="finding-item finding-item_doc">{row.label}</li>
+                            </template>
+                        </ul>
+                    </section>
+                </template>
+
+                <template if:true={hasInsights}>
+                    <section class="block">
+                        <h3 class="block-title">Insights</h3>
+                        <ul class="finding-list">
+                            <template for:each={insightRows} for:item="row">
+                                <li key={row.key} class="finding-item finding-item_insight">{row.label}</li>
+                            </template>
+                        </ul>
+                    </section>
+                </template>
+
+                <section class="block">
+                    <h3 class="block-title">Summary</h3>
+                    <p class="block-body">{summary}</p>
+                </section>
+
+                <template if:true={hasMissing}>
+                    <section class="block">
+                        <h3 class="block-title">Missing checklist</h3>
+                        <ul class="missing-list">
+                            <template for:each={missingItemRows} for:item="row">
+                                <li key={row.key} class="missing-item">{row.label}</li>
+                            </template>
+                        </ul>
+                    </section>
+                </template>
+
+                <section class="block">
+                    <lightning-textarea
+                        label="Chase draft"
+                        value={draftNote}
+                        onchange={handleDraftChange}
+                        rows="9"
+                        class="draft-field"
+                    ></lightning-textarea>
+                </section>
+
+                <section class="block">
+                    <h3 class="block-title">Next action</h3>
+                    <p class="block-body block-body_emphasis">{nextAction}</p>
+                </section>
+
+                <div class="actions">
+                    <lightning-button
+                        label="Create Task from draft"
+                        variant="neutral"
+                        onclick={handleCreateTask}
+                        disabled={loading}
+                    ></lightning-button>
+                    <template if:true={taskId}>
+                        <lightning-button
+                            label="Open Task"
+                            variant="base"
+                            onclick={handleOpenTask}
+                            class="actions-link"
+                        ></lightning-button>
+                    </template>
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

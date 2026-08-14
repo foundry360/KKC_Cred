@@ -1,0 +1,281 @@
+/* Credentialing app — Sky Blues palette (icons / accents; near-white page bg) */
+
+:root {
+    --cred-blue-50: #b3e5fc;
+    --cred-blue-100: #81d4fa;
+    --cred-blue-200: #4fc3f7;
+    --cred-blue-300: #29b6f6;
+    --cred-blue-400: #0288d1;
+    --cred-icon-bg: #b3e5fc;
+    --cred-icon-fg: #ffffff;
+}
+
+/* Neutral near-white page background */
+.slds-brand-band,
+.slds-template__container,
+.forcePageBackgroundArea,
+.oneContent,
+.slds-template_default {
+    background-color: #fafbfc !important;
+    background-image: none !important;
+}
+
+.slds-page-header {
+    background: #ffffff;
+}
+
+/* Application / record highlights title (e.g. APP-00006) — less dominant */
+.slds-page-header .slds-page-header__title,
+.slds-page-header h1.slds-page-header__title,
+.slds-page-header .slds-page-header__name-title,
+.forceHighlightsStencil .slds-page-header__title,
+.forceHighlightsStencilDesktop .slds-page-header__title,
+.slds-page-header__title .uiOutputText,
+records-lwc-highlights-panel .slds-page-header__title,
+records-lwc-highlights-panel h1 {
+    font-size: 1.125rem !important;
+    line-height: 1.3 !important;
+    font-weight: 600 !important;
+}
+
+/*
+ * Hide Salesforce page-header / list-view motif icons (fixed orange/coral squares).
+ * Title text remains.
+ */
+.slds-page-header .slds-media__figure,
+.slds-page-header .slds-page-header__icon,
+.slds-page-header lightning-icon.slds-page-header__icon,
+.slds-page-header .slds-icon_container,
+.slds-page-header .slds-icon__container,
+.slds-page-header [class*="slds-icon-custom-"],
+.slds-page-header [class*="slds-icon-standard-"],
+.forceListViewManagerHeader .slds-media__figure,
+.forceListViewManagerHeader .slds-icon_container,
+.forceListViewManagerHeader [class*="slds-icon-custom-"],
+.listViewContainer .slds-page-header .slds-media__figure,
+.entityIcon,
+.slds-page-header .entityIcon {
+    display: none !important;
+}
+
+/* In-page standard/custom icons (cards, etc.) → sky blue circle + white glyph */
+.slds-icon_container[class*="slds-icon-standard-"],
+.slds-icon_container[class*="slds-icon-custom-"],
+.slds-icon__container[class*="slds-icon-standard-"],
+.slds-icon__container[class*="slds-icon-custom-"],
+span[class*="slds-icon-standard-"],
+span[class*="slds-icon-custom-"],
+.slds-icon_container_circle[class*="slds-icon-standard-"],
+.slds-media__figure .slds-icon_container {
+    background-color: var(--cred-icon-bg) !important;
+    background-image: none !important;
+    border-radius: 50% !important;
+    overflow: hidden !important;
+    --slds-c-icon-color-background: var(--cred-icon-bg) !important;
+    --slds-c-icon-color-foreground: var(--cred-icon-fg) !important;
+    --slds-c-icon-color-foreground-default: var(--cred-icon-fg) !important;
+}
+
+.slds-icon_container[class*="slds-icon-standard-"] .slds-icon,
+.slds-icon_container[class*="slds-icon-custom-"] .slds-icon,
+.slds-icon_container[class*="slds-icon-standard-"] svg,
+.slds-icon_container[class*="slds-icon-custom-"] svg {
+    fill: var(--cred-icon-fg) !important;
+}
+
+/* Utility icons stay brand blue for visibility on white UI chrome */
+.slds-icon-text-default,
+.slds-button__icon,
+lightning-button-icon .slds-button__icon {
+    fill: var(--cred-blue-400) !important;
+}
+
+/* Brand buttons / links */
+.slds-button_brand,
+.slds-button--brand {
+    background-color: var(--cred-blue-400) !important;
+    border-color: var(--cred-blue-400) !important;
+}
+
+.slds-button_brand:hover,
+.slds-button--brand:hover {
+    background-color: var(--cred-blue-300) !important;
+    border-color: var(--cred-blue-300) !important;
+}
+
+a,
+.slds-text-link {
+    color: var(--cred-blue-400);
+}
+
+/*
+ * ONE Meridian mark in the left header slot only.
+ */
+.oneHeader .slds-global-header__item:first-child .slds-global-header__logo,
+.oneHeader .slds-global-header > .slds-global-header__item:first-of-type .slds-global-header__logo {
+    display: inline-flex !important;
+    align-items: center !important;
+    width: 15rem !important;
+    min-width: 12rem !important;
+    max-width: 18rem !important;
+    height: 2.5rem !important;
+    background: transparent url('/resource/MeridianHeaderLogo4') left center / contain no-repeat !important;
+    background-color: transparent !important;
+    overflow: visible !important;
+}
+
+.oneHeader .slds-global-header__item:first-child .slds-global-header__logo img,
+.oneHeader .slds-global-header > .slds-global-header__item:first-of-type .slds-global-header__logo img {
+    opacity: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* Hide every other brand/logo treatment (right-side / theme duplicates) */
+.themeLogo,
+.themeLogo img,
+.oneHeader .themeLogo,
+.slds-brand-band__image,
+.slds-global-header__item_logo,
+.oneHeader .slds-global-header__item:not(:first-child) .slds-global-header__logo,
+.oneHeader .slds-global-header__item:not(:first-of-type) .slds-global-header__logo,
+.oneHeader img[src*="file-asset"],
+.oneHeader img[src*="Meridian"],
+.oneHeader img[src*="ContentDocument"],
+.oneHeader img[src*="document/download"],
+.slds-global-header__item:not(:first-child) img[src*="file-asset"],
+.slds-global-header__item:not(:first-child) img[src*="Meridian"],
+.slds-global-header img[src*="file-asset"],
+.slds-global-header img[src*="Meridian"],
+.slds-global-header img[alt*="Meridian"] {
+    display: none !important;
+    visibility: hidden !important;
+    width: 0 !important;
+    height: 0 !important;
+    max-width: 0 !important;
+    max-height: 0 !important;
+    background: none !important;
+    background-image: none !important;
+}
+
+/*
+ * Path Assistant chevron — force Meridian blue (kill SLDS success green).
+ * Covers stage fills, chevron tips (::before/::after), and adjacent-arrow rules.
+ */
+:root,
+.slds-path,
+.slds-path__nav,
+.runtime_sales_pathassistantPathAssistant,
+.oneRecordHomeFlexipage {
+    --lwc-colorBackgroundPathComplete: #0288d1;
+    --lwc-colorBackgroundPathCompleteHover: #0297e6;
+    --lwc-colorBackgroundPathCurrent: #29b6f6;
+    --lwc-colorBackgroundPathCurrentHover: #4fc3f7;
+    --slds-c-path-color-background-complete: #0288d1;
+    --slds-g-color-success-base-50: #0288d1;
+    --slds-g-color-success-base-60: #0297e6;
+    --slds-g-color-palette-green-50: #0288d1;
+    --slds-g-color-palette-green-60: #0297e6;
+}
+
+.slds-path__nav .slds-is-complete,
+.slds-path__nav .slds-is-complete .slds-path__link,
+.slds-path__item.slds-is-complete,
+.slds-path__item.slds-is-complete .slds-path__link,
+.slds-path__item.slds-is-complete .slds-path__stage-name {
+    background: #0288d1 !important;
+    background-color: #0288d1 !important;
+    background-image: none !important;
+    color: #ffffff !important;
+    border-color: #0288d1 !important;
+}
+
+.slds-path__nav .slds-is-complete::before,
+.slds-path__nav .slds-is-complete::after,
+.slds-path__item.slds-is-complete::before,
+.slds-path__item.slds-is-complete::after,
+.slds-path__item.slds-is-complete .slds-path__link::before,
+.slds-path__item.slds-is-complete .slds-path__link::after,
+.slds-path__nav .slds-is-complete:first-child::before,
+.slds-path__item.slds-is-complete:first-child::before {
+    background: #0288d1 !important;
+    background-color: #0288d1 !important;
+    background-image: none !important;
+    border-color: #0288d1 !important;
+    border-left-color: #0288d1 !important;
+    border-right-color: #0288d1 !important;
+}
+
+/* Adjacent chevron tips that SLDS hard-codes to success green (#4bca81) */
+.slds-path__item + .slds-is-complete::before,
+.slds-path__item + .slds-is-current::before,
+.slds-tabs_path__item + .slds-is-complete::before,
+.slds-tabs_path__item + .slds-is-current::before,
+.slds-is-complete + .slds-path__item::before,
+.slds-is-complete + .slds-is-incomplete::before,
+.slds-is-complete + .slds-is-current::before,
+.slds-is-complete + .slds-is-complete::before,
+.slds-is-complete:hover + .slds-path__item::before,
+.slds-is-complete:hover + .slds-is-incomplete::before,
+.slds-is-complete:hover + .slds-is-current::before,
+.slds-is-complete:hover + .slds-is-complete::before {
+    background: #0288d1 !important;
+    background-color: #0288d1 !important;
+    background-image: none !important;
+}
+
+.slds-path__item.slds-is-complete .slds-path__title,
+.slds-path__item.slds-is-complete .slds-path__stage-name,
+.slds-path__item.slds-is-complete .slds-path__name,
+.slds-path__item.slds-is-complete a,
+.slds-path__nav .slds-is-complete .slds-path__title {
+    color: #ffffff !important;
+}
+
+.slds-path__item.slds-is-complete .slds-path__stage .slds-icon,
+.slds-path__item.slds-is-complete .slds-path__stage svg,
+.slds-path__item.slds-is-complete .slds-path__stage-name .slds-icon,
+.slds-path__item.slds-is-complete .slds-path__stage-name svg,
+.slds-path__item.slds-is-complete lightning-icon svg,
+.slds-path__item.slds-is-complete .slds-icon {
+    fill: #ffffff !important;
+}
+
+/* Current stage — lighter Meridian blue */
+.slds-path__nav .slds-is-current,
+.slds-path__nav .slds-is-active,
+.slds-path__item.slds-is-current,
+.slds-path__item.slds-is-active,
+.slds-path__item.slds-is-current .slds-path__link,
+.slds-path__item.slds-is-active .slds-path__link {
+    background: #29b6f6 !important;
+    background-color: #29b6f6 !important;
+    background-image: none !important;
+    border-color: #29b6f6 !important;
+}
+
+.slds-path__nav .slds-is-current::before,
+.slds-path__nav .slds-is-current::after,
+.slds-path__nav .slds-is-active::before,
+.slds-path__nav .slds-is-active::after,
+.slds-path__item.slds-is-current::before,
+.slds-path__item.slds-is-current::after,
+.slds-path__item.slds-is-active::before,
+.slds-path__item.slds-is-active::after,
+.slds-path__item.slds-is-current .slds-path__link::before,
+.slds-path__item.slds-is-current .slds-path__link::after,
+.slds-path__item.slds-is-active .slds-path__link::before,
+.slds-path__item.slds-is-active .slds-path__link::after {
+    background: #29b6f6 !important;
+    background-color: #29b6f6 !important;
+    border-left-color: #29b6f6 !important;
+    border-right-color: #29b6f6 !important;
+}
+
+.slds-is-current + .slds-path__item::before,
+.slds-is-current + .slds-is-incomplete::before,
+.slds-is-current + .slds-is-complete::before,
+.slds-is-active + .slds-path__item::before {
+    background: #29b6f6 !important;
+    background-color: #29b6f6 !important;
+}

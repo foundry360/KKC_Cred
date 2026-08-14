@@ -16,8 +16,14 @@
             <label>Draft</label>
         </value>
         <value>
+            <fullName>Intake</fullName>
+            <default>false</default>
+            <label>Intake</label>
+        </value>
+        <value>
             <fullName>Incomplete</fullName>
             <default>false</default>
+            <isActive>false</isActive>
             <label>Incomplete</label>
         </value>
         <value>

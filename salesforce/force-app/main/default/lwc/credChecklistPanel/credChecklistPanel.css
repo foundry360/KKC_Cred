@@ -1,0 +1,74 @@
+:host {
+    display: block;
+}
+
+.panel-card {
+    background: #fff;
+    border: 1px solid #e6ebf0;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 2px rgba(15, 28, 36, 0.05), 0 8px 20px rgba(15, 28, 36, 0.08);
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.panel-header {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    padding: 0.85rem 1rem 0.5rem;
+}
+
+.panel-title-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: 50%;
+    background: #b3e5fc;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.panel-title-icon lightning-icon {
+    --slds-c-icon-color-foreground: #ffffff;
+    --slds-c-icon-color-foreground-default: #ffffff;
+}
+
+.panel-title-text {
+    margin: 0;
+    font-size: 1.0625rem;
+    font-weight: 700;
+    line-height: 1.25;
+    color: #0f1c24;
+}
+
+.panel-count {
+    margin-left: auto;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #0277bd;
+}
+
+.panel-refresh {
+    flex-shrink: 0;
+}
+
+.panel-body {
+    padding: 0 0.75rem 0.85rem;
+}
+
+.panel-empty,
+.panel-error,
+.panel-loading {
+    padding: 1.25rem 1rem;
+}
+
+.panel-empty {
+    color: #5b6b76;
+    font-size: 0.875rem;
+}
+
+.panel-error {
+    color: #ba0517;
+}

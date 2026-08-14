@@ -1,0 +1,9 @@
+/* Hide Salesforce app-page header while branded workspaces are on screen */
+body:has(c-cred-application-list) .flexipageHeader,
+body:has(c-cred-application-list) .slds-page-header.flexipageHeader,
+body:has(c-cred-provider-list) .flexipageHeader,
+body:has(c-cred-provider-list) .slds-page-header.flexipageHeader,
+body:has(c-cred-credential-list) .flexipageHeader,
+body:has(c-cred-credential-list) .slds-page-header.flexipageHeader {
+    display: none !important;
+}

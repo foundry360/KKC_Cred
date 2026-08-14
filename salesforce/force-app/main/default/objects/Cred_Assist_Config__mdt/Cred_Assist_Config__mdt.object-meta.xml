@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Hybrid credentialing assist configuration (bridge URL and/or Claude key)</description>
+    <label>Cred Assist Config</label>
+    <pluralLabel>Cred Assist Configs</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

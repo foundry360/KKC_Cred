@@ -112,7 +112,7 @@ function mapPath(s: string | null): string {
 function mapAppStatus(s: string | null): string {
   const map: Record<string, string> = {
     draft: "Draft",
-    incomplete: "Incomplete",
+    incomplete: "Intake",
     in_review: "In_Review",
     pending_committee: "Pending_Committee",
     approved: "Approved",
@@ -125,6 +125,42 @@ function mapAppStatus(s: string | null): string {
 
 function mapSubject(s: string | null): string {
   return (s ?? "").toLowerCase() === "facility" ? "Facility" : "Practitioner";
+}
+
+function mapDegreeType(s: string | null): string {
+  const map: Record<string, string> = {
+    md: "MD",
+    do: "DO",
+    mbbs: "MBBS",
+    phd: "PhD",
+    masters: "Masters",
+    bachelors: "Bachelors",
+    residency: "Residency",
+    fellowship: "Fellowship",
+    internship: "Internship",
+    other: "Other",
+  };
+  return map[(s ?? "").toLowerCase()] ?? "Other";
+}
+
+function mapGender(s: string | null): string {
+  const map: Record<string, string> = {
+    male: "Male",
+    female: "Female",
+    non_binary: "Non_Binary",
+    prefer_not_to_say: "Prefer_Not_To_Say",
+    unknown: "Unknown",
+  };
+  return map[(s ?? "").toLowerCase()] ?? "";
+}
+
+function mapAddressType(s: string | null): string {
+  const map: Record<string, string> = {
+    home: "Home",
+    work: "Work",
+    mailing: "Mailing",
+  };
+  return map[(s ?? "").toLowerCase()] ?? "Home";
 }
 
 async function main() {
@@ -162,6 +198,24 @@ async function main() {
     .order("external_id");
   if (chErr) throw chErr;
 
+  const { data: education, error: eErr } = await sb
+    .from("education_history")
+    .select("*, providers!inner(external_id)")
+    .order("external_id");
+  if (eErr) throw eErr;
+
+  const { data: workHistory, error: wErr } = await sb
+    .from("work_history")
+    .select("*, providers!inner(external_id)")
+    .order("external_id");
+  if (wErr) throw wErr;
+
+  const { data: addresses, error: addrErr } = await sb
+    .from("provider_addresses")
+    .select("*, providers!inner(external_id)")
+    .order("external_id");
+  if (addrErr) throw addrErr;
+
   writeCsv(
     "01_Provider__c.csv",
     [
@@ -170,12 +224,22 @@ async function main() {
       "Subject_Type__c",
       "NPI__c",
       "First_Name__c",
+      "Middle_Name__c",
       "Last_Name__c",
+      "Name_Suffix__c",
       "Specialty__c",
       "Facility_Type__c",
       "Organization_Name__c",
       "Email__c",
       "Phone__c",
+      "Mobile_Phone__c",
+      "Date_Of_Birth__c",
+      "Gender__c",
+      "SSN_Last_4__c",
+      "Birth_Country__c",
+      "Preferred_Languages__c",
+      "CAQH_ID__c",
+      "Practice_State__c",
       "Credentialing_Status__c",
       "Cred_Start_Date__c",
       "Cred_End_Date__c",
@@ -187,12 +251,22 @@ async function main() {
       Subject_Type__c: mapSubject(p.subject_type),
       NPI__c: p.npi,
       First_Name__c: p.first_name,
+      Middle_Name__c: p.middle_name,
       Last_Name__c: p.last_name,
+      Name_Suffix__c: p.name_suffix,
       Specialty__c: p.specialty,
       Facility_Type__c: p.facility_type,
       Organization_Name__c: p.organization_name,
       Email__c: p.email,
       Phone__c: p.phone,
+      Mobile_Phone__c: p.mobile_phone,
+      Date_Of_Birth__c: p.date_of_birth,
+      Gender__c: mapGender(p.gender),
+      SSN_Last_4__c: p.ssn_last4,
+      Birth_Country__c: p.birth_country,
+      Preferred_Languages__c: p.preferred_languages,
+      CAQH_ID__c: p.caqh_id,
+      Practice_State__c: p.practice_state,
       Credentialing_Status__c: mapProviderStatus(p.status),
       Cred_Start_Date__c: p.cred_start_date,
       Cred_End_Date__c: p.cred_end_date,
@@ -276,7 +350,95 @@ async function main() {
     })),
   );
 
-  console.log("\nReady for upsert (External_Id__c). Order: 01 → 02 → 03 → 04");
+  writeCsv(
+    "05_Education_History__c.csv",
+    [
+      "External_Id__c",
+      "Provider__r.External_Id__c",
+      "Institution_Name__c",
+      "Degree_Type__c",
+      "Field_Of_Study__c",
+      "Start_Date__c",
+      "End_Date__c",
+      "Graduation_Year__c",
+      "Country__c",
+    ],
+    (education ?? []).map((e) => ({
+      External_Id__c: sfExtId(e.external_id),
+      "Provider__r.External_Id__c": sfExtId(
+        (e.providers as { external_id: string }).external_id,
+      ),
+      Institution_Name__c: e.institution_name,
+      Degree_Type__c: mapDegreeType(e.degree_type),
+      Field_Of_Study__c: e.field_of_study,
+      Start_Date__c: e.start_date,
+      End_Date__c: e.end_date,
+      Graduation_Year__c: e.graduation_year,
+      Country__c: e.country,
+    })),
+  );
+
+  writeCsv(
+    "06_Work_History__c.csv",
+    [
+      "External_Id__c",
+      "Provider__r.External_Id__c",
+      "Employer_Name__c",
+      "Title__c",
+      "Department__c",
+      "Start_Date__c",
+      "End_Date__c",
+      "Is_Current__c",
+      "Location__c",
+    ],
+    (workHistory ?? []).map((w) => ({
+      External_Id__c: sfExtId(w.external_id),
+      "Provider__r.External_Id__c": sfExtId(
+        (w.providers as { external_id: string }).external_id,
+      ),
+      Employer_Name__c: w.employer_name,
+      Title__c: w.title,
+      Department__c: w.department,
+      Start_Date__c: w.start_date,
+      End_Date__c: w.end_date,
+      Is_Current__c: w.is_current ? "true" : "false",
+      Location__c: w.location,
+    })),
+  );
+
+  writeCsv(
+    "07_Provider_Address__c.csv",
+    [
+      "External_Id__c",
+      "Provider__r.External_Id__c",
+      "Address_Type__c",
+      "Line1__c",
+      "Line2__c",
+      "City__c",
+      "State__c",
+      "Postal_Code__c",
+      "Country__c",
+      "Is_Primary__c",
+    ],
+    (addresses ?? []).map((a) => ({
+      External_Id__c: sfExtId(a.external_id),
+      "Provider__r.External_Id__c": sfExtId(
+        (a.providers as { external_id: string }).external_id,
+      ),
+      Address_Type__c: mapAddressType(a.address_type),
+      Line1__c: a.line1,
+      Line2__c: a.line2,
+      City__c: a.city,
+      State__c: a.state,
+      Postal_Code__c: a.postal_code,
+      Country__c: a.country,
+      Is_Primary__c: a.is_primary ? "true" : "false",
+    })),
+  );
+
+  console.log(
+    "\nReady for upsert (External_Id__c). Order: 01 → 02 → 03 → 04 → 05 → 06 → 07",
+  );
 }
 
 main().catch((e) => {

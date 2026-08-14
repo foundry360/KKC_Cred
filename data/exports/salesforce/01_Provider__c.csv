@@ -1,51 +1,51 @@
-Name,External_Id__c,Subject_Type__c,NPI__c,First_Name__c,Last_Name__c,Specialty__c,Facility_Type__c,Organization_Name__c,Email__c,Phone__c,Credentialing_Status__c,Cred_Start_Date__c,Cred_End_Date__c,Recred_Due_Date__c
-Coastal Ambulatory Surgery Center,FAC-2001,Facility,1679902001,,,,ASC,Coastal Medical Group,,,Active,2023-06-01,2026-06-01,2026-06-01
-Harborview Imaging Center,FAC-2002,Facility,1679902002,,,,Imaging,Harborview Multispecialty Group,,,Active,2024-01-15,2027-01-15,2027-01-15
-Sunrise Behavioral Health Clinic,FAC-2003,Facility,1679902003,,,,Clinic,Sunrise Health Partners,,,Pending,2023-03-01,2026-03-01,2026-03-01
-Meridian Skilled Nursing,FAC-2004,Facility,1679902004,,,,SNF,Meridian Physician Network,,,Active,2022-09-01,2025-09-01,2025-09-01
-Vanguard Urgent Care — Midtown,FAC-2005,Facility,1679902005,,,,Urgent Care,Vanguard Clinical Associates,,,Active,2024-05-01,2027-05-01,2027-05-01
-Lakeside Reference Lab,FAC-2006,Facility,1679902006,,,,Lab,Coastal Medical Group,,,Active,2023-11-01,2026-11-01,2026-11-01
-Summit Physical Therapy,FAC-2007,Facility,1679902007,,,,PT,Harborview Multispecialty Group,,,Pending,2025-01-01,2028-01-01,2028-01-01
-Independent Surgical Pavilion,FAC-2008,Facility,1679902008,,,,ASC,Independent Surgical Holdings,,,Pending,2022-08-01,2025-08-01,2025-08-01
-Jennifer Johnson,PRV-1001,Practitioner,1149827706,Jennifer,Johnson,Endocrinology,,Coastal Medical Group,,,Active,2019-04-22,2022-04-22,2022-04-22
-Lisa Miller,PRV-1002,Practitioner,1385451171,Lisa,Miller,Cardiology,,Sunrise Health Partners,,,Pending,2021-12-31,2024-12-31,2024-12-31
-Matthew Wilson,PRV-1003,Practitioner,1681802744,Matthew,Wilson,Endocrinology,,Harborview Multispecialty Group,,,Active,2020-01-19,2023-01-19,2023-01-19
-Ashley Martinez,PRV-1004,Practitioner,1799925830,Ashley,Martinez,Endocrinology,,Coastal Medical Group,,,Pending,2024-06-05,2027-06-05,2027-06-05
-Anthony Harris,PRV-1005,Practitioner,1269953851,Anthony,Harris,Radiology,,Harborview Multispecialty Group,,,Pending,2024-03-30,2027-03-30,2027-03-30
-Joseph Martinez,PRV-1006,Practitioner,1836043811,Joseph,Martinez,Nurse Practitioner - Primary Care,,Harborview Multispecialty Group,,,Active,2023-12-27,2026-12-27,2026-12-27
-Richard Taylor,PRV-1007,Practitioner,1997413271,Richard,Taylor,Oncology,,Coastal Medical Group,,,Active,2024-03-18,2027-03-18,2027-03-18
-Robert Perez,PRV-1008,Practitioner,1718309417,Robert,Perez,Cardiology,,Meridian Physician Network,,,Active,2023-07-09,2026-07-09,2026-07-09
-Kenneth Lewis,PRV-1009,Practitioner,1299085574,Kenneth,Lewis,Psychiatry,,Coastal Medical Group,,,Active,2023-04-08,2026-04-08,2026-04-08
-Donna Young,PRV-1010,Practitioner,1233754555,Donna,Young,Psychiatry,,Meridian Physician Network,,,Active,2018-10-18,2021-10-18,2021-10-18
-Robert Flores,PRV-1011,Practitioner,1606907788,Robert,Flores,Cardiology,,Harborview Multispecialty Group,,,Active,2023-12-16,2026-12-16,2026-12-16
-Richard Lewis,PRV-1012,Practitioner,1866616964,Richard,Lewis,Neurology,,Harborview Multispecialty Group,,,Pending,2025-06-18,2028-06-18,2028-06-18
-Robert Smith,PRV-1013,Practitioner,1173497327,Robert,Smith,Physical Therapy,,Meridian Physician Network,,,Active,2023-02-02,2026-02-02,2026-02-02
-Jessica Thomas,PRV-1014,Practitioner,1949332407,Jessica,Thomas,Behavioral Health,,Harborview Multispecialty Group,,,Pending,2022-09-14,2025-09-14,2025-09-14
-Steven Anderson,PRV-1015,Practitioner,1327696198,Steven,Anderson,OB/GYN,,Meridian Physician Network,,,Active,2020-08-18,2023-08-18,2023-08-18
-Daniel Ramirez,PRV-1016,Practitioner,1965835850,Daniel,Ramirez,Radiology,,Vanguard Clinical Associates,,,Active,2024-07-15,2027-07-15,2027-07-15
-Mark Harris,PRV-1017,Practitioner,1588343096,Mark,Harris,Orthopedic Surgery,,Vanguard Clinical Associates,,,Pending,2018-02-04,2021-02-04,2021-02-04
-Joseph Martinez,PRV-1018,Practitioner,1510173760,Joseph,Martinez,Family Medicine,,Coastal Medical Group,,,Pending,2024-11-26,2027-11-26,2027-11-26
-Ashley King,PRV-1019,Practitioner,1657830420,Ashley,King,Neurology,,Vanguard Clinical Associates,,,Pending,2023-10-10,2026-10-10,2026-10-10
-Patricia Rodriguez,PRV-1020,Practitioner,1745122940,Patricia,Rodriguez,Psychiatry,,Vanguard Clinical Associates,,,Active,2019-11-16,2022-11-16,2022-11-16
-Kenneth Hill,PRV-1021,Practitioner,1293062061,Kenneth,Hill,Pediatrics,,Coastal Medical Group,,,Pending,2023-01-05,2026-01-05,2026-01-05
-Anthony Lee,PRV-1022,Practitioner,1362388455,Anthony,Lee,OB/GYN,,Meridian Physician Network,,,Active,2022-05-03,2025-05-03,2025-05-03
-Ashley Taylor,PRV-1023,Practitioner,1652027025,Ashley,Taylor,Nurse Practitioner - Primary Care,,Harborview Multispecialty Group,,,Active,2019-05-09,2022-05-09,2022-05-09
-Lisa Smith,PRV-1024,Practitioner,1465492204,Lisa,Smith,Dermatology,,Sunrise Health Partners,,,Active,2022-03-18,2025-03-18,2025-03-18
-Maria Young,PRV-1025,Practitioner,1227761953,Maria,Young,Physical Therapy,,Vanguard Clinical Associates,,,Pending,2022-01-23,2025-01-23,2025-01-23
-Patricia Jackson,PRV-1026,Practitioner,1328786222,Patricia,Jackson,Pediatrics,,Coastal Medical Group,,,Active,2025-08-02,2028-08-02,2028-08-02
-Emily Hill,PRV-1027,Practitioner,1318092217,Emily,Hill,Nephrology,,Coastal Medical Group,,,Pending,2020-08-26,2023-08-26,2023-08-26
-Steven Davis,PRV-1028,Practitioner,1079545125,Steven,Davis,Cardiology,,Vanguard Clinical Associates,,,Pending,2024-08-14,2027-08-14,2027-08-14
-Jessica Wilson,PRV-1029,Practitioner,1257553274,Jessica,Wilson,Endocrinology,,Coastal Medical Group,,,Active,2020-01-31,2023-01-31,2023-01-31
-Elizabeth Jones,PRV-1030,Practitioner,1638923667,Elizabeth,Jones,Internal Medicine,,Meridian Physician Network,,,Pending,2024-06-21,2027-06-21,2027-06-21
-Karen Torres,PRV-1031,Practitioner,1557233178,Karen,Torres,Internal Medicine,,Vanguard Clinical Associates,,,Pending,2025-06-03,2028-06-03,2028-06-03
-Daniel Taylor,PRV-1032,Practitioner,1928690670,Daniel,Taylor,Physical Therapy,,Vanguard Clinical Associates,,,Active,2023-10-23,2026-10-23,2026-10-23
-Kimberly Davis,PRV-1033,Practitioner,1333665422,Kimberly,Davis,Family Medicine,,Coastal Medical Group,,,Active,2024-03-20,2027-03-20,2027-03-20
-William Jones,PRV-1034,Practitioner,1845805127,William,Jones,Endocrinology,,Meridian Physician Network,,,Pending,2023-10-12,2026-10-12,2026-10-12
-Steven Harris,PRV-1035,Practitioner,1039749508,Steven,Harris,Physician Assistant - Surgery,,Vanguard Clinical Associates,,,Pending,2019-07-18,2022-07-18,2022-07-18
-Daniel Young,PRV-1036,Practitioner,1073466219,Daniel,Young,Neurology,,Harborview Multispecialty Group,,,Active,2020-10-12,2023-10-12,2023-10-12
-Susan Hernandez,PRV-1037,Practitioner,1935056899,Susan,Hernandez,Orthopedic Surgery,,Harborview Multispecialty Group,,,Active,2022-06-08,2025-06-08,2025-06-08
-Nancy Gonzalez,PRV-1038,Practitioner,1254697684,Nancy,Gonzalez,Physician Assistant - Surgery,,Sunrise Health Partners,,,Pending,2022-06-01,2025-06-01,2025-06-01
-William Miller,PRV-1039,Practitioner,1035824891,William,Miller,Internal Medicine,,Vanguard Clinical Associates,,,Active,2024-08-07,2027-08-07,2027-08-07
-Margaret Scott,PRV-1040,Practitioner,1014945047,Margaret,Scott,Nurse Practitioner - Primary Care,,Vanguard Clinical Associates,,,Pending,2021-02-05,2024-02-05,2024-02-05
-Michael Robinson,PRV-1041,Practitioner,1150084428,Michael,Robinson,Nephrology,,Sunrise Health Partners,,,Active,2018-07-21,2021-07-21,2021-07-21
-Sarah White,PRV-1042,Practitioner,1968188935,Sarah,White,Behavioral Health,,Harborview Multispecialty Group,,,Active,2025-05-01,2028-05-01,2028-05-01
+Name,External_Id__c,Subject_Type__c,NPI__c,First_Name__c,Middle_Name__c,Last_Name__c,Name_Suffix__c,Specialty__c,Facility_Type__c,Organization_Name__c,Email__c,Phone__c,Mobile_Phone__c,Date_Of_Birth__c,Gender__c,SSN_Last_4__c,Birth_Country__c,Preferred_Languages__c,CAQH_ID__c,Practice_State__c,Credentialing_Status__c,Cred_Start_Date__c,Cred_End_Date__c,Recred_Due_Date__c
+Coastal Ambulatory Surgery Center,FAC-2001,Facility,1679902001,,,,,,ASC,Coastal Medical Group,coastal-ambulatory-surgery-center@facility.example,(800) 760-2060,,,,,,,,NY,Active,2023-06-01,2026-06-01,2026-06-01
+Harborview Imaging Center,FAC-2002,Facility,1679902002,,,,,,Imaging,Harborview Multispecialty Group,harborview-imaging-center@facility.example,(800) 761-2061,,,,,,,,CA,Active,2024-01-15,2027-01-15,2027-01-15
+Sunrise Behavioral Health Clinic,FAC-2003,Facility,1679902003,,,,,,Clinic,Sunrise Health Partners,sunrise-behavioral-health-clinic@facility.example,(800) 762-2062,,,,,,,,OH,Pending,2023-03-01,2026-03-01,2026-03-01
+Meridian Skilled Nursing,FAC-2004,Facility,1679902004,,,,,,SNF,Meridian Physician Network,meridian-skilled-nursing@facility.example,(800) 763-2063,,,,,,,,TX,Active,2022-09-01,2025-09-01,2025-09-01
+Vanguard Urgent Care — Midtown,FAC-2005,Facility,1679902005,,,,,,Urgent Care,Vanguard Clinical Associates,vanguard-urgent-care-midtown@facility.example,(800) 764-2064,,,,,,,,FL,Active,2024-05-01,2027-05-01,2027-05-01
+Lakeside Reference Lab,FAC-2006,Facility,1679902006,,,,,,Lab,Coastal Medical Group,lakeside-reference-lab@facility.example,(800) 765-2065,,,,,,,,NY,Active,2023-11-01,2026-11-01,2026-11-01
+Summit Physical Therapy,FAC-2007,Facility,1679902007,,,,,,PT,Harborview Multispecialty Group,summit-physical-therapy@facility.example,(800) 766-2066,,,,,,,,CA,Pending,2025-01-01,2028-01-01,2028-01-01
+Independent Surgical Pavilion,FAC-2008,Facility,1679902008,,,,,,ASC,Independent Surgical Holdings,independent-surgical-pavilion@facility.example,(800) 767-2067,,,,,,,,AZ,Pending,2022-08-01,2025-08-01,2025-08-01
+Jennifer Johnson,PRV-1001,Practitioner,1149827706,Jennifer,A,Johnson,,Endocrinology,,Coastal Medical Group,jennifer.johnson@example.health,(555) 593-7993,(212) 298-4998,1983-10-02,Male,3993,US,English,19149732,NY,Active,2019-04-22,2022-04-22,2022-04-22
+Lisa Miller,PRV-1002,Practitioner,1385451171,Lisa,,Miller,,Cardiology,,Sunrise Health Partners,lisa.miller@example.health,(555) 594-7994,(212) 298-4998,1984-11-03,Non_Binary,3994,US,English,14437923,OH,Pending,2021-12-31,2024-12-31,2024-12-31
+Matthew Wilson,PRV-1003,Practitioner,1681802744,Matthew,,Wilson,,Endocrinology,,Harborview Multispecialty Group,matthew.wilson@example.health,(555) 595-7995,(212) 298-4998,1985-12-04,Prefer_Not_To_Say,3995,US,English,14107245,GA,Active,2020-01-19,2023-01-19,2023-01-19
+Ashley Martinez,PRV-1004,Practitioner,1799925830,Ashley,A,Martinez,,Endocrinology,,Coastal Medical Group,ashley.martinez@example.health,(555) 596-7996,(212) 299-4999,1986-01-05,Female,3996,US,"English, Spanish",14408072,TX,Pending,2024-06-05,2027-06-05,2027-06-05
+Anthony Harris,PRV-1005,Practitioner,1269953851,Anthony,,Harris,,Radiology,,Harborview Multispecialty Group,anthony.harris@example.health,(555) 597-7997,(212) 299-4999,1987-02-06,Male,3997,US,English,11921859,PA,Pending,2024-03-30,2027-03-30,2027-03-30
+Joseph Martinez,PRV-1006,Practitioner,1836043811,Joseph,,Martinez,,Nurse Practitioner - Primary Care,,Harborview Multispecialty Group,joseph.martinez@example.health,(555) 598-7998,(212) 299-4999,1988-03-07,Non_Binary,3998,US,English,15438436,TX,Active,2023-12-27,2026-12-27,2026-12-27
+Richard Taylor,PRV-1007,Practitioner,1997413271,Richard,A,Taylor,MD,Oncology,,Coastal Medical Group,richard.taylor@example.health,(555) 599-7999,(212) 299-4999,1989-04-08,Prefer_Not_To_Say,3999,US,English,13374754,OH,Active,2024-03-18,2027-03-18,2027-03-18
+Robert Perez,PRV-1008,Practitioner,1718309417,Robert,,Perez,,Cardiology,,Meridian Physician Network,robert.perez@example.health,(555) 600-8000,(212) 300-5000,1965-05-09,Female,4000,US,"English, Spanish",19046844,NY,Active,2023-07-09,2026-07-09,2026-07-09
+Kenneth Lewis,PRV-1009,Practitioner,1299085574,Kenneth,,Lewis,,Psychiatry,,Coastal Medical Group,kenneth.lewis@example.health,(555) 601-8001,(212) 300-5000,1966-06-10,Male,4001,US,English,11264748,OH,Active,2023-04-08,2026-04-08,2026-04-08
+Donna Young,PRV-1010,Practitioner,1233754555,Donna,A,Young,,Psychiatry,,Meridian Physician Network,donna.young@example.health,(555) 623-8023,(212) 305-5005,1988-04-04,Prefer_Not_To_Say,4023,US,English,19096526,NY,Active,2018-10-18,2021-10-18,2021-10-18
+Robert Flores,PRV-1011,Practitioner,1606907788,Robert,,Flores,,Cardiology,,Harborview Multispecialty Group,robert.flores@example.health,(555) 624-8024,(212) 306-5006,1989-05-05,Female,4024,US,"English, Spanish",14374922,OH,Active,2023-12-16,2026-12-16,2026-12-16
+Richard Lewis,PRV-1012,Practitioner,1866616964,Richard,,Lewis,,Neurology,,Harborview Multispecialty Group,richard.lewis@example.health,(555) 625-8025,(212) 306-5006,1965-06-06,Male,4025,US,English,10131249,IL,Pending,2025-06-18,2028-06-18,2028-06-18
+Robert Smith,PRV-1013,Practitioner,1173497327,Robert,A,Smith,,Physical Therapy,,Meridian Physician Network,robert.smith@example.health,(555) 626-8026,(212) 306-5006,1966-07-07,Non_Binary,4026,US,English,17175395,TX,Active,2023-02-02,2026-02-02,2026-02-02
+Jessica Thomas,PRV-1014,Practitioner,1949332407,Jessica,,Thomas,MD,Behavioral Health,,Harborview Multispecialty Group,jessica.thomas@example.health,(555) 627-8027,(212) 306-5006,1967-08-08,Prefer_Not_To_Say,4027,US,English,12592974,NC,Pending,2022-09-14,2025-09-14,2025-09-14
+Steven Anderson,PRV-1015,Practitioner,1327696198,Steven,,Anderson,,OB/GYN,,Meridian Physician Network,steven.anderson@example.health,(555) 628-8028,(212) 307-5007,1968-09-09,Female,4028,US,"English, Spanish",10397023,PA,Active,2020-08-18,2023-08-18,2023-08-18
+Daniel Ramirez,PRV-1016,Practitioner,1965835850,Daniel,A,Ramirez,,Radiology,,Vanguard Clinical Associates,daniel.ramirez@example.health,(555) 629-8029,(212) 307-5007,1969-10-10,Male,4029,US,English,14273534,GA,Active,2024-07-15,2027-07-15,2027-07-15
+Mark Harris,PRV-1017,Practitioner,1588343096,Mark,,Harris,,Orthopedic Surgery,,Vanguard Clinical Associates,mark.harris@example.health,(555) 630-8030,(212) 307-5007,1970-11-11,Non_Binary,4030,US,English,14813613,IL,Pending,2018-02-04,2021-02-04,2021-02-04
+Joseph Martinez,PRV-1018,Practitioner,1510173760,Joseph,,Martinez,,Family Medicine,,Coastal Medical Group,joseph.martinez@example.health,(555) 631-8031,(212) 307-5007,1971-12-12,Prefer_Not_To_Say,4031,US,English,17640615,FL,Pending,2024-11-26,2027-11-26,2027-11-26
+Ashley King,PRV-1019,Practitioner,1657830420,Ashley,A,King,,Neurology,,Vanguard Clinical Associates,ashley.king@example.health,(555) 632-8032,(212) 308-5008,1972-01-13,Female,4032,US,"English, Spanish",19191766,NC,Pending,2023-10-10,2026-10-10,2026-10-10
+Patricia Rodriguez,PRV-1020,Practitioner,1745122940,Patricia,,Rodriguez,,Psychiatry,,Vanguard Clinical Associates,patricia.rodriguez@example.health,(555) 654-8054,(212) 313-5013,1969-11-07,Non_Binary,4054,US,English,13589533,NY,Active,2019-11-16,2022-11-16,2022-11-16
+Kenneth Hill,PRV-1021,Practitioner,1293062061,Kenneth,,Hill,MD,Pediatrics,,Coastal Medical Group,kenneth.hill@example.health,(555) 655-8055,(212) 313-5013,1970-12-08,Prefer_Not_To_Say,4055,US,English,10486955,PA,Pending,2023-01-05,2026-01-05,2026-01-05
+Anthony Lee,PRV-1022,Practitioner,1362388455,Anthony,A,Lee,,OB/GYN,,Meridian Physician Network,anthony.lee@example.health,(555) 656-8056,(212) 314-5014,1971-01-09,Female,4056,US,"English, Spanish",17072684,PA,Active,2022-05-03,2025-05-03,2025-05-03
+Ashley Taylor,PRV-1023,Practitioner,1652027025,Ashley,,Taylor,,Nurse Practitioner - Primary Care,,Harborview Multispecialty Group,ashley.taylor@example.health,(555) 657-8057,(212) 314-5014,1972-02-10,Male,4057,US,English,15218367,TX,Active,2019-05-09,2022-05-09,2022-05-09
+Lisa Smith,PRV-1024,Practitioner,1465492204,Lisa,,Smith,,Dermatology,,Sunrise Health Partners,lisa.smith@example.health,(555) 658-8058,(212) 314-5014,1973-03-11,Non_Binary,4058,US,English,17713146,PA,Active,2022-03-18,2025-03-18,2025-03-18
+Maria Young,PRV-1025,Practitioner,1227761953,Maria,A,Young,,Physical Therapy,,Vanguard Clinical Associates,maria.young@example.health,(555) 659-8059,(212) 314-5014,1974-04-12,Prefer_Not_To_Say,4059,US,English,15709938,TX,Pending,2022-01-23,2025-01-23,2025-01-23
+Patricia Jackson,PRV-1026,Practitioner,1328786222,Patricia,,Jackson,,Pediatrics,,Coastal Medical Group,patricia.jackson@example.health,(555) 660-8060,(212) 315-5015,1975-05-13,Female,4060,US,"English, Spanish",16191135,OH,Active,2025-08-02,2028-08-02,2028-08-02
+Emily Hill,PRV-1027,Practitioner,1318092217,Emily,,Hill,,Nephrology,,Coastal Medical Group,emily.hill@example.health,(555) 661-8061,(212) 315-5015,1976-06-14,Male,4061,US,English,13010529,GA,Pending,2020-08-26,2023-08-26,2023-08-26
+Steven Davis,PRV-1028,Practitioner,1079545125,Steven,A,Davis,MD,Cardiology,,Vanguard Clinical Associates,steven.davis@example.health,(555) 662-8062,(212) 315-5015,1977-07-15,Non_Binary,4062,US,English,10899411,OH,Pending,2024-08-14,2027-08-14,2027-08-14
+Jessica Wilson,PRV-1029,Practitioner,1257553274,Jessica,,Wilson,,Endocrinology,,Coastal Medical Group,jessica.wilson@example.health,(555) 663-8063,(212) 315-5015,1978-08-16,Prefer_Not_To_Say,4063,US,English,11259379,GA,Active,2020-01-31,2023-01-31,2023-01-31
+Elizabeth Jones,PRV-1030,Practitioner,1638923667,Elizabeth,,Jones,,Internal Medicine,,Meridian Physician Network,elizabeth.jones@example.health,(555) 685-8085,(212) 321-5021,1975-06-10,Male,4085,US,English,17367772,TX,Pending,2024-06-21,2027-06-21,2027-06-21
+Karen Torres,PRV-1031,Practitioner,1557233178,Karen,A,Torres,,Internal Medicine,,Vanguard Clinical Associates,karen.torres@example.health,(555) 686-8086,(212) 321-5021,1976-07-11,Non_Binary,4086,US,English,14666692,TX,Pending,2025-06-03,2028-06-03,2028-06-03
+Daniel Taylor,PRV-1032,Practitioner,1928690670,Daniel,,Taylor,,Physical Therapy,,Vanguard Clinical Associates,daniel.taylor@example.health,(555) 687-8087,(212) 321-5021,1977-08-12,Prefer_Not_To_Say,4087,US,English,19103209,GA,Active,2023-10-23,2026-10-23,2026-10-23
+Kimberly Davis,PRV-1033,Practitioner,1333665422,Kimberly,,Davis,,Family Medicine,,Coastal Medical Group,kimberly.davis@example.health,(555) 688-8088,(212) 322-5022,1978-09-13,Female,4088,US,"English, Spanish",19265241,NY,Active,2024-03-20,2027-03-20,2027-03-20
+William Jones,PRV-1034,Practitioner,1845805127,William,A,Jones,,Endocrinology,,Meridian Physician Network,william.jones@example.health,(555) 689-8089,(212) 322-5022,1979-10-14,Male,4089,US,English,10043037,OH,Pending,2023-10-12,2026-10-12,2026-10-12
+Steven Harris,PRV-1035,Practitioner,1039749508,Steven,,Harris,MD,Physician Assistant - Surgery,,Vanguard Clinical Associates,steven.harris@example.health,(555) 690-8090,(212) 322-5022,1980-11-15,Non_Binary,4090,US,English,19901584,TX,Pending,2019-07-18,2022-07-18,2022-07-18
+Daniel Young,PRV-1036,Practitioner,1073466219,Daniel,,Young,,Neurology,,Harborview Multispecialty Group,daniel.young@example.health,(555) 691-8091,(212) 322-5022,1981-12-16,Prefer_Not_To_Say,4091,US,English,14821419,FL,Active,2020-10-12,2023-10-12,2023-10-12
+Susan Hernandez,PRV-1037,Practitioner,1935056899,Susan,A,Hernandez,,Orthopedic Surgery,,Harborview Multispecialty Group,susan.hernandez@example.health,(555) 692-8092,(212) 323-5023,1982-01-17,Female,4092,US,"English, Spanish",14040453,GA,Active,2022-06-08,2025-06-08,2025-06-08
+Nancy Gonzalez,PRV-1038,Practitioner,1254697684,Nancy,,Gonzalez,,Physician Assistant - Surgery,,Sunrise Health Partners,nancy.gonzalez@example.health,(555) 693-8093,(212) 323-5023,1983-02-18,Male,4093,US,English,16022335,PA,Pending,2022-06-01,2025-06-01,2025-06-01
+William Miller,PRV-1039,Practitioner,1035824891,William,,Miller,,Internal Medicine,,Vanguard Clinical Associates,william.miller@example.health,(555) 694-8094,(212) 323-5023,1984-03-19,Non_Binary,4094,US,English,12204724,IL,Active,2024-08-07,2027-08-07,2027-08-07
+Margaret Scott,PRV-1040,Practitioner,1014945047,Margaret,A,Scott,,Nurse Practitioner - Primary Care,,Vanguard Clinical Associates,margaret.scott@example.health,(555) 716-8116,(212) 329-5029,1981-01-13,Female,4116,US,"English, Spanish",12073474,GA,Pending,2021-02-05,2024-02-05,2024-02-05
+Michael Robinson,PRV-1041,Practitioner,1150084428,Michael,,Robinson,,Nephrology,,Sunrise Health Partners,michael.robinson@example.health,(555) 717-8117,(212) 329-5029,1982-02-14,Male,4117,US,English,15106390,OH,Active,2018-07-21,2021-07-21,2021-07-21
+Sarah White,PRV-1042,Practitioner,1968188935,Sarah,,White,MD,Behavioral Health,,Harborview Multispecialty Group,sarah.white@example.health,(555) 718-8118,(212) 329-5029,1983-03-15,Non_Binary,4118,US,English,11015861,NC,Active,2025-05-01,2028-05-01,2028-05-01

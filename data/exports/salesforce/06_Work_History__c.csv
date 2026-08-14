@@ -1,0 +1,85 @@
+External_Id__c,Provider__r.External_Id__c,Employer_Name__c,Title__c,Department__c,Start_Date__c,End_Date__c,Is_Current__c,Location__c
+PRV-1001-WRK-CUR,PRV-1001,Coastal Medical Group,Attending Endocrinology,Endocrinology,2019-04-22,,true,US
+PRV-1001-WRK-PRIOR,PRV-1001,Valley Health Partners,Endocrinology Physician,Endocrinology,2017-07-01,2019-04-22,false,US
+PRV-1002-WRK-CUR,PRV-1002,Sunrise Health Partners,Attending Cardiology,Cardiology,2021-12-31,,true,US
+PRV-1002-WRK-PRIOR,PRV-1002,Northside Medical Associates,Cardiology Physician,Cardiology,2016-07-01,2021-12-31,false,US
+PRV-1003-WRK-CUR,PRV-1003,Harborview Multispecialty Group,Attending Endocrinology,Endocrinology,2020-01-19,,true,US
+PRV-1003-WRK-PRIOR,PRV-1003,Riverside Clinic Network,Endocrinology Physician,Endocrinology,2018-07-01,2020-01-19,false,US
+PRV-1004-WRK-CUR,PRV-1004,Coastal Medical Group,Attending Endocrinology,Endocrinology,2024-06-05,,true,US
+PRV-1004-WRK-PRIOR,PRV-1004,Community Physicians Group,Endocrinology Physician,Endocrinology,2019-07-01,2024-06-05,false,US
+PRV-1005-WRK-CUR,PRV-1005,Harborview Multispecialty Group,Attending Radiology,Radiology,2024-03-30,,true,US
+PRV-1005-WRK-PRIOR,PRV-1005,Valley Health Partners,Radiology Physician,Radiology,2020-07-01,2024-03-30,false,US
+PRV-1006-WRK-CUR,PRV-1006,Harborview Multispecialty Group,Attending Nurse Practitioner - Primary Care,Nurse Practitioner - Primary Care,2023-12-27,,true,US
+PRV-1006-WRK-PRIOR,PRV-1006,Northside Medical Associates,Nurse Practitioner - Primary Care Physician,Nurse Practitioner - Primary Care,2020-07-01,2023-12-27,false,US
+PRV-1007-WRK-CUR,PRV-1007,Coastal Medical Group,Attending Oncology,Oncology,2024-03-18,,true,US
+PRV-1007-WRK-PRIOR,PRV-1007,Riverside Clinic Network,Oncology Physician,Oncology,2023-07-01,2024-03-18,false,US
+PRV-1008-WRK-CUR,PRV-1008,Meridian Physician Network,Attending Cardiology,Cardiology,2023-07-09,,true,US
+PRV-1008-WRK-PRIOR,PRV-1008,Community Physicians Group,Cardiology Physician,Cardiology,2012-07-01,2023-07-09,false,US
+PRV-1009-WRK-CUR,PRV-1009,Coastal Medical Group,Attending Psychiatry,Psychiatry,2023-04-08,,true,US
+PRV-1009-WRK-PRIOR,PRV-1009,Valley Health Partners,Psychiatry Physician,Psychiatry,2014-07-01,2023-04-08,false,US
+PRV-1010-WRK-CUR,PRV-1010,Meridian Physician Network,Attending Psychiatry,Psychiatry,2018-10-18,,true,US
+PRV-1010-WRK-PRIOR,PRV-1010,Riverside Clinic Network,Psychiatry Physician,Psychiatry,2017-07-01,2018-10-18,false,US
+PRV-1011-WRK-CUR,PRV-1011,Harborview Multispecialty Group,Attending Cardiology,Cardiology,2023-12-16,,true,US
+PRV-1011-WRK-PRIOR,PRV-1011,Community Physicians Group,Cardiology Physician,Cardiology,2016-07-01,2023-12-16,false,US
+PRV-1012-WRK-CUR,PRV-1012,Harborview Multispecialty Group,Attending Neurology,Neurology,2025-06-18,,true,US
+PRV-1012-WRK-PRIOR,PRV-1012,Valley Health Partners,Neurology Physician,Neurology,2018-07-01,2025-06-18,false,US
+PRV-1013-WRK-CUR,PRV-1013,Meridian Physician Network,Attending Physical Therapy,Physical Therapy,2023-02-02,,true,US
+PRV-1013-WRK-PRIOR,PRV-1013,Northside Medical Associates,Physical Therapy Physician,Physical Therapy,2019-07-01,2023-02-02,false,US
+PRV-1014-WRK-CUR,PRV-1014,Harborview Multispecialty Group,Attending Behavioral Health,Behavioral Health,2022-09-14,,true,US
+PRV-1014-WRK-PRIOR,PRV-1014,Riverside Clinic Network,Behavioral Health Physician,Behavioral Health,2020-07-01,2022-09-14,false,US
+PRV-1015-WRK-CUR,PRV-1015,Meridian Physician Network,Attending OB/GYN,OB/GYN,2020-08-18,,true,US
+PRV-1015-WRK-PRIOR,PRV-1015,Community Physicians Group,OB/GYN Physician,OB/GYN,2020-07-01,2020-08-18,false,US
+PRV-1016-WRK-CUR,PRV-1016,Vanguard Clinical Associates,Attending Radiology,Radiology,2024-07-15,,true,US
+PRV-1016-WRK-PRIOR,PRV-1016,Valley Health Partners,Radiology Physician,Radiology,2023-07-01,2024-07-15,false,US
+PRV-1017-WRK-CUR,PRV-1017,Vanguard Clinical Associates,Attending Orthopedic Surgery,Orthopedic Surgery,2018-02-04,,true,US
+PRV-1017-WRK-PRIOR,PRV-1017,Northside Medical Associates,Orthopedic Surgery Physician,Orthopedic Surgery,2012-07-01,2018-02-04,false,US
+PRV-1018-WRK-CUR,PRV-1018,Coastal Medical Group,Attending Family Medicine,Family Medicine,2024-11-26,,true,US
+PRV-1018-WRK-PRIOR,PRV-1018,Riverside Clinic Network,Family Medicine Physician,Family Medicine,2014-07-01,2024-11-26,false,US
+PRV-1019-WRK-CUR,PRV-1019,Vanguard Clinical Associates,Attending Neurology,Neurology,2023-10-10,,true,US
+PRV-1019-WRK-PRIOR,PRV-1019,Community Physicians Group,Neurology Physician,Neurology,2015-07-01,2023-10-10,false,US
+PRV-1020-WRK-CUR,PRV-1020,Vanguard Clinical Associates,Attending Psychiatry,Psychiatry,2019-11-16,,true,US
+PRV-1020-WRK-PRIOR,PRV-1020,Northside Medical Associates,Psychiatry Physician,Psychiatry,2016-07-01,2019-11-16,false,US
+PRV-1021-WRK-CUR,PRV-1021,Coastal Medical Group,Attending Pediatrics,Pediatrics,2023-01-05,,true,US
+PRV-1021-WRK-PRIOR,PRV-1021,Riverside Clinic Network,Pediatrics Physician,Pediatrics,2018-07-01,2023-01-05,false,US
+PRV-1022-WRK-CUR,PRV-1022,Meridian Physician Network,Attending OB/GYN,OB/GYN,2022-05-03,,true,US
+PRV-1022-WRK-PRIOR,PRV-1022,Community Physicians Group,OB/GYN Physician,OB/GYN,2019-07-01,2022-05-03,false,US
+PRV-1023-WRK-CUR,PRV-1023,Harborview Multispecialty Group,Attending Nurse Practitioner - Primary Care,Nurse Practitioner - Primary Care,2019-05-09,,true,US
+PRV-1023-WRK-PRIOR,PRV-1023,Valley Health Partners,Nurse Practitioner - Primary Care Physician,Nurse Practitioner - Primary Care,2020-07-01,2019-05-09,false,US
+PRV-1024-WRK-CUR,PRV-1024,Sunrise Health Partners,Attending Dermatology,Dermatology,2022-03-18,,true,US
+PRV-1024-WRK-PRIOR,PRV-1024,Northside Medical Associates,Dermatology Physician,Dermatology,2020-07-01,2022-03-18,false,US
+PRV-1025-WRK-CUR,PRV-1025,Vanguard Clinical Associates,Attending Physical Therapy,Physical Therapy,2022-01-23,,true,US
+PRV-1025-WRK-PRIOR,PRV-1025,Riverside Clinic Network,Physical Therapy Physician,Physical Therapy,2023-07-01,2022-01-23,false,US
+PRV-1026-WRK-CUR,PRV-1026,Coastal Medical Group,Attending Pediatrics,Pediatrics,2025-08-02,,true,US
+PRV-1026-WRK-PRIOR,PRV-1026,Community Physicians Group,Pediatrics Physician,Pediatrics,2012-07-01,2025-08-02,false,US
+PRV-1027-WRK-CUR,PRV-1027,Coastal Medical Group,Attending Nephrology,Nephrology,2020-08-26,,true,US
+PRV-1027-WRK-PRIOR,PRV-1027,Valley Health Partners,Nephrology Physician,Nephrology,2014-07-01,2020-08-26,false,US
+PRV-1028-WRK-CUR,PRV-1028,Vanguard Clinical Associates,Attending Cardiology,Cardiology,2024-08-14,,true,US
+PRV-1028-WRK-PRIOR,PRV-1028,Northside Medical Associates,Cardiology Physician,Cardiology,2015-07-01,2024-08-14,false,US
+PRV-1029-WRK-CUR,PRV-1029,Coastal Medical Group,Attending Endocrinology,Endocrinology,2020-01-31,,true,US
+PRV-1029-WRK-PRIOR,PRV-1029,Riverside Clinic Network,Endocrinology Physician,Endocrinology,2016-07-01,2020-01-31,false,US
+PRV-1030-WRK-CUR,PRV-1030,Meridian Physician Network,Attending Internal Medicine,Internal Medicine,2024-06-21,,true,US
+PRV-1030-WRK-PRIOR,PRV-1030,Valley Health Partners,Internal Medicine Physician,Internal Medicine,2018-07-01,2024-06-21,false,US
+PRV-1031-WRK-CUR,PRV-1031,Vanguard Clinical Associates,Attending Internal Medicine,Internal Medicine,2025-06-03,,true,US
+PRV-1031-WRK-PRIOR,PRV-1031,Northside Medical Associates,Internal Medicine Physician,Internal Medicine,2019-07-01,2025-06-03,false,US
+PRV-1032-WRK-CUR,PRV-1032,Vanguard Clinical Associates,Attending Physical Therapy,Physical Therapy,2023-10-23,,true,US
+PRV-1032-WRK-PRIOR,PRV-1032,Riverside Clinic Network,Physical Therapy Physician,Physical Therapy,2020-07-01,2023-10-23,false,US
+PRV-1033-WRK-CUR,PRV-1033,Coastal Medical Group,Attending Family Medicine,Family Medicine,2024-03-20,,true,US
+PRV-1033-WRK-PRIOR,PRV-1033,Community Physicians Group,Family Medicine Physician,Family Medicine,2020-07-01,2024-03-20,false,US
+PRV-1034-WRK-CUR,PRV-1034,Meridian Physician Network,Attending Endocrinology,Endocrinology,2023-10-12,,true,US
+PRV-1034-WRK-PRIOR,PRV-1034,Valley Health Partners,Endocrinology Physician,Endocrinology,2023-07-01,2023-10-12,false,US
+PRV-1035-WRK-CUR,PRV-1035,Vanguard Clinical Associates,Attending Physician Assistant - Surgery,Physician Assistant - Surgery,2019-07-18,,true,US
+PRV-1035-WRK-PRIOR,PRV-1035,Northside Medical Associates,Physician Assistant - Surgery Physician,Physician Assistant - Surgery,2012-07-01,2019-07-18,false,US
+PRV-1036-WRK-CUR,PRV-1036,Harborview Multispecialty Group,Attending Neurology,Neurology,2020-10-12,,true,US
+PRV-1036-WRK-PRIOR,PRV-1036,Riverside Clinic Network,Neurology Physician,Neurology,2014-07-01,2020-10-12,false,US
+PRV-1037-WRK-CUR,PRV-1037,Harborview Multispecialty Group,Attending Orthopedic Surgery,Orthopedic Surgery,2022-06-08,,true,US
+PRV-1037-WRK-PRIOR,PRV-1037,Community Physicians Group,Orthopedic Surgery Physician,Orthopedic Surgery,2015-07-01,2022-06-08,false,US
+PRV-1038-WRK-CUR,PRV-1038,Sunrise Health Partners,Attending Physician Assistant - Surgery,Physician Assistant - Surgery,2022-06-01,,true,US
+PRV-1038-WRK-PRIOR,PRV-1038,Valley Health Partners,Physician Assistant - Surgery Physician,Physician Assistant - Surgery,2016-07-01,2022-06-01,false,US
+PRV-1039-WRK-CUR,PRV-1039,Vanguard Clinical Associates,Attending Internal Medicine,Internal Medicine,2024-08-07,,true,US
+PRV-1039-WRK-PRIOR,PRV-1039,Northside Medical Associates,Internal Medicine Physician,Internal Medicine,2016-07-01,2024-08-07,false,US
+PRV-1040-WRK-CUR,PRV-1040,Vanguard Clinical Associates,Attending Nurse Practitioner - Primary Care,Nurse Practitioner - Primary Care,2021-02-05,,true,US
+PRV-1040-WRK-PRIOR,PRV-1040,Community Physicians Group,Nurse Practitioner - Primary Care Physician,Nurse Practitioner - Primary Care,2019-07-01,2021-02-05,false,US
+PRV-1041-WRK-CUR,PRV-1041,Sunrise Health Partners,Attending Nephrology,Nephrology,2018-07-21,,true,US
+PRV-1041-WRK-PRIOR,PRV-1041,Valley Health Partners,Nephrology Physician,Nephrology,2020-07-01,2018-07-21,false,US
+PRV-1042-WRK-CUR,PRV-1042,Harborview Multispecialty Group,Attending Behavioral Health,Behavioral Health,2025-05-01,,true,US
+PRV-1042-WRK-PRIOR,PRV-1042,Northside Medical Associates,Behavioral Health Physician,Behavioral Health,2020-07-01,2025-05-01,false,US

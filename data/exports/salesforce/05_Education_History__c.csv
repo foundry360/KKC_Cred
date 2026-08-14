@@ -1,0 +1,141 @@
+External_Id__c,Provider__r.External_Id__c,Institution_Name__c,Degree_Type__c,Field_Of_Study__c,Start_Date__c,End_Date__c,Graduation_Year__c,Country__c
+PRV-1001-EDU-BS,PRV-1001,Coastal College,Bachelors,Biology,1999-08-15,2003-05-15,2003,US
+PRV-1001-EDU-FEL,PRV-1001,Memorial Teaching Hospital,Fellowship,Endocrinology,2015-07-01,2016-06-30,2016,US
+PRV-1001-EDU-MD,PRV-1001,Metropolitan Medical College,MD,Medicine,2003-08-01,2011-05-15,2011,US
+PRV-1001-EDU-RES,PRV-1001,Memorial Teaching Hospital,Residency,Endocrinology,2011-07-01,2015-06-30,2015,US
+PRV-1002-EDU-BS,PRV-1002,Midwestern University,Bachelors,Biology,2000-08-15,2004-05-15,2004,US
+PRV-1002-EDU-MD,PRV-1002,Lakeside College of Osteopathic Medicine,MD,Medicine,2004-08-01,2012-05-15,2012,US
+PRV-1002-EDU-RES,PRV-1002,Memorial Teaching Hospital,Residency,Cardiology,2012-07-01,2015-06-30,2015,US
+PRV-1003-EDU-BS,PRV-1003,Pacific Liberal Arts College,Bachelors,Biology,2001-08-15,2005-05-15,2005,US
+PRV-1003-EDU-MD,PRV-1003,Lakeside College of Osteopathic Medicine,DO,Medicine,2005-08-01,2013-05-15,2013,US
+PRV-1003-EDU-RES,PRV-1003,Memorial Teaching Hospital,Residency,Endocrinology,2013-07-01,2017-06-30,2017,US
+PRV-1004-EDU-BS,PRV-1004,State University,Bachelors,Biology,2002-08-15,2006-05-15,2006,US
+PRV-1004-EDU-FEL,PRV-1004,Memorial Teaching Hospital,Fellowship,Endocrinology,2017-07-01,2018-06-30,2018,US
+PRV-1004-EDU-MD,PRV-1004,University School of Medicine,MD,Medicine,2006-08-01,2014-05-15,2014,US
+PRV-1004-EDU-RES,PRV-1004,Memorial Teaching Hospital,Residency,Endocrinology,2014-07-01,2017-06-30,2017,US
+PRV-1005-EDU-BS,PRV-1005,Coastal College,Bachelors,Biology,2003-08-15,2007-05-15,2007,US
+PRV-1005-EDU-MD,PRV-1005,Metropolitan Medical College,MD,Medicine,2007-08-01,2015-05-15,2015,US
+PRV-1005-EDU-RES,PRV-1005,Memorial Teaching Hospital,Residency,Radiology,2015-07-01,2019-06-30,2019,US
+PRV-1006-EDU-BS,PRV-1006,Midwestern University,Bachelors,Biology,2004-08-15,2008-05-15,2008,US
+PRV-1006-EDU-MD,PRV-1006,Lakeside College of Osteopathic Medicine,MD,Medicine,2008-08-01,2016-05-15,2016,US
+PRV-1006-EDU-RES,PRV-1006,Memorial Teaching Hospital,Residency,Nurse Practitioner - Primary Care,2016-07-01,2019-06-30,2019,US
+PRV-1007-EDU-BS,PRV-1007,Pacific Liberal Arts College,Bachelors,Biology,2005-08-15,2009-05-15,2009,US
+PRV-1007-EDU-FEL,PRV-1007,Memorial Teaching Hospital,Fellowship,Oncology,2021-07-01,2022-06-30,2022,US
+PRV-1007-EDU-MD,PRV-1007,Harborview Medical School,MD,Medicine,2009-08-01,2017-05-15,2017,US
+PRV-1007-EDU-RES,PRV-1007,Memorial Teaching Hospital,Residency,Oncology,2017-07-01,2021-06-30,2021,US
+PRV-1008-EDU-BS,PRV-1008,State University,Bachelors,Biology,1996-08-15,2000-05-15,2000,US
+PRV-1008-EDU-MD,PRV-1008,Lakeside College of Osteopathic Medicine,DO,Medicine,2000-08-01,2008-05-15,2008,US
+PRV-1008-EDU-RES,PRV-1008,City General Hospital,Residency,Cardiology,2008-07-01,2011-06-30,2011,US
+PRV-1009-EDU-BS,PRV-1009,Coastal College,Bachelors,Biology,1997-08-15,2001-05-15,2001,US
+PRV-1009-EDU-MD,PRV-1009,Metropolitan Medical College,MD,Medicine,2001-08-01,2009-05-15,2009,US
+PRV-1009-EDU-RES,PRV-1009,City General Hospital,Residency,Psychiatry,2009-07-01,2013-06-30,2013,US
+PRV-1010-EDU-BS,PRV-1010,Pacific Liberal Arts College,Bachelors,Biology,1999-08-15,2003-05-15,2003,US
+PRV-1010-EDU-FEL,PRV-1010,City General Hospital,Fellowship,Psychiatry,2015-07-01,2016-06-30,2016,US
+PRV-1010-EDU-MD,PRV-1010,Harborview Medical School,MD,Medicine,2003-08-01,2011-05-15,2011,US
+PRV-1010-EDU-RES,PRV-1010,University Health System,Residency,Psychiatry,2011-07-01,2015-06-30,2015,US
+PRV-1011-EDU-BS,PRV-1011,State University,Bachelors,Biology,2000-08-15,2004-05-15,2004,US
+PRV-1011-EDU-MD,PRV-1011,University School of Medicine,MD,Medicine,2004-08-01,2012-05-15,2012,US
+PRV-1011-EDU-RES,PRV-1011,Memorial Teaching Hospital,Residency,Cardiology,2012-07-01,2015-06-30,2015,US
+PRV-1012-EDU-BS,PRV-1012,Coastal College,Bachelors,Biology,2001-08-15,2005-05-15,2005,US
+PRV-1012-EDU-MD,PRV-1012,Lakeside College of Osteopathic Medicine,DO,Medicine,2005-08-01,2013-05-15,2013,US
+PRV-1012-EDU-RES,PRV-1012,Memorial Teaching Hospital,Residency,Neurology,2013-07-01,2017-06-30,2017,US
+PRV-1013-EDU-BS,PRV-1013,Midwestern University,Bachelors,Biology,2002-08-15,2006-05-15,2006,US
+PRV-1013-EDU-FEL,PRV-1013,City General Hospital,Fellowship,Physical Therapy,2017-07-01,2018-06-30,2018,US
+PRV-1013-EDU-MD,PRV-1013,Lakeside College of Osteopathic Medicine,MD,Medicine,2006-08-01,2014-05-15,2014,US
+PRV-1013-EDU-RES,PRV-1013,Memorial Teaching Hospital,Residency,Physical Therapy,2014-07-01,2017-06-30,2017,US
+PRV-1014-EDU-BS,PRV-1014,Pacific Liberal Arts College,Bachelors,Biology,2003-08-15,2007-05-15,2007,US
+PRV-1014-EDU-MD,PRV-1014,Harborview Medical School,MD,Medicine,2007-08-01,2015-05-15,2015,US
+PRV-1014-EDU-RES,PRV-1014,Memorial Teaching Hospital,Residency,Behavioral Health,2015-07-01,2019-06-30,2019,US
+PRV-1015-EDU-BS,PRV-1015,State University,Bachelors,Biology,2004-08-15,2008-05-15,2008,US
+PRV-1015-EDU-MD,PRV-1015,University School of Medicine,MD,Medicine,2008-08-01,2016-05-15,2016,US
+PRV-1015-EDU-RES,PRV-1015,Memorial Teaching Hospital,Residency,OB/GYN,2016-07-01,2019-06-30,2019,US
+PRV-1016-EDU-BS,PRV-1016,Coastal College,Bachelors,Biology,2005-08-15,2009-05-15,2009,US
+PRV-1016-EDU-FEL,PRV-1016,City General Hospital,Fellowship,Radiology,2021-07-01,2022-06-30,2022,US
+PRV-1016-EDU-MD,PRV-1016,Metropolitan Medical College,MD,Medicine,2009-08-01,2017-05-15,2017,US
+PRV-1016-EDU-RES,PRV-1016,Memorial Teaching Hospital,Residency,Radiology,2017-07-01,2021-06-30,2021,US
+PRV-1017-EDU-BS,PRV-1017,Midwestern University,Bachelors,Biology,1996-08-15,2000-05-15,2000,US
+PRV-1017-EDU-MD,PRV-1017,Lakeside College of Osteopathic Medicine,DO,Medicine,2000-08-01,2008-05-15,2008,US
+PRV-1017-EDU-RES,PRV-1017,Memorial Teaching Hospital,Residency,Orthopedic Surgery,2008-07-01,2011-06-30,2011,US
+PRV-1018-EDU-BS,PRV-1018,Pacific Liberal Arts College,Bachelors,Biology,1997-08-15,2001-05-15,2001,US
+PRV-1018-EDU-MD,PRV-1018,Harborview Medical School,MD,Medicine,2001-08-01,2009-05-15,2009,US
+PRV-1018-EDU-RES,PRV-1018,Memorial Teaching Hospital,Residency,Family Medicine,2009-07-01,2013-06-30,2013,US
+PRV-1019-EDU-BS,PRV-1019,State University,Bachelors,Biology,1998-08-15,2002-05-15,2002,US
+PRV-1019-EDU-FEL,PRV-1019,Regional Medical Center,Fellowship,Neurology,2013-07-01,2014-06-30,2014,US
+PRV-1019-EDU-MD,PRV-1019,University School of Medicine,MD,Medicine,2002-08-01,2010-05-15,2010,US
+PRV-1019-EDU-RES,PRV-1019,City General Hospital,Residency,Neurology,2010-07-01,2013-06-30,2013,US
+PRV-1020-EDU-BS,PRV-1020,Midwestern University,Bachelors,Biology,2000-08-15,2004-05-15,2004,US
+PRV-1020-EDU-MD,PRV-1020,Lakeside College of Osteopathic Medicine,MD,Medicine,2004-08-01,2012-05-15,2012,US
+PRV-1020-EDU-RES,PRV-1020,University Health System,Residency,Psychiatry,2012-07-01,2015-06-30,2015,US
+PRV-1021-EDU-BS,PRV-1021,Pacific Liberal Arts College,Bachelors,Biology,2001-08-15,2005-05-15,2005,US
+PRV-1021-EDU-MD,PRV-1021,Lakeside College of Osteopathic Medicine,DO,Medicine,2005-08-01,2013-05-15,2013,US
+PRV-1021-EDU-RES,PRV-1021,University Health System,Residency,Pediatrics,2013-07-01,2017-06-30,2017,US
+PRV-1022-EDU-BS,PRV-1022,State University,Bachelors,Biology,2002-08-15,2006-05-15,2006,US
+PRV-1022-EDU-FEL,PRV-1022,Regional Medical Center,Fellowship,OB/GYN,2017-07-01,2018-06-30,2018,US
+PRV-1022-EDU-MD,PRV-1022,University School of Medicine,MD,Medicine,2006-08-01,2014-05-15,2014,US
+PRV-1022-EDU-RES,PRV-1022,Memorial Teaching Hospital,Residency,OB/GYN,2014-07-01,2017-06-30,2017,US
+PRV-1023-EDU-BS,PRV-1023,Coastal College,Bachelors,Biology,2003-08-15,2007-05-15,2007,US
+PRV-1023-EDU-MD,PRV-1023,Metropolitan Medical College,MD,Medicine,2007-08-01,2015-05-15,2015,US
+PRV-1023-EDU-RES,PRV-1023,Memorial Teaching Hospital,Residency,Nurse Practitioner - Primary Care,2015-07-01,2019-06-30,2019,US
+PRV-1024-EDU-BS,PRV-1024,Midwestern University,Bachelors,Biology,2004-08-15,2008-05-15,2008,US
+PRV-1024-EDU-MD,PRV-1024,Lakeside College of Osteopathic Medicine,MD,Medicine,2008-08-01,2016-05-15,2016,US
+PRV-1024-EDU-RES,PRV-1024,Memorial Teaching Hospital,Residency,Dermatology,2016-07-01,2019-06-30,2019,US
+PRV-1025-EDU-BS,PRV-1025,Pacific Liberal Arts College,Bachelors,Biology,2005-08-15,2009-05-15,2009,US
+PRV-1025-EDU-FEL,PRV-1025,Regional Medical Center,Fellowship,Physical Therapy,2021-07-01,2022-06-30,2022,US
+PRV-1025-EDU-MD,PRV-1025,Harborview Medical School,MD,Medicine,2009-08-01,2017-05-15,2017,US
+PRV-1025-EDU-RES,PRV-1025,Memorial Teaching Hospital,Residency,Physical Therapy,2017-07-01,2021-06-30,2021,US
+PRV-1026-EDU-BS,PRV-1026,State University,Bachelors,Biology,1996-08-15,2000-05-15,2000,US
+PRV-1026-EDU-MD,PRV-1026,Lakeside College of Osteopathic Medicine,DO,Medicine,2000-08-01,2008-05-15,2008,US
+PRV-1026-EDU-RES,PRV-1026,Memorial Teaching Hospital,Residency,Pediatrics,2008-07-01,2011-06-30,2011,US
+PRV-1027-EDU-BS,PRV-1027,Coastal College,Bachelors,Biology,1997-08-15,2001-05-15,2001,US
+PRV-1027-EDU-MD,PRV-1027,Metropolitan Medical College,MD,Medicine,2001-08-01,2009-05-15,2009,US
+PRV-1027-EDU-RES,PRV-1027,Memorial Teaching Hospital,Residency,Nephrology,2009-07-01,2013-06-30,2013,US
+PRV-1028-EDU-BS,PRV-1028,Midwestern University,Bachelors,Biology,1998-08-15,2002-05-15,2002,US
+PRV-1028-EDU-FEL,PRV-1028,Regional Medical Center,Fellowship,Cardiology,2013-07-01,2014-06-30,2014,US
+PRV-1028-EDU-MD,PRV-1028,Lakeside College of Osteopathic Medicine,MD,Medicine,2002-08-01,2010-05-15,2010,US
+PRV-1028-EDU-RES,PRV-1028,Memorial Teaching Hospital,Residency,Cardiology,2010-07-01,2013-06-30,2013,US
+PRV-1029-EDU-BS,PRV-1029,Pacific Liberal Arts College,Bachelors,Biology,1999-08-15,2003-05-15,2003,US
+PRV-1029-EDU-MD,PRV-1029,Harborview Medical School,MD,Medicine,2003-08-01,2011-05-15,2011,US
+PRV-1029-EDU-RES,PRV-1029,Memorial Teaching Hospital,Residency,Endocrinology,2011-07-01,2015-06-30,2015,US
+PRV-1030-EDU-BS,PRV-1030,Coastal College,Bachelors,Biology,2001-08-15,2005-05-15,2005,US
+PRV-1030-EDU-MD,PRV-1030,Lakeside College of Osteopathic Medicine,DO,Medicine,2005-08-01,2013-05-15,2013,US
+PRV-1030-EDU-RES,PRV-1030,University Health System,Residency,Internal Medicine,2013-07-01,2017-06-30,2017,US
+PRV-1031-EDU-BS,PRV-1031,Midwestern University,Bachelors,Biology,2002-08-15,2006-05-15,2006,US
+PRV-1031-EDU-FEL,PRV-1031,University Health System,Fellowship,Internal Medicine,2017-07-01,2018-06-30,2018,US
+PRV-1031-EDU-MD,PRV-1031,Lakeside College of Osteopathic Medicine,MD,Medicine,2006-08-01,2014-05-15,2014,US
+PRV-1031-EDU-RES,PRV-1031,University Health System,Residency,Internal Medicine,2014-07-01,2017-06-30,2017,US
+PRV-1032-EDU-BS,PRV-1032,Pacific Liberal Arts College,Bachelors,Biology,2003-08-15,2007-05-15,2007,US
+PRV-1032-EDU-MD,PRV-1032,Harborview Medical School,MD,Medicine,2007-08-01,2015-05-15,2015,US
+PRV-1032-EDU-RES,PRV-1032,University Health System,Residency,Physical Therapy,2015-07-01,2019-06-30,2019,US
+PRV-1033-EDU-BS,PRV-1033,State University,Bachelors,Biology,2004-08-15,2008-05-15,2008,US
+PRV-1033-EDU-MD,PRV-1033,University School of Medicine,MD,Medicine,2008-08-01,2016-05-15,2016,US
+PRV-1033-EDU-RES,PRV-1033,Memorial Teaching Hospital,Residency,Family Medicine,2016-07-01,2019-06-30,2019,US
+PRV-1034-EDU-BS,PRV-1034,Coastal College,Bachelors,Biology,2005-08-15,2009-05-15,2009,US
+PRV-1034-EDU-FEL,PRV-1034,University Health System,Fellowship,Endocrinology,2021-07-01,2022-06-30,2022,US
+PRV-1034-EDU-MD,PRV-1034,Metropolitan Medical College,MD,Medicine,2009-08-01,2017-05-15,2017,US
+PRV-1034-EDU-RES,PRV-1034,Memorial Teaching Hospital,Residency,Endocrinology,2017-07-01,2021-06-30,2021,US
+PRV-1035-EDU-BS,PRV-1035,Midwestern University,Bachelors,Biology,1996-08-15,2000-05-15,2000,US
+PRV-1035-EDU-MD,PRV-1035,Lakeside College of Osteopathic Medicine,DO,Medicine,2000-08-01,2008-05-15,2008,US
+PRV-1035-EDU-RES,PRV-1035,Memorial Teaching Hospital,Residency,Physician Assistant - Surgery,2008-07-01,2011-06-30,2011,US
+PRV-1036-EDU-BS,PRV-1036,Pacific Liberal Arts College,Bachelors,Biology,1997-08-15,2001-05-15,2001,US
+PRV-1036-EDU-MD,PRV-1036,Harborview Medical School,MD,Medicine,2001-08-01,2009-05-15,2009,US
+PRV-1036-EDU-RES,PRV-1036,Memorial Teaching Hospital,Residency,Neurology,2009-07-01,2013-06-30,2013,US
+PRV-1037-EDU-BS,PRV-1037,State University,Bachelors,Biology,1998-08-15,2002-05-15,2002,US
+PRV-1037-EDU-FEL,PRV-1037,University Health System,Fellowship,Orthopedic Surgery,2013-07-01,2014-06-30,2014,US
+PRV-1037-EDU-MD,PRV-1037,University School of Medicine,MD,Medicine,2002-08-01,2010-05-15,2010,US
+PRV-1037-EDU-RES,PRV-1037,Memorial Teaching Hospital,Residency,Orthopedic Surgery,2010-07-01,2013-06-30,2013,US
+PRV-1038-EDU-BS,PRV-1038,Coastal College,Bachelors,Biology,1999-08-15,2003-05-15,2003,US
+PRV-1038-EDU-MD,PRV-1038,Metropolitan Medical College,MD,Medicine,2003-08-01,2011-05-15,2011,US
+PRV-1038-EDU-RES,PRV-1038,Memorial Teaching Hospital,Residency,Physician Assistant - Surgery,2011-07-01,2015-06-30,2015,US
+PRV-1039-EDU-BS,PRV-1039,Midwestern University,Bachelors,Biology,2000-08-15,2004-05-15,2004,US
+PRV-1039-EDU-MD,PRV-1039,Lakeside College of Osteopathic Medicine,MD,Medicine,2004-08-01,2012-05-15,2012,US
+PRV-1039-EDU-RES,PRV-1039,Memorial Teaching Hospital,Residency,Internal Medicine,2012-07-01,2015-06-30,2015,US
+PRV-1040-EDU-BS,PRV-1040,State University,Bachelors,Biology,2002-08-15,2006-05-15,2006,US
+PRV-1040-EDU-FEL,PRV-1040,Memorial Teaching Hospital,Fellowship,Nurse Practitioner - Primary Care,2017-07-01,2018-06-30,2018,US
+PRV-1040-EDU-MD,PRV-1040,University School of Medicine,MD,Medicine,2006-08-01,2014-05-15,2014,US
+PRV-1040-EDU-RES,PRV-1040,University Health System,Residency,Nurse Practitioner - Primary Care,2014-07-01,2017-06-30,2017,US
+PRV-1041-EDU-BS,PRV-1041,Coastal College,Bachelors,Biology,2003-08-15,2007-05-15,2007,US
+PRV-1041-EDU-MD,PRV-1041,Metropolitan Medical College,MD,Medicine,2007-08-01,2015-05-15,2015,US
+PRV-1041-EDU-RES,PRV-1041,University Health System,Residency,Nephrology,2015-07-01,2019-06-30,2019,US
+PRV-1042-EDU-BS,PRV-1042,Midwestern University,Bachelors,Biology,2004-08-15,2008-05-15,2008,US
+PRV-1042-EDU-MD,PRV-1042,Lakeside College of Osteopathic Medicine,MD,Medicine,2008-08-01,2016-05-15,2016,US
+PRV-1042-EDU-RES,PRV-1042,University Health System,Residency,Behavioral Health,2016-07-01,2019-06-30,2019,US

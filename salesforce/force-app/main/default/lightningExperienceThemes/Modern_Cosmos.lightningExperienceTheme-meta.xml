@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningExperienceTheme xmlns="http://soap.sforce.com/2006/04/metadata">
+    <defaultBrandingSet>Modern_Cosmos_Branding</defaultBrandingSet>
+    <description>Restores modern SLDS 2 styling (rounded cards, pill buttons) from before logo change</description>
+    <designSystemVersion>SLDS_v2</designSystemVersion>
+    <isDarkModeEnabled>false</isDarkModeEnabled>
+    <masterLabel>Modern Cosmos</masterLabel>
+    <shouldOverrideLoadingImage>false</shouldOverrideLoadingImage>
+</LightningExperienceTheme>

@@ -1,11 +1,17 @@
 import { createClient } from "@/lib/supabase/server";
 import {
+  mapAddress,
   mapCredential,
+  mapEducation,
   mapProvider,
   mapSanctions,
+  mapWorkHistory,
+  type AddressRow,
   type CredentialRow,
+  type EducationRow,
   type ProviderRow,
   type SanctionsRow,
+  type WorkHistoryRow,
 } from "@/lib/mappers";
 import type { SubjectType } from "@/types";
 
@@ -57,6 +63,40 @@ export async function listSanctionsForProvider(providerId: string) {
     .order("checked_at", { ascending: false });
   if (error) throw new Error(error.message);
   return (data as SanctionsRow[]).map(mapSanctions);
+}
+
+export async function listEducationForProvider(providerId: string) {
+  const sb = await createClient();
+  const { data, error } = await sb
+    .from("education_history")
+    .select("*")
+    .eq("provider_id", providerId)
+    .order("end_date", { ascending: false, nullsFirst: false });
+  if (error) throw new Error(error.message);
+  return (data as EducationRow[]).map(mapEducation);
+}
+
+export async function listWorkHistoryForProvider(providerId: string) {
+  const sb = await createClient();
+  const { data, error } = await sb
+    .from("work_history")
+    .select("*")
+    .eq("provider_id", providerId)
+    .order("is_current", { ascending: false })
+    .order("end_date", { ascending: false, nullsFirst: false });
+  if (error) throw new Error(error.message);
+  return (data as WorkHistoryRow[]).map(mapWorkHistory);
+}
+
+export async function listAddressesForProvider(providerId: string) {
+  const sb = await createClient();
+  const { data, error } = await sb
+    .from("provider_addresses")
+    .select("*")
+    .eq("provider_id", providerId)
+    .order("address_type", { ascending: true });
+  if (error) throw new Error(error.message);
+  return (data as AddressRow[]).map(mapAddress);
 }
 
 export async function getProviderCounts() {

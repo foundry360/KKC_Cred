@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Bridge_URL__c</fullName>
+    <description>Optional Next.js bridge base URL, e.g. https://xxxx.ngrok.app</description>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Bridge URL</label>
+    <required>false</required>
+    <type>Url</type>
+</CustomField>

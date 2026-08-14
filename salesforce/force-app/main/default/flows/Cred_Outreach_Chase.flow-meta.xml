@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>67.0</apiVersion>
-    <description>On Incomplete: Spec Task day 0; chase Tasks day 1 and day 3; attempt 3 reassigns to Cred TL Queue.</description>
+    <description>On Intake: Spec Task day 0; chase Tasks day 1 and day 3; attempt 3 reassigns to Cred TL Queue.</description>
     <formulas>
         <name>fx_Task_Subject_1</name>
         <dataType>String</dataType>
@@ -356,7 +356,7 @@
             <field>Status__c</field>
             <operator>EqualTo</operator>
             <value>
-                <stringValue>Incomplete</stringValue>
+                <stringValue>Intake</stringValue>
             </value>
         </filters>
         <object>Credentialing_Application__c</object>

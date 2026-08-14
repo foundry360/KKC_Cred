@@ -64,8 +64,8 @@ Or in the org: App Launcher → **Credentialing POC**.
 | Flow | Type | Behavior |
 | --- | --- | --- |
 | `Cred_Intake` | Screen | New/Recred + Path → Application + checklist (from Provider **New Application** button) |
-| `Cred_Checklist_Gate` | Before-save | Blocks In Review if required checklist incomplete → forces **Incomplete** |
-| `Cred_Outreach_Chase` | After-save + schedule | Incomplete → Spec Task (day 0); day 1 & day 3 chase; attempt 3 → **Cred TL Queue** |
+| `Cred_Checklist_Gate` | Before-save | Blocks In Review if required checklist incomplete → forces **Intake** |
+| `Cred_Outreach_Chase` | After-save + schedule | Intake → Spec Task (day 0); day 1 & day 3 chase; attempt 3 → **Cred TL Queue** |
 | `Cred_Recred_Nightly` | Daily schedule | Recred Due ≤ 120 days + no open Recred → create Draft Recred Application |
 
 
