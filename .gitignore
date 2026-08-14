@@ -49,3 +49,7 @@ salesforce/.sfdx/
 
 # Do not commit Claude API keys in CMDT records
 salesforce/force-app/main/default/customMetadata/Cred_Assist_Config.Default.md-meta.xml
+
+.env
+.env.local
+.env.*.local
