@@ -10,23 +10,26 @@ const COLUMNS = [
         label: 'Application',
         fieldName: 'recordUrl',
         type: 'url',
+        sortable: true,
         typeAttributes: { label: { fieldName: 'name' } }
     },
     {
         label: 'Provider',
         fieldName: 'providerUrl',
         type: 'url',
+        sortable: true,
         typeAttributes: { label: { fieldName: 'providerName' } }
     },
-    { label: 'Type', fieldName: 'applicationType', type: 'text' },
-    { label: 'Path', fieldName: 'pathValue', type: 'text' },
-    { label: 'Subject', fieldName: 'subjectType', type: 'text' },
-    { label: 'Status', fieldName: 'status', type: 'text' },
-    { label: 'Attempts', fieldName: 'attemptCount', type: 'number' },
+    { label: 'Type', fieldName: 'applicationType', type: 'text', sortable: true },
+    { label: 'Path', fieldName: 'pathValue', type: 'text', sortable: true },
+    { label: 'Subject', fieldName: 'subjectType', type: 'text', sortable: true },
+    { label: 'Status', fieldName: 'status', type: 'text', sortable: true },
+    { label: 'Attempts', fieldName: 'attemptCount', type: 'number', sortable: true },
     {
         label: 'Due',
         fieldName: 'dueDate',
         type: 'date-local',
+        sortable: true,
         typeAttributes: { month: '2-digit', day: '2-digit', year: 'numeric' }
     }
 ];
@@ -39,12 +42,52 @@ const STATUS_FILTERS = [
     { key: 'Pending_Committee', label: 'Pending Committee' }
 ];
 
+/** Map datatable sort field to the value used for comparison. */
+const SORT_VALUE_FIELD = {
+    recordUrl: 'name',
+    providerUrl: 'providerName'
+};
+
+function sortRows(rows, fieldName, direction) {
+    const list = Array.isArray(rows) ? [...rows] : [];
+    if (!fieldName) return list;
+    const valueField = SORT_VALUE_FIELD[fieldName] || fieldName;
+    const reverse = direction === 'desc' ? -1 : 1;
+    list.sort((a, b) => {
+        const av = a?.[valueField];
+        const bv = b?.[valueField];
+        if (av == null && bv == null) return 0;
+        if (av == null) return 1;
+        if (bv == null) return -1;
+        if (typeof av === 'number' && typeof bv === 'number') {
+            return (av - bv) * reverse;
+        }
+        // Dates come as ISO strings from Apex
+        if (valueField === 'dueDate') {
+            const at = Date.parse(av);
+            const bt = Date.parse(bv);
+            if (!Number.isNaN(at) && !Number.isNaN(bt)) {
+                return (at - bt) * reverse;
+            }
+        }
+        return (
+            String(av).localeCompare(String(bv), undefined, {
+                numeric: true,
+                sensitivity: 'base'
+            }) * reverse
+        );
+    });
+    return list;
+}
+
 export default class CredApplicationList extends NavigationMixin(LightningElement) {
     @track statusFilter = 'All';
     @track searchTerm = '';
     @track draftSearch = '';
     columns = COLUMNS;
     themeStyleLoaded = false;
+    sortedBy = 'name';
+    sortedDirection = 'asc';
 
     @wire(listAllApplications, { statusFilter: '$statusFilter', searchTerm: '$searchTerm' })
     wiredApps;
@@ -64,11 +107,12 @@ export default class CredApplicationList extends NavigationMixin(LightningElemen
 
     get applications() {
         const data = this.wiredApps?.data || [];
-        return data.map((row) => ({
+        const mapped = data.map((row) => ({
             ...row,
             recordUrl: '/' + row.id,
             providerUrl: row.providerId ? '/' + row.providerId : null
         }));
+        return sortRows(mapped, this.sortedBy, this.sortedDirection);
     }
 
     get recordCountLabel() {
@@ -111,5 +155,10 @@ export default class CredApplicationList extends NavigationMixin(LightningElemen
 
     handleSearch() {
         this.searchTerm = this.draftSearch || '';
+    }
+
+    handleSort(event) {
+        this.sortedBy = event.detail.fieldName;
+        this.sortedDirection = event.detail.sortDirection;
     }
 }

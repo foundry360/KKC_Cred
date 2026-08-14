@@ -66,6 +66,9 @@ export type PortalIntakeInput = {
     preferredLanguages?: string;
     caqhId?: string;
     practiceState?: string;
+    federalTaxId?: string;
+    medicaidNumber?: string;
+    medicareNumber?: string;
   };
   addresses?: PortalAddressInput[];
   education?: PortalEducationInput[];
@@ -108,6 +111,9 @@ function providerPatch(input: PortalIntakeInput) {
     preferred_languages: blank(p.preferredLanguages),
     caqh_id: blank(p.caqhId),
     practice_state: blank(p.practiceState),
+    federal_tax_id: blank(p.federalTaxId),
+    medicaid_number: blank(p.medicaidNumber),
+    medicare_number: blank(p.medicareNumber),
   };
 }
 
@@ -461,6 +467,9 @@ export async function createPortalApplication(input: PortalIntakeInput) {
       preferredLanguages: input.provider.preferredLanguages,
       caqhId: input.provider.caqhId,
       practiceState: input.provider.practiceState,
+      federalTaxId: input.provider.federalTaxId,
+      medicaidNumber: input.provider.medicaidNumber,
+      medicareNumber: input.provider.medicareNumber,
     },
     application: {
       externalId: app.external_id,

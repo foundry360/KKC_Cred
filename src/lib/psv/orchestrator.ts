@@ -51,10 +51,8 @@ export async function ensureRequirements(applicationId: string) {
 
   const { data: existing } = await supabase
     .from("credential_requirements")
-    .select("id")
+    .select("*")
     .eq("application_id", applicationId);
-
-  if (existing && existing.length > 0) return existing;
 
   const { data: docs } = await supabase
     .from("documents")
@@ -62,9 +60,10 @@ export async function ensureRequirements(applicationId: string) {
     .eq("application_id", applicationId);
 
   const hasDea = (docs ?? []).some(
-    (d: { document_type?: string | null; file_name?: string | null }) =>
-      (d.document_type ?? "").toLowerCase().includes("dea") ||
-      (d.file_name ?? "").toLowerCase().includes("dea"),
+    (d: { document_type?: string | null; file_name?: string | null }) => {
+      const blob = `${d.document_type ?? ""} ${d.file_name ?? ""}`.toLowerCase();
+      return blob.includes("dea") || blob.includes("cds");
+    },
   );
 
   const provider = Array.isArray(app.providers) ? app.providers[0] : app.providers;
@@ -77,34 +76,77 @@ export async function ensureRequirements(applicationId: string) {
     hasDeaDocument: hasDea,
   });
 
-  const rows = templates.map((t) => ({
-    external_id: extId("REQ"),
-    application_id: applicationId,
-    requirement_type: t.requirementType,
-    label: t.label,
-    required: t.required,
-    status: "required" as const,
-    verification_method: t.verificationMethod,
-    psv_provider: t.psvProvider,
-    sort_order: t.sortOrder,
-  }));
+  if (!existing || existing.length === 0) {
+    const rows = templates.map((t) => ({
+      external_id: extId("REQ"),
+      application_id: applicationId,
+      requirement_type: t.requirementType,
+      label: t.label,
+      required: t.required,
+      status: "required" as const,
+      verification_method: t.verificationMethod,
+      psv_provider: t.psvProvider,
+      sort_order: t.sortOrder,
+    }));
 
-  const { data, error: insertError } = await supabase
+    const { data, error: insertError } = await supabase
+      .from("credential_requirements")
+      .insert(rows)
+      .select("*");
+
+    if (insertError) throw new Error(insertError.message);
+
+    await supabase.from("audit_events").insert({
+      external_id: extId("AUD"),
+      application_id: applicationId,
+      event_type: "requirements_generated",
+      actor: "system",
+      detail: { count: rows.length },
+    });
+
+    return data ?? [];
+  }
+
+  // Refresh metadata for known types + insert any newly added requirement types
+  const existingTypes = new Set(
+    existing.map((e: { requirement_type: string }) => e.requirement_type),
+  );
+
+  for (const t of templates) {
+    if (existingTypes.has(t.requirementType)) {
+      await supabase
+        .from("credential_requirements")
+        .update({
+          label: t.label,
+          required: t.required,
+          verification_method: t.verificationMethod,
+          psv_provider: t.psvProvider,
+          sort_order: t.sortOrder,
+        })
+        .eq("application_id", applicationId)
+        .eq("requirement_type", t.requirementType);
+    } else {
+      await supabase.from("credential_requirements").insert({
+        external_id: extId("REQ"),
+        application_id: applicationId,
+        requirement_type: t.requirementType,
+        label: t.label,
+        required: t.required,
+        status: "required",
+        verification_method: t.verificationMethod,
+        psv_provider: t.psvProvider,
+        sort_order: t.sortOrder,
+      });
+    }
+  }
+
+  const { data: refreshed } = await supabase
     .from("credential_requirements")
-    .insert(rows)
-    .select("*");
+    .select("*")
+    .eq("application_id", applicationId)
+    .order("sort_order");
 
-  if (insertError) throw new Error(insertError.message);
-
-  await supabase.from("audit_events").insert({
-    external_id: extId("AUD"),
-    application_id: applicationId,
-    event_type: "requirements_generated",
-    actor: "system",
-    detail: { count: rows.length },
-  });
-
-  return data ?? [];
+  return refreshed ?? existing;
 }
 
 export async function extractDocumentsForApplication(applicationId: string) {

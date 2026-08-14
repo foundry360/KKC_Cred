@@ -153,6 +153,9 @@ export async function syncPortalApplicationViaHttp(
       Preferred_Languages__c: input.provider.preferredLanguages || null,
       CAQH_ID__c: input.provider.caqhId || null,
       Practice_State__c: mapState(input.provider.practiceState),
+      Federal_Tax_ID__c: input.provider.federalTaxId || null,
+      Medicaid_Number__c: input.provider.medicaidNumber || null,
+      Medicare_Number__c: input.provider.medicareNumber || null,
       Credentialing_Status__c: "Pending",
     });
 

@@ -44,6 +44,29 @@ function softNameEqual(a?: string | null, b?: string | null): boolean {
   return false;
 }
 
+const FIELD_LABELS: Record<string, string> = {
+  npi: "NPI",
+  dea: "DEA",
+  oig: "OIG",
+  first_name: "First name",
+  last_name: "Last name",
+  middle_name: "Middle name",
+  provider_name: "Provider name",
+  license_number: "License number",
+  license_state: "License state",
+  board_certification: "Board certification",
+  specialty: "Specialty",
+  profession: "Profession",
+};
+
+function fieldLabel(field: string): string {
+  if (FIELD_LABELS[field]) return FIELD_LABELS[field];
+  return field
+    .replace(/_/g, " ")
+    .replace(/\b(npi|dea|oig|cv|psv|caqh)\b/gi, (m) => m.toUpperCase())
+    .replace(/\b[a-z]/g, (m) => m.toUpperCase());
+}
+
 /**
  * Deterministic reconciliation across submitted, extracted, and PSV results.
  * AI must not override authoritative source data.
@@ -81,7 +104,7 @@ export function reconcileCase(input: {
         findings.push({
           type: "mismatch",
           severity: "warning",
-          description: `${u.field} mismatch on ${result.sourceName}: submitted "${u.submitted ?? "—"}" vs source "${u.source ?? "—"}".`,
+          description: `${fieldLabel(u.field)} mismatch on ${result.sourceName}: submitted "${u.submitted ?? "—"}" vs source "${u.source ?? "—"}".`,
           source: result.sourceName,
           field: u.field,
         });

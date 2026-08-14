@@ -59,6 +59,9 @@
                         key-field="id"
                         data={applications}
                         columns={columns}
+                        sorted-by={sortedBy}
+                        sorted-direction={sortedDirection}
+                        onsort={handleSort}
                         hide-checkbox-column
                     ></lightning-datatable>
                 </div>

@@ -324,11 +324,20 @@ global with sharing class CredPortalIntake {
             };
         }
         return new List<ChecklistTemplateItem>{
-            new ChecklistTemplateItem('medical_license_copy', 'Medical license copy'),
-            new ChecklistTemplateItem('dea_certificate', 'DEA certificate'),
-            new ChecklistTemplateItem('board_certification', 'Board certification'),
-            new ChecklistTemplateItem('malpractice_coi', 'Malpractice certificate of insurance'),
-            new ChecklistTemplateItem('caqh_attestation', 'CAQH attestation')
+            new ChecklistTemplateItem('npi_copy', 'Copy of National Provider Identifier (NPI)'),
+            new ChecklistTemplateItem('state_license_copy', 'Copy of State Practitioner License'),
+            new ChecklistTemplateItem('personal_information', 'Personal Information such as Phone number, Email address, Home address, etc.'),
+            new ChecklistTemplateItem('federal_tax_id', 'Federal Tax ID number'),
+            new ChecklistTemplateItem('medicaid_number', 'Medicaid Number'),
+            new ChecklistTemplateItem('medicare_number', 'Medicare Number'),
+            new ChecklistTemplateItem('dea_cds_certificates', 'Copy of DEA (federal) certificate and CDS (state) certificate'),
+            new ChecklistTemplateItem('social_security_card', 'Copy of Social Security Card'),
+            new ChecklistTemplateItem('medical_degrees_training', 'Copy of all Medical Degrees, Internships, Training Certificates, etc.'),
+            new ChecklistTemplateItem('work_background', 'Work Background with the names of the Healthcare Practices and Affiliated Letters'),
+            new ChecklistTemplateItem('board_certificate', 'Copy of Current Board Certificate'),
+            new ChecklistTemplateItem('malpractice_insurance', 'Copy of Malpractice Insurance Certificate'),
+            new ChecklistTemplateItem('curriculum_vitae', 'Curriculum Vitae'),
+            new ChecklistTemplateItem('drivers_license', 'Copy of Drivers License')
         };
     }
 

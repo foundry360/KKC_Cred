@@ -28,6 +28,8 @@ export type RequirementType =
   | "npi_verification"
   | "state_license_verification"
   | "oig_exclusion"
+  | "sam_exclusion"
+  | "medicare_enrollment"
   | "board_certification"
   | "dea_verification"
   | "malpractice_documentation"

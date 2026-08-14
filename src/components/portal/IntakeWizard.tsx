@@ -147,6 +147,9 @@ export function IntakeWizard() {
   const [preferredLanguages, setPreferredLanguages] = useState("");
   const [caqhId, setCaqhId] = useState("");
   const [practiceState, setPracticeState] = useState("");
+  const [federalTaxId, setFederalTaxId] = useState("");
+  const [medicaidNumber, setMedicaidNumber] = useState("");
+  const [medicareNumber, setMedicareNumber] = useState("");
   const [addresses, setAddresses] = useState<AddressRow[]>([emptyAddress("work")]);
   const [education, setEducation] = useState<EducationRow[]>([emptyEducation()]);
   const [workHistory, setWorkHistory] = useState<WorkRow[]>([emptyWork()]);
@@ -307,6 +310,9 @@ export function IntakeWizard() {
               preferredLanguages: preferredLanguages.trim() || undefined,
               caqhId: caqhId.trim() || undefined,
               practiceState: practiceState.trim() || undefined,
+              federalTaxId: federalTaxId.trim() || undefined,
+              medicaidNumber: medicaidNumber.trim() || undefined,
+              medicareNumber: medicareNumber.trim() || undefined,
             },
             addresses: addresses
               .filter((a) => a.line1.trim() && a.city.trim())
@@ -640,6 +646,21 @@ export function IntakeWizard() {
                     onChange={(v) => setSsnLast4(v.replace(/\D/g, "").slice(0, 4))}
                   />
                   <Field label="CAQH ID" value={caqhId} onChange={setCaqhId} />
+                  <Field
+                    label="Federal Tax ID"
+                    value={federalTaxId}
+                    onChange={setFederalTaxId}
+                  />
+                  <Field
+                    label="Medicaid number"
+                    value={medicaidNumber}
+                    onChange={setMedicaidNumber}
+                  />
+                  <Field
+                    label="Medicare number"
+                    value={medicareNumber}
+                    onChange={setMedicareNumber}
+                  />
                   <Field
                     label="Birth country"
                     value={birthCountry}
@@ -1060,16 +1081,17 @@ export function IntakeWizard() {
 
         {currentKey === "Checklist" && (
           <div className="space-y-4">
-            <h2 className="text-lg font-semibold">Document checklist</h2>
+            <h2 className="text-lg font-semibold">Credentialing checklist</h2>
             <p className="text-sm text-[var(--muted)]">
-              Mark items you can provide and optionally attach a PDF or image
-              (max 10 MB). Attachments are stored and synced to Salesforce Files
-              on the application.
+              Mark each required item. For document items, optionally attach a
+              PDF or image (max 10 MB). Attachments sync to Salesforce Files on
+              the application.
             </p>
             <ul className="space-y-2">
               {template.map((item) => {
                 const checked = checklistComplete[item.key] === true;
                 const file = checklistFiles[item.key];
+                const isDocument = item.kind === "document";
                 return (
                   <li key={item.key}>
                     <div className="rounded-lg border border-[var(--line)] px-3 py-3">
@@ -1090,35 +1112,39 @@ export function IntakeWizard() {
                             {item.label}
                           </span>
                           <span className="text-xs text-[var(--muted)]">
-                            Required · attach supporting file if available
+                            {isDocument
+                              ? "Required · attach supporting file if available"
+                              : "Required · confirm information is provided"}
                           </span>
                         </span>
                       </label>
-                      <div className="mt-3 flex flex-wrap items-center gap-2 pl-7">
-                        <input
-                          type="file"
-                          accept=".pdf,.png,.jpg,.jpeg,.webp,.doc,.docx,application/pdf,image/*"
-                          className="block w-full max-w-md text-xs text-[var(--muted)] file:mr-3 file:rounded-md file:border-0 file:bg-[var(--accent-soft)] file:px-3 file:py-1.5 file:text-xs file:font-medium file:text-[var(--accent)]"
-                          onChange={(e) => {
-                            const next = e.target.files?.[0] || null;
-                            setChecklistFiles((prev) => ({
-                              ...prev,
-                              [item.key]: next,
-                            }));
-                            if (next) {
-                              setChecklistComplete((prev) => ({
+                      {isDocument && (
+                        <div className="mt-3 flex flex-wrap items-center gap-2 pl-7">
+                          <input
+                            type="file"
+                            accept=".pdf,.png,.jpg,.jpeg,.webp,.doc,.docx,application/pdf,image/*"
+                            className="block w-full max-w-md text-xs text-[var(--muted)] file:mr-3 file:rounded-md file:border-0 file:bg-[var(--accent-soft)] file:px-3 file:py-1.5 file:text-xs file:font-medium file:text-[var(--accent)]"
+                            onChange={(e) => {
+                              const next = e.target.files?.[0] || null;
+                              setChecklistFiles((prev) => ({
                                 ...prev,
-                                [item.key]: true,
+                                [item.key]: next,
                               }));
-                            }
-                          }}
-                        />
-                        {file && (
-                          <span className="text-xs text-[var(--ink)]">
-                            {file.name}
-                          </span>
-                        )}
-                      </div>
+                              if (next) {
+                                setChecklistComplete((prev) => ({
+                                  ...prev,
+                                  [item.key]: true,
+                                }));
+                              }
+                            }}
+                          />
+                          {file && (
+                            <span className="text-xs text-[var(--ink)]">
+                              {file.name}
+                            </span>
+                          )}
+                        </div>
+                      )}
                     </div>
                   </li>
                 );

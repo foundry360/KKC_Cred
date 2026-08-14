@@ -214,11 +214,38 @@ const SYNTHETIC_FACILITIES = [
 ] as const;
 
 const PRACT_CHECKLIST = [
-  { key: "medical_license_copy", label: "Medical license copy" },
-  { key: "dea_certificate", label: "DEA certificate" },
-  { key: "board_certification", label: "Board certification" },
-  { key: "malpractice_coi", label: "Malpractice COI" },
-  { key: "caqh_attestation", label: "CAQH attestation" },
+  { key: "npi_copy", label: "Copy of National Provider Identifier (NPI)" },
+  { key: "state_license_copy", label: "Copy of State Practitioner License" },
+  {
+    key: "personal_information",
+    label:
+      "Personal Information such as Phone number, Email address, Home address, etc.",
+  },
+  { key: "federal_tax_id", label: "Federal Tax ID number" },
+  { key: "medicaid_number", label: "Medicaid Number" },
+  { key: "medicare_number", label: "Medicare Number" },
+  {
+    key: "dea_cds_certificates",
+    label: "Copy of DEA (federal) certificate and CDS (state) certificate",
+  },
+  { key: "social_security_card", label: "Copy of Social Security Card" },
+  {
+    key: "medical_degrees_training",
+    label:
+      "Copy of all Medical Degrees, Internships, Training Certificates, etc.",
+  },
+  {
+    key: "work_background",
+    label:
+      "Work Background with the names of the Healthcare Practices and Affiliated Letters",
+  },
+  { key: "board_certificate", label: "Copy of Current Board Certificate" },
+  {
+    key: "malpractice_insurance",
+    label: "Copy of Malpractice Insurance Certificate",
+  },
+  { key: "curriculum_vitae", label: "Curriculum Vitae" },
+  { key: "drivers_license", label: "Copy of Driver's License" },
 ];
 
 const FAC_CHECKLIST = [

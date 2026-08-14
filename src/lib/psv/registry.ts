@@ -3,6 +3,8 @@ import type { RequirementType } from "@/types/psv";
 import { NPIProvider } from "@/lib/psv/providers/nppes";
 import { FloridaLicenseProvider } from "@/lib/psv/providers/florida-license";
 import { OIGProvider } from "@/lib/psv/providers/oig";
+import { SAMExclusionsProvider } from "@/lib/psv/providers/sam";
+import { PECOSProvider } from "@/lib/psv/providers/pecos";
 import { BoardCertificationProvider } from "@/lib/psv/providers/board";
 import { DEAProvider } from "@/lib/psv/providers/dea";
 
@@ -10,6 +12,8 @@ const providers: PSVProvider[] = [
   new NPIProvider(),
   new FloridaLicenseProvider(),
   new OIGProvider(),
+  new SAMExclusionsProvider(),
+  new PECOSProvider(),
   new BoardCertificationProvider(),
   new DEAProvider(),
 ];
@@ -20,6 +24,8 @@ const requirementProviderMap: Partial<Record<RequirementType, string>> = {
   npi_verification: "nppes",
   state_license_verification: "florida_license",
   oig_exclusion: "oig_leie",
+  sam_exclusion: "sam_exclusions",
+  medicare_enrollment: "pecos",
   board_certification: "board_certification",
   dea_verification: "dea",
 };

@@ -4,6 +4,7 @@ import {
   getPsvDashboard,
   runPsvForApplication,
 } from "@/lib/psv/orchestrator";
+import { syncPsvResultsToSalesforce } from "@/lib/salesforce/psvSync";
 import { createServiceClient } from "@/lib/supabase/admin";
 
 export async function GET(request: Request) {
@@ -47,7 +48,8 @@ export async function POST(request: Request) {
     }
 
     const result = await runPsvForApplication(body.applicationId);
-    return NextResponse.json(result);
+    const salesforce = await syncPsvResultsToSalesforce(body.applicationId);
+    return NextResponse.json({ ...result, salesforce });
   } catch (err) {
     return NextResponse.json(
       { error: err instanceof Error ? err.message : "PSV run failed" },

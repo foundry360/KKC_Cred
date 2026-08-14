@@ -51,6 +51,15 @@ export async function POST(request: Request) {
           psv.readiness.overallStatus,
           `${psv.readiness.score}%`,
         );
+        const { syncPsvResultsToSalesforce } = await import(
+          "@/lib/salesforce/psvSync"
+        );
+        const sfPsv = await syncPsvResultsToSalesforce(data.applicationId);
+        if (!sfPsv.ok) {
+          console.error("[portal→psv→salesforce]", sfPsv.message);
+        } else {
+          console.log("[portal→psv→salesforce]", sfPsv.message);
+        }
       } catch (e) {
         console.error("[portal→psv]", e);
       }

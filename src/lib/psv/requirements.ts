@@ -78,11 +78,29 @@ export function buildRequirements(input: {
 
   rows.push({
     requirementType: "oig_exclusion",
-    label: "OIG exclusion check",
+    label: "OIG exclusion check (LEIE)",
     required: true,
-    verificationMethod: "poc",
+    verificationMethod: "live",
     psvProvider: "oig_leie",
     sortOrder: 3,
+  });
+
+  rows.push({
+    requirementType: "sam_exclusion",
+    label: "SAM.gov federal exclusions",
+    required: true,
+    verificationMethod: "live",
+    psvProvider: "sam_exclusions",
+    sortOrder: 4,
+  });
+
+  rows.push({
+    requirementType: "medicare_enrollment",
+    label: "Medicare enrollment (PECOS)",
+    required: true,
+    verificationMethod: "live",
+    psvProvider: "pecos",
+    sortOrder: 5,
   });
 
   rows.push({
@@ -91,7 +109,7 @@ export function buildRequirements(input: {
     required: isMdLike && Boolean(input.specialty),
     verificationMethod: "poc",
     psvProvider: "board_certification",
-    sortOrder: 4,
+    sortOrder: 6,
   });
 
   rows.push(
@@ -101,7 +119,7 @@ export function buildRequirements(input: {
       required: Boolean(input.hasDeaDocument),
       verificationMethod: input.hasDeaDocument ? "poc" : "none",
       psvProvider: input.hasDeaDocument ? "dea" : null,
-      sortOrder: 5,
+      sortOrder: 7,
     },
     {
       requirementType: "malpractice_documentation",
@@ -109,7 +127,7 @@ export function buildRequirements(input: {
       required: isMdLike,
       verificationMethod: "document",
       psvProvider: null,
-      sortOrder: 6,
+      sortOrder: 8,
     },
     {
       requirementType: "cv",
@@ -117,7 +135,7 @@ export function buildRequirements(input: {
       required: true,
       verificationMethod: "document",
       psvProvider: null,
-      sortOrder: 7,
+      sortOrder: 9,
     },
   );
 

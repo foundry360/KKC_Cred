@@ -27,6 +27,9 @@ export type PortalSfSyncInput = {
     preferredLanguages?: string | null;
     caqhId?: string | null;
     practiceState?: string | null;
+    federalTaxId?: string | null;
+    medicaidNumber?: string | null;
+    medicareNumber?: string | null;
   };
   application: {
     externalId: string;
@@ -237,6 +240,9 @@ export function syncPortalApplicationViaCli(
       "Preferred_Languages__c",
       "CAQH_ID__c",
       "Practice_State__c",
+      "Federal_Tax_ID__c",
+      "Medicaid_Number__c",
+      "Medicare_Number__c",
       "Credentialing_Status__c",
     ],
     [
@@ -262,6 +268,9 @@ export function syncPortalApplicationViaCli(
         Preferred_Languages__c: input.provider.preferredLanguages || "",
         CAQH_ID__c: input.provider.caqhId || "",
         Practice_State__c: input.provider.practiceState || "",
+        Federal_Tax_ID__c: input.provider.federalTaxId || "",
+        Medicaid_Number__c: input.provider.medicaidNumber || "",
+        Medicare_Number__c: input.provider.medicareNumber || "",
         Credentialing_Status__c: "Pending",
       },
     ],

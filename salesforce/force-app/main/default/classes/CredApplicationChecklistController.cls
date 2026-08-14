@@ -9,17 +9,35 @@ public with sharing class CredApplicationChecklistController {
     }
 
     private static final Set<String> DOCUMENT_KEYS = new Set<String>{
+        'npi_copy',
+        'state_license_copy',
         'medical_license_copy',
+        'dea_cds_certificates',
         'dea_certificate',
+        'social_security_card',
+        'medical_degrees_training',
+        'work_background',
+        'board_certificate',
         'board_certification',
+        'malpractice_insurance',
         'malpractice_coi',
+        'curriculum_vitae',
         'cv_resume',
+        'drivers_license',
         'npi_confirmation',
         'w9',
         'facility_license',
         'accreditation',
         'ownership_documentation',
-        'insurance_certificate'
+        'insurance_certificate',
+        'caqh_attestation'
+    };
+
+    private static final Set<String> DATA_KEYS = new Set<String>{
+        'personal_information',
+        'federal_tax_id',
+        'medicaid_number',
+        'medicare_number'
     };
 
     @AuraEnabled(cacheable=true)
@@ -39,7 +57,10 @@ public with sharing class CredApplicationChecklistController {
                    Provider__r.First_Name__c,
                    Provider__r.Last_Name__c,
                    Provider__r.Email__c,
-                   Provider__r.Phone__c
+                   Provider__r.Phone__c,
+                   Provider__r.Federal_Tax_ID__c,
+                   Provider__r.Medicaid_Number__c,
+                   Provider__r.Medicare_Number__c
             FROM Credentialing_Application__c
             WHERE Id = :applicationId
             LIMIT 1
@@ -103,9 +124,15 @@ public with sharing class CredApplicationChecklistController {
         profileChecks.add('Email');
         profileChecks.add('Phone');
         profileChecks.add('Address');
+        profileChecks.add('Federal Tax ID');
+        profileChecks.add('Medicaid number');
+        profileChecks.add('Medicare number');
         if (String.isBlank(provider.Email__c)) profileMissing.add('Email');
         if (String.isBlank(provider.Phone__c)) profileMissing.add('Phone');
         if (addressCount == 0) profileMissing.add('Address');
+        if (String.isBlank(provider.Federal_Tax_ID__c)) profileMissing.add('Federal Tax ID');
+        if (String.isBlank(provider.Medicaid_Number__c)) profileMissing.add('Medicaid number');
+        if (String.isBlank(provider.Medicare_Number__c)) profileMissing.add('Medicare number');
         rows.add(categoryRow(
             'cat-profile',
             'Profile',
@@ -143,7 +170,7 @@ public with sharing class CredApplicationChecklistController {
             ORDER BY Sort_Order__c ASC NULLS LAST, Name ASC
         ]) {
             String key = item.Item_Key__c == null ? '' : item.Item_Key__c.toLowerCase();
-            if (DOCUMENT_KEYS.contains(key) || isDocumentLikeName(item.Name)) {
+            if (DOCUMENT_KEYS.contains(key) || DATA_KEYS.contains(key) || isDocumentLikeName(item.Name)) {
                 continue;
             }
             anyAttestation = true;
@@ -202,6 +229,10 @@ public with sharing class CredApplicationChecklistController {
             || n.contains('license')
             || n.contains('cv')
             || n.contains('resume')
-            || n.contains('coi');
+            || n.contains('vitae')
+            || n.contains('coi')
+            || n.contains('background')
+            || n.contains('degrees')
+            || n.contains('card');
     }
 }

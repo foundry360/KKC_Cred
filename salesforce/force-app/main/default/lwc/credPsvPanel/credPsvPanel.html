@@ -1,0 +1,148 @@
+<template>
+    <div class="psv-tab">
+        <article class="highlight-card">
+            <header class="highlight-header">
+                <span class="highlight-icon" aria-hidden="true">
+                    <lightning-icon icon-name="utility:shield" size="xx-small" alternative-text=""></lightning-icon>
+                </span>
+                <h2 class="highlight-title">Primary Source Verification</h2>
+                <lightning-button-icon
+                    icon-name="utility:refresh"
+                    alternative-text="Refresh"
+                    title="Refresh"
+                    onclick={handleRefresh}
+                    class="highlight-refresh"
+                ></lightning-button-icon>
+            </header>
+
+            <template if:true={isLoading}>
+                <div class="highlight-loading slds-align_absolute-center">
+                    <lightning-spinner alternative-text="Loading" size="small"></lightning-spinner>
+                </div>
+            </template>
+
+            <template if:true={errorMessage}>
+                <div class="highlight-error">{errorMessage}</div>
+            </template>
+
+            <template if:false={isLoading}>
+                <template if:false={errorMessage}>
+                    <template if:true={isEmpty}>
+                        <p class="highlight-empty">
+                            Primary source verification has not run for this application yet.
+                            Results appear here after the provider submits via the portal.
+                        </p>
+                    </template>
+                    <template if:false={isEmpty}>
+                        <div class="metric-row">
+                            <div class="metric">
+                                <span class="metric-label">PSV status</span>
+                                <span class={statusClass}>{statusLabel}</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">Readiness</span>
+                                <span class="metric-value">{scoreLabel}</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">Last run</span>
+                                <span class="metric-value metric-value_sm">{ranAtDisplay}</span>
+                            </div>
+                        </div>
+                    </template>
+                </template>
+            </template>
+        </article>
+
+        <template if:false={isLoading}>
+            <template if:false={errorMessage}>
+                <template if:false={isEmpty}>
+                    <article class="panel-card">
+                        <button
+                            type="button"
+                            class="expand-header"
+                            aria-expanded={sourcesExpanded}
+                            onclick={toggleSources}
+                        >
+                            <span class="expand-title">Source checks</span>
+                            <span class="expand-count">{verificationCount}</span>
+                            <lightning-icon
+                                icon-name={sourcesChevron}
+                                size="xx-small"
+                                alternative-text=""
+                                class="expand-chevron"
+                            ></lightning-icon>
+                        </button>
+                        <template if:true={sourcesExpanded}>
+                            <div class="panel-body">
+                                <template if:true={verificationCount}>
+                                    <ul class="v-list">
+                                        <template for:each={verificationRows} for:item="row">
+                                            <li key={row.id} class="v-item">
+                                                <div class="v-top">
+                                                    <span class="v-name">{row.sourceName}</span>
+                                                    <span class={row.modeClass}>{row.modeLabel}</span>
+                                                    <span class={row.statusClass}>{row.statusLabel}</span>
+                                                </div>
+                                                <div class="v-type">{row.typeLabel}</div>
+                                                <p class="v-summary">{row.resultSummary}</p>
+                                                <template if:true={row.sourceUrl}>
+                                                    <a class="v-link" href={row.sourceUrl} target="_blank" rel="noopener noreferrer">
+                                                        View source
+                                                    </a>
+                                                </template>
+                                            </li>
+                                        </template>
+                                    </ul>
+                                </template>
+                                <template if:false={verificationCount}>
+                                    <div class="panel-empty nested">No verification rows yet.</div>
+                                </template>
+                            </div>
+                        </template>
+                    </article>
+
+                    <article class="panel-card">
+                        <button
+                            type="button"
+                            class="expand-header"
+                            aria-expanded={exceptionsExpanded}
+                            onclick={toggleExceptions}
+                        >
+                            <span class="expand-title">Exceptions</span>
+                            <span class="expand-count">{exceptionCount}</span>
+                            <lightning-icon
+                                icon-name={exceptionsChevron}
+                                size="xx-small"
+                                alternative-text=""
+                                class="expand-chevron"
+                            ></lightning-icon>
+                        </button>
+                        <template if:true={exceptionsExpanded}>
+                            <div class="panel-body">
+                                <template if:true={exceptionCount}>
+                                    <ul class="e-list">
+                                        <template for:each={exceptionRows} for:item="row">
+                                            <li key={row.id} class="e-item">
+                                                <div class="e-top">
+                                                    <span class="e-type">{row.typeLabel}</span>
+                                                    <span class={row.severityClass}>{row.severity}</span>
+                                                    <span class="e-source">{row.source}</span>
+                                                </div>
+                                                <p class="e-desc">{row.description}</p>
+                                            </li>
+                                        </template>
+                                    </ul>
+                                </template>
+                                <template if:false={exceptionCount}>
+                                    <div class="panel-empty nested">No open exceptions.</div>
+                                </template>
+                            </div>
+                        </template>
+                    </article>
+
+                    <p class="disclaimer">{disclaimer}</p>
+                </template>
+            </template>
+        </template>
+    </div>
+</template>
