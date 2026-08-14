@@ -2,7 +2,7 @@ export const APP_NAME = "Credentialing";
 
 export const NAV_ITEMS = [
   { href: "/dashboard", label: "Dashboard" },
-  { href: "/psv", label: "PSV" },
+  { href: "/psv", label: "Verification" },
   { href: "/portal", label: "Provider Portal" },
   { href: "/providers", label: "Providers" },
   { href: "/credentials", label: "Credentials" },
