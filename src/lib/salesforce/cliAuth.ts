@@ -15,10 +15,14 @@ function targetOrg(): string {
  */
 export function getSalesforceCliAuth(): SalesforceCliAuth | null {
   const org = targetOrg();
+  const env = {
+    ...process.env,
+    SF_TEMP_SHOW_SECRETS: "true",
+  };
   const res = spawnSync(
     "sf",
     ["org", "display", "--target-org", org, "--json"],
-    { encoding: "utf8", maxBuffer: 2 * 1024 * 1024 },
+    { encoding: "utf8", maxBuffer: 2 * 1024 * 1024, env },
   );
   if (res.status !== 0) return null;
   try {

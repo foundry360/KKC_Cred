@@ -4,7 +4,7 @@ import {
   createPortalApplication,
   type PortalIntakeInput,
 } from "@/lib/portal/applications";
-import { syncPortalApplicationViaCli } from "@/lib/salesforce/cliSync";
+import { syncPortalApplication } from "@/lib/salesforce/sync";
 import { syncPendingDocumentsForApplication } from "@/lib/portal/documents";
 import { runPsvForApplication } from "@/lib/psv/orchestrator";
 
@@ -29,7 +29,7 @@ export async function POST(request: Request) {
 
     after(async () => {
       try {
-        const sync = syncPortalApplicationViaCli(salesforceSyncPayload);
+        const sync = await syncPortalApplication(salesforceSyncPayload);
         if (!sync.ok) {
           console.error("[portal→salesforce]", sync.message);
         } else if (!sync.skipped) {

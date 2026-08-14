@@ -1,3 +1,5 @@
+import { spawnSync } from "node:child_process";
+
 type SalesforceAuth = {
   accessToken: string;
   instanceUrl: string;
@@ -7,6 +9,16 @@ type SalesforceAuth = {
 let cachedAuth: SalesforceAuth | null = null;
 
 export function isSalesforceConfigured(): boolean {
+  const oauth = Boolean(
+    process.env.SF_CLIENT_ID &&
+      process.env.SF_CLIENT_SECRET &&
+      (process.env.SF_LOGIN_URL || process.env.SF_INSTANCE_URL),
+  );
+  // Local CLI session is also a valid sync path
+  return oauth || Boolean(process.env.SF_TARGET_ORG);
+}
+
+export function hasSalesforceOauth(): boolean {
   return Boolean(
     process.env.SF_CLIENT_ID &&
       process.env.SF_CLIENT_SECRET &&
@@ -56,70 +68,104 @@ async function requestToken(
   };
 }
 
+function getCliTokenAuth(): SalesforceAuth | null {
+  const org = process.env.SF_TARGET_ORG || "cred-poc";
+  const res = spawnSync(
+    "sf",
+    ["org", "display", "--target-org", org, "--json"],
+    {
+      encoding: "utf8",
+      maxBuffer: 2 * 1024 * 1024,
+      env: { ...process.env, SF_TEMP_SHOW_SECRETS: "true" },
+    },
+  );
+  if (res.status !== 0) return null;
+  try {
+    const parsed = JSON.parse(res.stdout || "{}") as {
+      result?: { accessToken?: string; instanceUrl?: string };
+    };
+    const accessToken = parsed.result?.accessToken;
+    const instanceUrl = parsed.result?.instanceUrl;
+    if (!accessToken || !instanceUrl) return null;
+    return {
+      accessToken,
+      instanceUrl: instanceUrl.replace(/\/$/, ""),
+      issuedAt: Date.now(),
+    };
+  } catch {
+    return null;
+  }
+}
+
 /**
- * Prefer Client Credentials (External Client App / server-to-server).
- * Fall back to username-password if SF_USERNAME + SF_PASSWORD are set.
+ * Prefer OAuth (works on Vercel). Fall back to local `sf` CLI session.
  */
 export async function getSalesforceAuth(): Promise<SalesforceAuth> {
-  if (!isSalesforceConfigured()) {
-    throw new Error("Salesforce credentials are not configured");
-  }
-
   if (cachedAuth && Date.now() - cachedAuth.issuedAt < 30 * 60 * 1000) {
     return cachedAuth;
   }
 
-  const clientId = process.env.SF_CLIENT_ID!;
-  const clientSecret = process.env.SF_CLIENT_SECRET!;
+  const clientId = process.env.SF_CLIENT_ID;
+  const clientSecret = process.env.SF_CLIENT_SECRET;
   const preferPassword =
     (process.env.SF_AUTH_FLOW || "").toLowerCase() === "password";
 
-  let token: { access_token: string; instance_url: string } | null = null;
   let lastError: Error | null = null;
 
-  if (!preferPassword) {
-    try {
-      const body = new URLSearchParams({
-        grant_type: "client_credentials",
-        client_id: clientId,
-        client_secret: clientSecret,
-      });
-      token = await requestToken(body);
-    } catch (e) {
-      lastError = e instanceof Error ? e : new Error(String(e));
+  if (clientId && clientSecret) {
+    if (!preferPassword) {
+      try {
+        const body = new URLSearchParams({
+          grant_type: "client_credentials",
+          client_id: clientId,
+          client_secret: clientSecret,
+        });
+        const token = await requestToken(body);
+        cachedAuth = {
+          accessToken: token.access_token,
+          instanceUrl: token.instance_url,
+          issuedAt: Date.now(),
+        };
+        return cachedAuth;
+      } catch (e) {
+        lastError = e instanceof Error ? e : new Error(String(e));
+      }
+    }
+
+    if (process.env.SF_USERNAME && process.env.SF_PASSWORD) {
+      try {
+        const body = new URLSearchParams({
+          grant_type: "password",
+          client_id: clientId,
+          client_secret: clientSecret,
+          username: process.env.SF_USERNAME,
+          password: process.env.SF_PASSWORD,
+        });
+        const token = await requestToken(body);
+        cachedAuth = {
+          accessToken: token.access_token,
+          instanceUrl: token.instance_url,
+          issuedAt: Date.now(),
+        };
+        return cachedAuth;
+      } catch (e) {
+        lastError = e instanceof Error ? e : new Error(String(e));
+      }
     }
   }
 
-  if (!token && process.env.SF_USERNAME && process.env.SF_PASSWORD) {
-    try {
-      const body = new URLSearchParams({
-        grant_type: "password",
-        client_id: clientId,
-        client_secret: clientSecret,
-        username: process.env.SF_USERNAME,
-        password: process.env.SF_PASSWORD,
-      });
-      token = await requestToken(body);
-    } catch (e) {
-      lastError = e instanceof Error ? e : new Error(String(e));
-    }
+  const cli = getCliTokenAuth();
+  if (cli) {
+    cachedAuth = cli;
+    return cachedAuth;
   }
 
-  if (!token) {
-    throw (
-      lastError ||
-      new Error(
-        "Salesforce auth failed. Enable Client Credentials Flow on the External Client App (with a Run As user), or set SF_USERNAME/SF_PASSWORD for password flow.",
-      )
-    );
-  }
-
-  cachedAuth = {
-    accessToken: token.access_token,
-    instanceUrl: token.instance_url,
-    issuedAt: Date.now(),
-  };
-  return cachedAuth;
+  throw (
+    lastError ||
+    new Error(
+      "Salesforce auth failed. On Vercel set working SF_CLIENT_ID/SECRET (client_credentials). Locally ensure `sf org login` for SF_TARGET_ORG.",
+    )
+  );
 }
 
 export async function salesforceFetch(

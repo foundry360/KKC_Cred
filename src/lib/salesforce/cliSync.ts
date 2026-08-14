@@ -427,11 +427,20 @@ export function syncPortalApplicationViaCli(
       "--target-org",
       org,
       "--wait",
-      "5",
+      "30",
       "--line-ending",
       "LF",
     ]);
     if (!result.ok) {
+      // Bulk CLI sometimes prints progress then exits non-zero even when the job
+      // completed; treat JobComplete + 0 failed as success.
+      const out = result.output;
+      if (
+        /JobComplete/i.test(out) &&
+        /Failed records:\s*0/i.test(out)
+      ) {
+        continue;
+      }
       return {
         ok: false,
         message: `Salesforce sync failed on ${job.sobject}: ${result.output.slice(0, 500)}`,

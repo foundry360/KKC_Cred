@@ -2,6 +2,11 @@ import {
   getSalesforceCliAuth,
   isSalesforceCliSyncEnabled,
 } from "@/lib/salesforce/cliAuth";
+import {
+  getSalesforceAuth,
+  getSalesforceApiVersion,
+  isSalesforceConfigured,
+} from "@/lib/salesforce/client";
 import { sfExtId } from "@/lib/salesforce/portalIntake";
 
 export type SfFileUploadResult = {
@@ -12,10 +17,30 @@ export type SfFileUploadResult = {
   message?: string;
 };
 
+async function getAuth(): Promise<{
+  accessToken: string;
+  instanceUrl: string;
+  apiVersion: string;
+} | null> {
+  const cli = getSalesforceCliAuth();
+  if (cli) return cli;
+  if (!isSalesforceConfigured()) return null;
+  try {
+    const auth = await getSalesforceAuth();
+    return {
+      accessToken: auth.accessToken,
+      instanceUrl: auth.instanceUrl,
+      apiVersion: getSalesforceApiVersion(),
+    };
+  } catch {
+    return null;
+  }
+}
+
 async function sfQuery(
   soql: string,
 ): Promise<{ Id: string } | null> {
-  const auth = getSalesforceCliAuth();
+  const auth = await getAuth();
   if (!auth) return null;
   const url = `${auth.instanceUrl}/services/data/v${auth.apiVersion}/query?q=${encodeURIComponent(soql)}`;
   const res = await fetch(url, {
@@ -57,15 +82,16 @@ export async function uploadFileToSalesforce(input: {
   data: Buffer;
   linkedRecordId: string;
 }): Promise<SfFileUploadResult> {
-  if (!isSalesforceCliSyncEnabled()) {
-    return { ok: true, skipped: true, message: "SF CLI sync disabled" };
+  if (isSalesforceCliSyncEnabled() === false && !isSalesforceConfigured()) {
+    return { ok: true, skipped: true, message: "SF sync disabled" };
   }
 
-  const auth = getSalesforceCliAuth();
+  const auth = await getAuth();
   if (!auth) {
     return {
       ok: false,
-      message: "Salesforce CLI auth unavailable — run sf org login / check SF_TARGET_ORG",
+      message:
+        "Salesforce auth unavailable — configure OAuth env vars or run sf org login",
     };
   }
 
