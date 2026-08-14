@@ -48,8 +48,8 @@ function stripApiKeyFromJson(value: unknown): unknown {
 }
 
 function namesMatch(
-  inputFirst: string | undefined,
-  inputLast: string | undefined,
+  inputFirst: string | null | undefined,
+  inputLast: string | null | undefined,
   hit: SamExcludedEntity,
 ): boolean {
   const id = hit.exclusionIdentification ?? {};
